@@ -17,7 +17,7 @@ export const Select = ({ name, label, options }: SelectProps) => {
       <span className="text-xs leading-4 font-normal text-gray-800 mb-1">{label}</span>
       <div className="relative">
         <select
-          className="w-full px-2 py-2 bg-white border rounded border-gray-200 placeholder:text-gray-600 text-gray-700 text-xs leading-4 font-normal focus:outline-none appearance-none"
+          className="w-full px-2 py-2 bg-white border rounded border-gray-200 placeholder:text-gray-600 text-gray-700 text-xs leading-4 font-normal appearance-none"
           name={name}
         >
           {options.map((opt) => (
@@ -26,9 +26,7 @@ export const Select = ({ name, label, options }: SelectProps) => {
             </option>
           ))}
         </select>
-        <div className="absolute right-2 bottom-1.5">
-          <UnfoldMoreIcon />
-        </div>
+        <UnfoldMoreIcon className="absolute right-2 bottom-1.5" width={22} height={22} />
       </div>
     </label>
   );
