@@ -1,3 +1,41 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "sourceType": "module", "project": ["./tsconfig.json"] },
+  // eslint-react, eslint-react-hooks, eslint-import and eslint-jsx-a11y are installed
+  // with next/core-web-vitals
+  "extends": [
+    // next/core-web-vitals as first, bcs it turns of some strict rules
+    // of jsx-a11y/recommended set
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    // can be removed if linting is slow
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:css-modules/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "css-modules"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "error",
+    "react/display-name": "error",
+    "react/jsx-curly-brace-presence": ["error", "never"]
+  },
+  "ignorePatterns": [
+    "src/**/*.test.ts",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "jest.config.js",
+    "next.config.js",
+    "commitlint.config.js"
+  ],
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Input": "input",
+        "Button": "button",
+        "Image": "img"
+      }
+    }
+  }
 }
