@@ -4,8 +4,6 @@ const sizeVariants = {
   desktop: 'px-24 py-3 text-base leading-6',
 };
 
-export type buttonSize = keyof typeof sizeVariants;
+export type ButtonSize = keyof typeof sizeVariants;
 
-export const getButtonSize = (size: buttonSize) => {
-  return sizeVariants[size];
-};
+export const getButtonSize = (size: ButtonSize) => sizeVariants[size];

@@ -5,8 +5,6 @@ const colorVariants = {
   plain: 'bg-white text-gray-800',
 };
 
-export type buttonColor = keyof typeof colorVariants;
+export type ButtonColor = keyof typeof colorVariants;
 
-export const getButtonColor = (color: buttonColor) => {
-  return colorVariants[color];
-};
+export const getButtonColor = (color: ButtonColor) => colorVariants[color];

@@ -1,12 +1,12 @@
 import { MouseEventHandler } from 'react';
-import { getButtonSize, buttonSize } from './getButtonSize';
-import { getButtonColor, buttonColor } from './getButtonColor';
+import { getButtonSize, ButtonSize } from './getButtonSize';
+import { getButtonColor, ButtonColor } from './getButtonColor';
 import { clsx as cx } from 'clsx';
 
 type ButtonProps = {
   name: string;
-  color: buttonColor;
-  size: buttonSize;
+  color: ButtonColor;
+  size: ButtonSize;
   isLight?: boolean;
   className?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
