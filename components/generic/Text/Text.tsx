@@ -1,6 +1,6 @@
 type TextProps = {
   as: 'p' | 'span';
-  textContent: 'string';
+  textContent: string;
 };
 
 export const Text = ({ as: As, textContent }: TextProps) => {
