@@ -21,7 +21,7 @@ export const Select = ({ name, label, options }: SelectProps) => {
           name={name}
         >
           {options.map((opt) => (
-            <option key={opt.name} value={opt.value}>
+            <option key={opt.value} value={opt.value}>
               {opt.value}
             </option>
           ))}

@@ -11,7 +11,6 @@ export const UnfoldMoreIcon = ({ width, height, className }: UnfoldMoreIconProps
     <svg
       className={cx('fill-gray-700', className)}
       xmlns="http://www.w3.org/2000/svg"
-      fill=""
       width={width}
       height={height}
       viewBox="0 0 24 24"
