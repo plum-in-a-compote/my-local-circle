@@ -15,7 +15,7 @@ export const Input = ({ name, label, placeholder, value, type, onChange }: Input
 
   return (
     <label className="flex flex-col">
-      <span className="text-xs leading-4 font-normal text-gray-800 mb-1">{label}</span>
+      <span className="text-xs leading-4 font-normal text-gray-800 mb-2">{label}</span>
       <div className="flex flex-row w-full">
         {phoneInput && (
           <span className="text-xs leading-4 font-normal text-gray-700 px-3 py-2 bg-gray-100 border border-gray-200 rounded-tl rounded-bl">
