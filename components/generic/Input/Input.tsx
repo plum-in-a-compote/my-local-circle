@@ -24,7 +24,7 @@ export const Input = ({ name, label, placeholder, value, type, onChange }: Input
         )}
         <input
           className={cx(
-            'w-full px-3 py-2 bg-white border-r border-y rounded-r border-gray-200 placeholder:text-gray-600 text-gray-700 text-xs leading-4 font-normal focus:outline-none focus:ring focus:border-blue-100',
+            'w-full px-3 py-2 bg-white border-r border-y rounded-r border-gray-200 placeholder:text-gray-600 text-gray-700 text-xs leading-4 font-normal focus:outline-none focus:ring focus:ring-blue-300',
             !phoneInput && 'border-l rounded-l',
           )}
           name={name}
