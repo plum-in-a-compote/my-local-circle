@@ -31,6 +31,7 @@ export const Input = ({ name, label, placeholder, value, type, onChange }: Input
           placeholder={placeholder}
           value={value}
           type={type}
+          maxLength={phoneInput ? 11 : undefined}
           onChange={onChange}
         />
       </div>
