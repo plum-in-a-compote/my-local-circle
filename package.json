@@ -1,5 +1,5 @@
 {
-  "name": "my-local-circle",
+  "name": "404.tsx",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,15 +13,16 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "swr": "^1.3.0",
     "zod": "^3.19.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -32,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "autoprefixer": "^10.4.12",
+    "babel-jest": "^29.1.2",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.5.0",
@@ -55,5 +57,20 @@
       "prettier --write",
       "eslint --fix"
     ]
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "commitlint.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plum-in-a-compote/my-local-circle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plum-in-a-compote/my-local-circle/issues"
+  },
+  "homepage": "https://github.com/plum-in-a-compote/my-local-circle#readme"
 }
