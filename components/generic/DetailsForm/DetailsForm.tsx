@@ -1,10 +1,9 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../Input/Input';
-import { Select } from '../Select/Select';
-import { SignInPageFields } from '../../composited/SignInPage/SignInPage';
+import { SignUpPageFields } from '../../composited/SignUpPage/SignUpPage';
 
 type DetailsFormProps = {
-  fields: SignInPageFields;
+  fields: SignUpPageFields;
   onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
 };
 
@@ -19,14 +18,12 @@ export const DetailsForm = ({ fields, onInputChange }: DetailsFormProps) => {
         value={fields.phone}
         onChange={onInputChange}
       />
-      <Select
-        name="gender"
-        label="Płeć"
-        options={[
-          { name: 'm', value: 'Mężczyzna' },
-          { name: 'w', value: 'Kobieta' },
-        ]}
-        value={fields.gender}
+      <Input
+        type="text"
+        name="address"
+        label="Adres zamieszkania"
+        placeholder="Ostrowiec Świętokrzyski, ul. Sandomierska 2"
+        value={fields.address}
         onChange={onInputChange}
       />
     </form>
