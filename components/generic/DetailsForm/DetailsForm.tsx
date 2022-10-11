@@ -1,14 +1,14 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
-import { SignInPageFields } from './../../composited/SignInPage/SignInPage';
+import { SignInPageFields } from '../../composited/SignInPage/SignInPage';
 
-type MoreInformationFormProps = {
+type DetailsFormProps = {
   fields: SignInPageFields;
   onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
 };
 
-export const MoreInformationForm = ({ fields, onInputChange }: MoreInformationFormProps) => {
+export const DetailsForm = ({ fields, onInputChange }: DetailsFormProps) => {
   return (
     <form className="flex flex-col gap-y-6 mb-12 mt-5">
       <Input

@@ -2,7 +2,7 @@ import { ChangeEventHandler, Fragment, useCallback, useState } from 'react';
 import { Badge } from '../../generic/Badge/Badge';
 import { Button } from '../../generic/Button/Button';
 import { Heading } from '../../generic/Heading/Heading';
-import { MoreInformationForm } from '../../generic/MoreInformationForm.tsx/MoreInformationForm';
+import { DetailsForm } from '../../generic/DetailsForm/DetailsForm';
 import { SignInForm } from '../../generic/SignInForm/SignInForm';
 import { Text } from '../../generic/Text/Text';
 import { formatPhoneInput } from './formatPhoneInput';
@@ -44,9 +44,8 @@ export const SignInPage = () => {
   return (
     <Fragment>
       <section className="flex flex-col gap-3">
-        <Heading as="h1" variant="base" textContent="Rejestracja" />
+        <Heading as="h1" variant="base" content="Rejestracja" />
         <Text
-          as="p"
           variant="xs"
           textContent="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
         />
@@ -54,15 +53,14 @@ export const SignInPage = () => {
       </section>
       <section className="flex flex-col gap-3">
         <div className="flex gap-3">
-          <Heading as="h2" variant="smBold" textContent="Dodatkowe informacje" />
+          <Heading as="h2" variant="smBold" content="Dodatkowe informacje" />
           <Badge color="blue" textContent="Polecamy!" />
         </div>
         <Text
-          as="p"
           variant="xs"
           textContent="Wypełnienie poniższych pól może okazać się przydatne dla Twoich społeczności."
         />
-        <MoreInformationForm fields={fields} onInputChange={handleInputChange} />
+        <DetailsForm fields={fields} onInputChange={handleInputChange} />
       </section>
       <div className="flex gap-4 mt-4">
         <Button variant="primary" content="Zarejestruj się" onClick={() => 1} />

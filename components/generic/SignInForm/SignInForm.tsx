@@ -12,7 +12,7 @@ export const SignInForm = ({ fields, onInputChange }: SignInFormProps) => {
     <form className="flex flex-col gap-y-6 mb-12 mt-5">
       <Input
         type="text"
-        name="name"
+        name="fullName"
         label="Imię i nazwisko"
         placeholder="Jan Kowalski"
         value={fields.fullName}
@@ -30,7 +30,6 @@ export const SignInForm = ({ fields, onInputChange }: SignInFormProps) => {
         type="password"
         name="password"
         label="Hasło"
-        placeholder="************"
         value={fields.password}
         onChange={onInputChange}
       />
@@ -38,7 +37,6 @@ export const SignInForm = ({ fields, onInputChange }: SignInFormProps) => {
         type="password"
         name="passwordConfirmation"
         label="Powtórz hasło"
-        placeholder="************"
         value={fields.passwordConfirmation}
         onChange={onInputChange}
       />
