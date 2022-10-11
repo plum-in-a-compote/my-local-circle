@@ -30,7 +30,8 @@ export const SignInPage = () => {
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = useCallback(
     ({ currentTarget }) => {
-      const newValue = formatPhoneInput(currentTarget.value);
+      const newValue =
+        currentTarget.type === 'tel' ? formatPhoneInput(currentTarget.value) : currentTarget.value;
 
       setFields((previousFields) => ({
         ...previousFields,
