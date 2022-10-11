@@ -10,7 +10,7 @@ type DetailsFormProps = {
 
 export const DetailsForm = ({ fields, onInputChange }: DetailsFormProps) => {
   return (
-    <form className="flex flex-col gap-y-6 mb-12 mt-5">
+    <form className="flex flex-col gap-y-6 mb-12 mt-5 sm:grid sm:grid-cols-2 sm:gap-x-9 sm:gap-y-8">
       <Input
         type="tel"
         name="phone"

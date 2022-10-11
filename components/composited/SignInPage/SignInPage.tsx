@@ -62,7 +62,7 @@ export const SignInPage = () => {
         />
         <DetailsForm fields={fields} onInputChange={handleInputChange} />
       </section>
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-4 sm:mt-6">
         <Button variant="primary" content="Zarejestruj się" onClick={() => 1} />
         <Button variant="plain" content="Zachowaj dane" onClick={() => 1} />
       </div>
