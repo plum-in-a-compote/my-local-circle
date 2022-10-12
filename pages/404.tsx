@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import vectors from '../public/404.svg';
 import { Text } from '../components/generic/Text/Text';
-import { Button } from '../components/generic/Button/Button';
+
 const ErrorPage: NextPage = () => {
   return (
     <div>
@@ -13,15 +13,15 @@ const ErrorPage: NextPage = () => {
       <div className="relative sm:left-[350px] m-8 scale-1 sm:m-16 sm:relative sm:scale-150">
         <Image src={vectors} />
       </div>
-      <div className="m-8">
+      <div className="m-8 sm:w-[616px] sm:h-[144px]">
         <Text
           as="p"
           variant="base"
           textContent="Nawet gdy sytuacja wydaje się beznadziejna, zawsze znajdziesz drogę do domu..."
         />
       </div>
-      <div className=" border-2">
-        <Button content="Przejdź do strony głównej" variant="plain" />
+      <div className="m-6">
+        <button className=" border-2">Przejdź do strony głównej </button>
       </div>
     </div>
   );
