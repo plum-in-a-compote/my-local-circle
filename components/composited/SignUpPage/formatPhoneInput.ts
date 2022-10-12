@@ -1,7 +1,7 @@
-// Insert spaces every 3 characters to display phone number correctly
-export const formatPhoneInput = (phoneInput: string) => {
-  if ((phoneInput.length === 4 || phoneInput.length === 8) && phoneInput.slice(-1) !== ' ') {
-    return phoneInput.slice(0, -1) + ' ' + phoneInput.slice(-1);
+// Insert space between each 3 digit group
+export const formatPhoneInput = (value: string) => {
+  if ((value.length === 4 || value.length === 8) && value.slice(-1) !== ' ') {
+    return value.slice(0, -1) + ' ' + value.slice(-1);
   }
-  return phoneInput;
+  return value;
 };

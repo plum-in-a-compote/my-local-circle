@@ -1,4 +1,4 @@
-import { ChangeEventHandler, Fragment, useCallback, useState } from 'react';
+import { ChangeEventHandler, Fragment, MouseEventHandler, useCallback, useState } from 'react';
 import { Badge } from '../../generic/Badge/Badge';
 import { Button } from '../../generic/Button/Button';
 import { Heading } from '../../generic/Heading/Heading';
@@ -7,7 +7,7 @@ import { SignUpForm } from '../../generic/SignUpForm/SignUpForm';
 import { Text } from '../../generic/Text/Text';
 import { formatPhoneInput } from './formatPhoneInput';
 
-export type SignUpPageFields = {
+export type SignUpFormFields = {
   fullName: string;
   email: string;
   password: string;
@@ -17,7 +17,7 @@ export type SignUpPageFields = {
 };
 
 export const SignUpPage = () => {
-  const [fields, setFields] = useState<SignUpPageFields>({
+  const [fields, setFields] = useState<SignUpFormFields>({
     fullName: '',
     email: '',
     password: '',
@@ -28,16 +28,19 @@ export const SignUpPage = () => {
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = useCallback(
     ({ currentTarget }) => {
-      const newValue =
+      const value =
         currentTarget.type === 'tel' ? formatPhoneInput(currentTarget.value) : currentTarget.value;
 
       setFields((previousFields) => ({
         ...previousFields,
-        [currentTarget.name]: newValue,
+        [currentTarget.name]: value,
       }));
     },
     [],
   );
+
+  const handleSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(() => 1, []);
+  const handleDataSave: MouseEventHandler<HTMLButtonElement> = useCallback(() => 1, []);
 
   return (
     <Fragment>
@@ -55,8 +58,8 @@ export const SignUpPage = () => {
         <DetailsForm fields={fields} onInputChange={handleInputChange} />
       </section>
       <div className="flex gap-4 mt-4 sm:mt-6 sm:gap-6 lg:gap-8">
-        <Button variant="primary" content="Zarejestruj się" onClick={() => 1} />
-        <Button variant="plain" content="Zachowaj dane" onClick={() => 1} />
+        <Button variant="primary" content="Zarejestruj się" onClick={handleSubmit} />
+        <Button variant="plain" content="Zachowaj dane" onClick={handleDataSave} />
       </div>
     </Fragment>
   );

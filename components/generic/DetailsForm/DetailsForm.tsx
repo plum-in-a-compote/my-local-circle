@@ -1,9 +1,9 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../Input/Input';
-import { SignUpPageFields } from '../../composited/SignUpPage/SignUpPage';
+import { SignUpFormFields } from '../../composited/SignUpPage/SignUpPage';
 
 type DetailsFormProps = {
-  fields: SignUpPageFields;
+  fields: SignUpFormFields;
   onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
 };
 
