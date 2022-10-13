@@ -5,7 +5,7 @@ import { Heading } from '../../generic/Heading/Heading';
 import { DetailsForm } from '../../generic/DetailsForm/DetailsForm';
 import { SignUpForm } from '../../generic/SignUpForm/SignUpForm';
 import { Text } from '../../generic/Text/Text';
-import { formatPhoneInput } from './formatPhoneInput';
+import { formatPhoneInput } from '../../../utils/formatPhoneInput';
 
 export type SignUpFormFields = {
   fullName: string;
