@@ -6,6 +6,8 @@ import { DetailsForm } from '../../generic/DetailsForm/DetailsForm';
 import { SignUpForm } from '../../generic/SignUpForm/SignUpForm';
 import { Text } from '../../generic/Text/Text';
 import { formatPhoneInput } from './formatPhoneInput';
+import { useUser } from '../../../hooks/useUser';
+import { ErrorAlert } from '../../generic/ErrorAlert/ErrorAlert';
 
 export type SignUpFormFields = {
   fullName: string;
@@ -17,6 +19,10 @@ export type SignUpFormFields = {
 };
 
 export const SignUpPage = () => {
+  const { user } = useUser();
+
+  console.log(user);
+
   const [fields, setFields] = useState<SignUpFormFields>({
     fullName: '',
     email: '',
@@ -44,20 +50,26 @@ export const SignUpPage = () => {
 
   return (
     <Fragment>
-      <section className="flex flex-col gap-3">
-        <Heading as="h1" variant="base" content="Rejestracja" />
-        <Text content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć." />
+      <section className="mb-12">
+        <Heading className="mb-3" as="h1" variant="base" content="Rejestracja" />
+        <Text
+          className="mb-12"
+          content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
+        />
         <SignUpForm fields={fields} onInputChange={handleInputChange} />
       </section>
-      <section className="flex flex-col gap-3">
-        <div className="flex gap-3 items-center">
+      <section className="mb-16 sm:mb-20 lg:mb-24">
+        <div className="flex gap-3 items-center mb-3">
           <Heading as="h2" variant="smBold" content="Dodatkowe informacje" />
           <Badge color="blue" textContent="Polecamy!" />
         </div>
-        <Text content="Wypełnienie poniższych pól może okazać się przydatne dla Twoich społeczności." />
+        <Text
+          className="mb-12"
+          content="Wypełnienie poniższych pól może okazać się przydatne dla Twoich społeczności."
+        />
         <DetailsForm fields={fields} onInputChange={handleInputChange} />
       </section>
-      <div className="flex gap-4 mt-4 sm:mt-6 sm:gap-6 lg:gap-8">
+      <div className="flex gap-4 sm:gap-6 lg:gap-8">
         <Button variant="primary" content="Zarejestruj się" onClick={handleSubmit} />
         <Button variant="plain" content="Zachowaj dane" onClick={handleDataSave} />
       </div>

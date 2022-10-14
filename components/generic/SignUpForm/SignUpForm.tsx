@@ -9,7 +9,7 @@ type SignUpFormProps = {
 
 export const SignUpForm = ({ fields, onInputChange }: SignUpFormProps) => {
   return (
-    <form className="flex flex-col gap-y-6 mb-12 mt-5 sm:grid sm:grid-cols-2 sm:gap-x-9 sm:gap-y-8">
+    <form className="flex flex-col gap-y-6 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8">
       <Input
         type="text"
         name="fullName"
