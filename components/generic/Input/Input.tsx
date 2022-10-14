@@ -4,17 +4,18 @@ import { ChangeEventHandler } from 'react';
 type InputProps = {
   name: string;
   label: string;
+  tag?: string;
   placeholder?: string;
   value: string;
   type: 'text' | 'email' | 'password' | 'tel';
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
-export const Input = ({ name, label, placeholder, value, type, onChange }: InputProps) => {
+export const Input = ({ name, label, tag, placeholder, value, type, onChange }: InputProps) => {
   const phoneInput = type === 'tel';
 
   return (
-    <label className="flex flex-col">
+    <label className="relative flex flex-col">
       <span className="mb-1 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>
@@ -37,6 +38,11 @@ export const Input = ({ name, label, placeholder, value, type, onChange }: Input
           onChange={onChange}
         />
       </div>
+      {tag && (
+        <span className="absolute right-0 top-0 text-xs leading-4 font-normal text-gray-600">
+          {tag}
+        </span>
+      )}
     </label>
   );
 };

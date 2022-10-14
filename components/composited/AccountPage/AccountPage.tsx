@@ -1,17 +1,15 @@
 import { Fragment } from 'react';
-import { AccountForm } from '../../generic/AccountForm/AccountForm';
+import { AccountForm as AccountSection } from '../../generic/AccountForm/AccountForm';
 import { Heading } from '../../generic/Heading/Heading';
-import { PasswordForm } from '../../generic/PasswordForm/PasswordForm';
-import { ThematicBreak } from '../../generic/ThematicBreak/ThematicBreak';
+import { PasswordForm as PasswordSection } from '../../generic/PasswordForm/PasswordForm';
 
 export const AccountPage = () => {
   return (
     <Fragment>
       <section className="flex flex-col gap-4">
-        <Heading as="h1" variant="base" content="Konto użytkownika" />
-        <ThematicBreak />
-        <AccountForm />
-        <PasswordForm />
+        <Heading as="h1" variant="base" content="Konto użytkownika" bottomBorder={true} />
+        <AccountSection />
+        <PasswordSection />
       </section>
     </Fragment>
   );

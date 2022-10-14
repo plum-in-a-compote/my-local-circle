@@ -8,14 +8,14 @@ type CheckBoxProps = {
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
-export const CheckBox = ({ name, label, description, isChecked, onChange }: CheckBoxProps) => {
+export const Checkbox = ({ name, label, description, isChecked, onChange }: CheckBoxProps) => {
   return (
     <div className="flex flex-col gap-1.5">
       <label className="flex gap-3">
         {/* How do we want the checked box to look? */}
         <input
           className="w-4 h-4 bg-white border border-gray-200 rounded"
-          type="checkbox"
+          type="Checkbox"
           name={name}
           checked={isChecked}
           onChange={onChange}

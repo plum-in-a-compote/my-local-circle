@@ -1,6 +1,10 @@
-# To be organised
+# My local circle
 
-### Page files naming:
+Krótki opis
+
+## Language & architecture
+
+## Files & directories
 
 - "TestPage" for components representing pages (components/composited/...)
 - "test" for Next page files (pages/...)

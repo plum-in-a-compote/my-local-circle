@@ -2,7 +2,7 @@ import { ChangeEventHandler } from 'react';
 import { MouseEventHandler, useCallback, useState } from 'react';
 import { formatPhoneInput } from '../../../utils/formatPhoneInput';
 import { Button } from '../Button/Button';
-import { CheckBox } from '../CheckBox/CheckBox';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { Input } from '../Input/Input';
 
 type AccountFormFields = {
@@ -63,39 +63,29 @@ export const AccountForm = () => {
         type="email"
         onChange={handleInputChange}
       />
-      <div className="relative">
-        <Input
-          name="address"
-          label="Adres zamieszkania"
-          value={fields.address}
-          type="text"
-          onChange={handleInputChange}
-        />
-        <span className="absolute right-0 top-0 text-xs leading-4 font-normal text-gray-600">
-          Opcjonalne
-        </span>
-      </div>
-      <div className="relative">
-        <Input
-          name="phone"
-          label="Numer telefonu"
-          value={fields.phone}
-          type="tel"
-          onChange={handleInputChange}
-        />
-        <span className="absolute right-0 top-0 text-xs leading-4 font-normal text-gray-600">
-          Opcjonalne
-        </span>
-      </div>
-      <div>
-        <CheckBox
-          name="shareContactInfo"
-          label="Dane kontaktowe"
-          description="Udostępnij swoje dane kontakowe osobom ze społeczności, do których należysz."
-          isChecked={fields.shareContactInfo}
-          onChange={handleCheckboxChange}
-        />
-      </div>
+      <Input
+        name="address"
+        label="Adres zamieszkania"
+        tag="Opcjonalne"
+        value={fields.address}
+        type="text"
+        onChange={handleInputChange}
+      />
+      <Input
+        name="phone"
+        label="Numer telefonu"
+        tag="Opcjonalne"
+        value={fields.phone}
+        type="tel"
+        onChange={handleInputChange}
+      />
+      <Checkbox
+        name="shareContactInfo"
+        label="Dane kontaktowe"
+        description="Udostępnij swoje dane kontakowe osobom ze społeczności, do których należysz."
+        isChecked={fields.shareContactInfo}
+        onChange={handleCheckboxChange}
+      />
       <Button className="w-32" content="Zapisz zmiany" variant="primary" onClick={handleSubmit} />
     </form>
   );

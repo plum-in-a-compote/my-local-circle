@@ -40,7 +40,6 @@ export const SignUpPage = () => {
   );
 
   const handleSubmit: MouseEventHandler<HTMLButtonElement> = useCallback(() => 1, []);
-  const handleDataSave: MouseEventHandler<HTMLButtonElement> = useCallback(() => 1, []);
 
   return (
     <Fragment>
@@ -57,10 +56,12 @@ export const SignUpPage = () => {
         <Text content="Wypełnienie poniższych pól może okazać się przydatne dla Twoich społeczności." />
         <DetailsForm fields={fields} onInputChange={handleInputChange} />
       </section>
-      <div className="flex gap-4 mt-4 sm:mt-6 sm:gap-6 lg:gap-8">
-        <Button variant="primary" content="Zarejestruj się" onClick={handleSubmit} />
-        <Button variant="plain" content="Zachowaj dane" onClick={handleDataSave} />
-      </div>
+      <Button
+        className="mt-4 sm:mt-6"
+        variant="primary"
+        content="Zarejestruj się"
+        onClick={handleSubmit}
+      />
     </Fragment>
   );
 };

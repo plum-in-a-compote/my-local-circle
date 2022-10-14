@@ -33,7 +33,7 @@ export const PasswordForm = () => {
   const handleForgotPassword: MouseEventHandler<HTMLSpanElement> = useCallback(() => 1, []);
 
   return (
-    <div className="flex flex-col gap-5 mt-12">
+    <section className="flex flex-col gap-5 mt-12">
       <Heading as="h2" variant="smBold" content="Hasło" />
       <form className="flex flex-col gap-4">
         <Input
@@ -67,6 +67,6 @@ export const PasswordForm = () => {
           </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
