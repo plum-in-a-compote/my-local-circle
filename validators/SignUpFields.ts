@@ -6,8 +6,8 @@ export const SignUpFieldsSch = z
     name: z.string(),
     // no .email() function call, bcs it's more strict than input type="email"
     email: z.string(),
-    password: z.string(),
-    passwordConfirmation: z.string(),
+    password: z.string().min(8),
+    passwordConfirmation: z.string().min(8),
     phoneNo: z
       .string()
       .optional()

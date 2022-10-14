@@ -92,7 +92,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
             type="password"
             name="password"
             label="Hasło (minimalnie 9 znaków)"
-            minLength={9}
+            minLength={8}
           />
           <Input type="password" name="passwordConfirmation" label="Powtórz hasło" minLength={9} />
         </fieldset>
