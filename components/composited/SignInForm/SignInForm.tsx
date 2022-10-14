@@ -15,8 +15,8 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    // in a way this is a redundant check, but it is more
-    // strict than regular browser email regex
+    // in a way this is a redundant check, but makes
+    // sure that types are matched
     const formData = new FormData(e.currentTarget);
     const result = SignInFieldsSch.safeParse({
       email: formData.get('email'),
@@ -35,7 +35,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
     <Fragment>
       {inputErrorMessage && (
         <ErrorMessage
-          className="mb-6"
+          className="mb-12 sm:col-end-2"
           title="Błąd danych wejściowych!"
           description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
         />
@@ -43,7 +43,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="flex flex-col items-start gap-y-6 sm:gap-y-8 sm:w-1/2 sm:pr-4"
+        className="flex flex-col items-start gap-y-6 sm:gap-y-8 sm:col-end-2"
       >
         <Input type="email" name="email" label="Adres email" placeholder="jan@gmail.com" />
         <Input type="password" name="password" label="Hasło" />

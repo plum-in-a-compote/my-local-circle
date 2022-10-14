@@ -7,6 +7,7 @@ type InputProps = {
   placeholder?: string;
   required?: boolean;
   minLength?: number;
+  pattern?: string;
 };
 
 export const Input = ({
@@ -16,6 +17,7 @@ export const Input = ({
   placeholder,
   required = true,
   minLength,
+  pattern,
 }: InputProps) => {
   const phoneInput = type === 'tel';
 
@@ -40,6 +42,7 @@ export const Input = ({
           type={type}
           required={required}
           minLength={minLength}
+          pattern={pattern}
         />
       </div>
     </label>

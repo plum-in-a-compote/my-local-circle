@@ -12,16 +12,17 @@ export const SignInPage = () => {
   const login = useMutation(signIn, { onSuccess: () => router.push('/') });
 
   return (
-    <section>
+    <section className="sm:grid sm:grid-cols-2 sm:gap-x-8">
       {login.isError && (
         <ErrorMessage
+          className="mb-12 sm:col-end-2"
           title="Nie udało się zalogować!"
           description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
-      <Heading className="mb-3 lg:mb-4" as="h1" variant="base" content="Logowanie" />
+      <Heading className="mb-3 sm:col-end-2 lg:mb-4" as="h1" variant="base" content="Logowanie" />
       <Text
-        className="mb-8 sm:mb-12 sm:w-1/2 sm:pr-4"
+        className="mb-8 sm:col-end-2"
         content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
       />
       <SignInForm onSubmit={login.mutate} />

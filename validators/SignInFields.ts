@@ -1,7 +1,8 @@
 import { z } from 'zod';
 
 export const SignInFieldsSch = z.object({
-  email: z.string().email(),
+  // no .email() function call, bcs it's more strict than input type="email"
+  email: z.string(),
   password: z.string(),
 });
 
