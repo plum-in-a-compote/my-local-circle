@@ -1,32 +1,54 @@
-import { ChangeEventHandler } from 'react';
-import { SignInFields } from '../../../validators/SignInFields';
+import { FormEventHandler, Fragment, useRef, useState } from 'react';
+import { SignInFields, SignInFieldsSch } from '../../../validators/SignInFields';
+import { Button } from '../../generic/Button/Button';
+import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 
 type SignInFormProps = {
-  fields: SignInFields;
-  onInputChange: ChangeEventHandler<HTMLInputElement>;
+  onSubmit: (fields: SignInFields) => void;
 };
 
-// The submit button could be displayed here, but to make it
-// consistant with sign up page, we will use button higher in the hierarchy
-export const SignInForm = ({ fields, onInputChange }: SignInFormProps) => {
+export const SignInForm = ({ onSubmit }: SignInFormProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [inputErrorMessage, setInputErrorMessage] = useState(false);
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    // in a way this is a redundant check, but it is more
+    // strict than regular browser email regex
+    const formData = new FormData(e.currentTarget);
+    const result = SignInFieldsSch.safeParse({
+      email: formData.get('email'),
+      password: formData.get('password'),
+    });
+
+    if (result.success) {
+      onSubmit(result.data);
+      setInputErrorMessage(false);
+    } else {
+      setInputErrorMessage(true);
+    }
+  };
+
   return (
-    <form className="flex flex-col gap-y-6 sm:gap-y-8 sm:w-1/2 sm:pr-4">
-      <Input
-        type="email"
-        name="email"
-        label="Adres email"
-        placeholder="jan@gmail.com"
-        value={fields.email}
-        onChange={onInputChange}
-      />
-      <Input
-        type="password"
-        name="password"
-        label="Hasło"
-        value={fields.password}
-        onChange={onInputChange}
-      />
-    </form>
+    <Fragment>
+      {inputErrorMessage && (
+        <ErrorMessage
+          className="mb-6"
+          title="Błąd danych wejściowych!"
+          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+        />
+      )}
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="flex flex-col items-start gap-y-6 sm:gap-y-8 sm:w-1/2 sm:pr-4"
+      >
+        <Input type="email" name="email" label="Adres email" placeholder="jan@gmail.com" />
+        <Input type="password" name="password" label="Hasło" />
+        <Button type="submit" content="Zaloguj się" variant="primary" />
+      </form>
+    </Fragment>
   );
 };

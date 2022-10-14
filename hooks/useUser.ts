@@ -8,7 +8,7 @@ export const useUser = () => {
   // there's an explicit coupling between session and user.
   // if we send request to get user data without session present
   // server will respond with 500 HTTP Code
-  const { data, isLoading, error } = useQuery(
+  const { data, error, status } = useQuery(
     ['me', session?.user.id],
     () => getMe(session?.access_token as string),
     {
@@ -19,7 +19,7 @@ export const useUser = () => {
   return {
     user: data,
     logged: Boolean(data?.id),
-    isLoading,
+    isLoading: status === 'idle' || status === 'loading',
     error,
   };
 };
