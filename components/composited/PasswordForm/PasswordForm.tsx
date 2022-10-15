@@ -1,9 +1,10 @@
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
+
 import { PasswordChangeFields, PasswordChangeSch } from '../../../validators/PasswordChange';
 import { Button } from '../../generic/Button/Button';
+import { Input } from '../../generic/Input/Input';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
-import { Input } from '../../generic/Input/Input';
 
 type PasswordFormProps = {
   onSubmit: (fields: PasswordChangeFields) => void;
@@ -71,7 +72,7 @@ export const PasswordForm = ({ onSubmit }: PasswordFormProps) => {
           type="password"
           minLength={8}
         />
-        <Button className="w-28 mt-4" type="submit" variant="plain" content="Zmień hasło" />
+        <Button className="w-fit mt-4" type="submit" variant="plain" content="Zmień hasło" />
       </form>
     </Fragment>
   );

@@ -1,21 +1,20 @@
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
+
 import { AccountFieldsSch, AccountFields } from '../../../validators/Account';
 import { Button } from '../../generic/Button/Button';
-import { Checkbox } from '../../generic/Checkbox/Checkbox';
-import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
+import { Checkbox } from '../../generic/Checkbox/Checkbox';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
-import { updateUser } from '../../../lib/post/updateUser';
-import { useMutation } from 'react-query';
-import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
+import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 
-export const AccountForm = () => {
+type AccountFormProps = {
+  onSubmit: (fields: AccountFields) => void;
+};
+
+export const AccountForm = ({ onSubmit }: AccountFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
-  const [updateSuccessMessage, setUpdateSuccessMessage] = useState(false);
   const [wrongPhoneFormat, setWrongPhoneFormat] = useState(false);
-
-  // const update = useMutation(updateUser, { onSuccess: () => setUpdateSuccessMessage(true) });
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ export const AccountForm = () => {
     });
 
     if (result.success) {
-      // update.mutate(result.data);
+      onSubmit(result.data);
       setInputErrorMessage(false);
       setWrongPhoneFormat(false);
       return;
@@ -53,18 +52,17 @@ export const AccountForm = () => {
     <Fragment>
       {inputErrorMessage && (
         <ErrorMessage
+          className="mb-6"
           title="Błąd wprowadzonych danych!"
           description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
         />
       )}
       {wrongPhoneFormat && (
         <WarningMessage
+          className="mb-6"
           title="Niepoprawny format numeru telefonu!"
           description="Numer telefonu, który wprowadziłeś, ma zły format. Upewnij się, że wprowadzony numer jest zgodny z przedstawionym formatem."
         />
-      )}
-      {updateSuccessMessage && (
-        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
       )}
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
         {/* Placeholder default values, because we need to make DB call for custom user table */}
@@ -79,7 +77,7 @@ export const AccountForm = () => {
           name="address"
           label="Adres zamieszkania"
           placeholder="Ostrowiec Świętokrzyski, ul. Sandomierska 2"
-          tag="Opcjonalne"
+          extraLabel="Opcjonalne"
           required={false}
           type="text"
         />
@@ -87,7 +85,7 @@ export const AccountForm = () => {
           name="phoneNo"
           label="Numer telefonu"
           placeholder="123 456 789"
-          tag="Opcjonalne"
+          extraLabel="Opcjonalne"
           required={false}
           type="tel"
         />
@@ -96,7 +94,7 @@ export const AccountForm = () => {
           label="Dane kontaktowe"
           description="Udostępnij swoje dane kontakowe osobom ze społeczności, do których należysz."
         />
-        <Button className="w-32" type="submit" content="Zapisz zmiany" variant="primary" />
+        <Button className="w-fit mt-4" type="submit" content="Zapisz zmiany" variant="primary" />
       </form>
     </Fragment>
   );

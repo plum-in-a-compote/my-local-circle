@@ -5,7 +5,7 @@ type InputProps = {
   label: string;
   type: 'text' | 'email' | 'password' | 'tel';
   defaultValue?: string;
-  tag?: string;
+  extraLabel?: string;
   placeholder?: string;
   required?: boolean;
   minLength?: number;
@@ -17,7 +17,7 @@ export const Input = ({
   label,
   defaultValue,
   type,
-  tag,
+  extraLabel,
   placeholder,
   required = true,
   minLength,
@@ -50,9 +50,9 @@ export const Input = ({
           pattern={pattern}
         />
       </div>
-      {tag && (
+      {extraLabel && (
         <span className="absolute right-0 top-0 text-xs leading-4 font-normal text-gray-600">
-          {tag}
+          {extraLabel}
         </span>
       )}
     </label>
