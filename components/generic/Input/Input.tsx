@@ -3,10 +3,10 @@ import { clsx as cx } from 'clsx';
 type InputProps = {
   name: string;
   label: string;
+  type: 'text' | 'email' | 'password' | 'tel';
+  defaultValue?: string;
   tag?: string;
   placeholder?: string;
-  value: string;
-  type: 'text' | 'email' | 'password' | 'tel';
   required?: boolean;
   minLength?: number;
   pattern?: string;
@@ -15,6 +15,7 @@ type InputProps = {
 export const Input = ({
   name,
   label,
+  defaultValue,
   type,
   tag,
   placeholder,
@@ -25,7 +26,7 @@ export const Input = ({
   const phoneInput = type === 'tel';
 
   return (
-    <label className="flex flex-col w-full">
+    <label className="relative flex flex-col w-full">
       <span className="mb-1 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>
@@ -37,10 +38,11 @@ export const Input = ({
         )}
         <input
           className={cx(
-            'w-full px-3 py-2 bg-white border-r border-y rounded-r border-gray-200 placeholder:text-gray-500 text-gray-800 text-xs leading-4 font-normal focus:outline-none focus:ring focus:ring-blue-300 lg:text-sm lg:leading-5 lg:px-5 lg:py-3',
+            'w-full px-3 py-2 bg-white border-r border-y rounded-r border-gray-200 placeholder:text-gray-500 text-gray-800 text-xs leading-4 font-normal focus:outline-none focus:ring focus:ring-blue-300 focus:border-gray-200 lg:text-sm lg:leading-5 lg:px-5 lg:py-3',
             !phoneInput && 'border-l rounded-l',
           )}
           name={name}
+          defaultValue={defaultValue}
           placeholder={placeholder}
           type={type}
           required={required}

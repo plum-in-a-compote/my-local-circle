@@ -37,6 +37,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
     if (result.success) {
       onSubmit(result.data);
       setInputErrorMessage(false);
+      setDifferentPasswords(false);
       return;
     }
 
@@ -82,7 +83,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
             label="Hasło (minimalnie 9 znaków)"
             minLength={8}
           />
-          <Input type="password" name="passwordConfirmation" label="Powtórz hasło" minLength={9} />
+          <Input type="password" name="passwordConfirmation" label="Powtórz hasło" minLength={8} />
         </fieldset>
 
         <fieldset className="w-full flex flex-col">

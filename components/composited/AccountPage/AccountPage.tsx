@@ -1,13 +1,21 @@
-import { AccountForm as AccountSection } from '../../generic/AccountForm/AccountForm';
+import { AccountForm } from '../AccountForm/AccountForm';
+import { PasswordForm } from '../../composited/PasswordForm/PasswordForm';
 import { Heading } from '../../generic/Heading/Heading';
-import { PasswordForm as PasswordSection } from '../../generic/PasswordForm/PasswordForm';
+import { Fragment } from 'react';
 
 export const AccountPage = () => {
   return (
-    <section className="flex flex-col gap-4">
-      <Heading as="h1" variant="base" content="Konto użytkownika" bottomBorder={true} />
-      <AccountSection />
-      <PasswordSection />
-    </section>
+    <Fragment>
+      <Heading
+        className="mb-4"
+        as="h1"
+        variant="base"
+        content="Konto użytkownika"
+        bottomBorder={true}
+      />
+      <AccountForm />
+      <Heading className="mt-12 mb-5" as="h2" variant="smBold" content="Hasło" />
+      <PasswordForm onSubmit={() => 1} />
+    </Fragment>
   );
 };
