@@ -18,17 +18,6 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
   const [differentPasswords, setDifferentPasswords] = useState(false);
 
-  console.log(
-    SignUpFieldsSch.safeParse({
-      name: 'fsadf',
-      email: 'fda@fda.asdf',
-      password: 'asdf',
-      passwordConfirmation: 'asdf',
-      phoneNo: '',
-      address: '',
-    }),
-  );
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
@@ -36,7 +25,6 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
     // sure that types are matched
     const formData = new FormData(e.currentTarget);
 
-    console.log('Phone Number D%sD', formData.get('phoneNo'));
     const result = SignUpFieldsSch.safeParse({
       name: formData.get('fullName'),
       email: formData.get('email'),
@@ -77,7 +65,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         <WarningMessage
           className="mb-6 sm:col-end-2"
           title="Hasła nie są jednakowe!"
-          description="Hasła, które wprowadziłeś nie są jednakowe. Zmień wartość i spróbuj ponownie."
+          description="Hasła, które wprowadziłeś, nie są jednakowe. Upewnij się, że są prawidłowe i spróbuj ponownie."
         />
       )}
       <form

@@ -35,7 +35,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
     <Fragment>
       {inputErrorMessage && (
         <ErrorMessage
-          className="mb-12 sm:col-end-2"
+          className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
           description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
         />
