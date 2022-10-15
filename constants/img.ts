@@ -1,1 +1,0 @@
-export const MOBILE_EXAMPLE_IMG_WIDTH = 290;

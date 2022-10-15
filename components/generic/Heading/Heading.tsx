@@ -5,8 +5,9 @@ type HeadingProps = {
   as: 'h1' | 'h2' | 'h3';
   variant: HeadingVariant;
   content: string;
+  className?: string;
 };
 
-export const Heading = ({ as: As, variant, content }: HeadingProps) => {
-  return <As className={cx(getHeadingVariant(variant))}>{content}</As>;
+export const Heading = ({ as: As, variant, content, className }: HeadingProps) => {
+  return <As className={cx(getHeadingVariant(variant), className)}>{content}</As>;
 };

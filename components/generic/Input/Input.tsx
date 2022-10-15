@@ -1,20 +1,28 @@
 import { clsx as cx } from 'clsx';
-import { ChangeEventHandler } from 'react';
 
 type InputProps = {
   name: string;
   label: string;
-  placeholder?: string;
-  value: string;
   type: 'text' | 'email' | 'password' | 'tel';
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  placeholder?: string;
+  required?: boolean;
+  minLength?: number;
+  pattern?: string;
 };
 
-export const Input = ({ name, label, placeholder, value, type, onChange }: InputProps) => {
+export const Input = ({
+  name,
+  label,
+  type,
+  placeholder,
+  required = true,
+  minLength,
+  pattern,
+}: InputProps) => {
   const phoneInput = type === 'tel';
 
   return (
-    <label className="flex flex-col">
+    <label className="flex flex-col w-full">
       <span className="mb-1 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>
@@ -31,10 +39,10 @@ export const Input = ({ name, label, placeholder, value, type, onChange }: Input
           )}
           name={name}
           placeholder={placeholder}
-          value={value}
           type={type}
-          maxLength={phoneInput ? 11 : undefined}
-          onChange={onChange}
+          required={required}
+          minLength={minLength}
+          pattern={pattern}
         />
       </div>
     </label>

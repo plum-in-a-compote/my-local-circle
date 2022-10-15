@@ -5,11 +5,12 @@ import { clsx as cx } from 'clsx';
 type ButtonProps = {
   content: string;
   variant: ButtonVariant;
+  type?: 'submit' | 'reset' | 'button';
   className?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-export const Button = ({ content, variant, className, onClick }: ButtonProps) => {
+export const Button = ({ content, variant, type = 'button', className, onClick }: ButtonProps) => {
   return (
     <button
       className={cx(
@@ -17,6 +18,7 @@ export const Button = ({ content, variant, className, onClick }: ButtonProps) =>
         getButtonVariant(variant),
         className,
       )}
+      type={type}
       onClick={onClick}
     >
       {content}
