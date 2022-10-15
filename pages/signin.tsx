@@ -1,16 +1,16 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { SignInPage } from '../components/composited/SignInPage/SignInPage';
-import { Container } from '../components/generic/Container/Container';
+import { Layout } from '../components/generic/Layout/Layout';
 
 const SignIn: NextPage = () => {
   return (
-    <Container as="main">
+    <Layout>
       <Head>
         <title>Zaloguj się - My Local Circle</title>
       </Head>
       <SignInPage />
-    </Container>
+    </Layout>
   );
 };
 
