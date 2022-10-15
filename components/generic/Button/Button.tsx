@@ -4,8 +4,9 @@ import { clsx as cx } from 'clsx';
 type ButtonProps = {
   content: string;
   variant: keyof typeof variants;
+  type?: 'submit' | 'reset' | 'button';
   className?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 const variants = {
@@ -16,7 +17,7 @@ const variants = {
   plain: 'bg-gray-50 text-gray-800 font-semibold border border-gray-200 hover:bg-gray-200',
 };
 
-export const Button = ({ content, variant, className, onClick }: ButtonProps) => {
+export const Button = ({ content, variant, type = 'button', className, onClick }: ButtonProps) => {
   return (
     <button
       className={cx(
@@ -24,6 +25,7 @@ export const Button = ({ content, variant, className, onClick }: ButtonProps) =>
         variants[variant],
         className,
       )}
+      type={type}
       onClick={onClick}
     >
       {content}

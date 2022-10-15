@@ -5,6 +5,7 @@ type HeadingProps = {
   variant: keyof typeof variants;
   content: string;
   bottomBorder?: boolean;
+  className?: string;
 };
 
 const variants = {
@@ -14,12 +15,19 @@ const variants = {
   base: 'text-base leading-6 font-bold text-gray-800 sm:text-lg sm:leading-7 lg:text-2xl lg:leading-8',
 };
 
-export const Heading = ({ as: As, variant, content, bottomBorder = false }: HeadingProps) => {
+export const Heading = ({
+  as: As,
+  variant,
+  content,
+  bottomBorder = false,
+  className,
+}: HeadingProps) => {
   return (
     <As
       className={cx(
         variants[variant],
         bottomBorder && 'pb-4 border-b border-dashed border-gray-400',
+        className,
       )}
     >
       {content}
