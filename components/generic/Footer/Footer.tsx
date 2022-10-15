@@ -1,6 +1,7 @@
 import { Container } from '../Container/Container';
 import { Text } from '../Text/Text';
 
+// @todo use Heading & define Text variant
 export const Footer = () => {
   return (
     <footer className="bg-amber-50 pt-12 pb-24 sm:pt-14 sm:pb-28 lg:pt-16 lg:pb-32">
