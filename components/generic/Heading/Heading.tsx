@@ -4,7 +4,7 @@ type HeadingProps = {
   as: 'h1' | 'h2' | 'h3';
   variant: keyof typeof variants;
   content: string;
-  bottomBorder?: boolean;
+  displayDecorationBorder?: boolean;
   className?: string;
 };
 
@@ -19,14 +19,14 @@ export const Heading = ({
   as: As,
   variant,
   content,
-  bottomBorder = false,
+  displayDecorationBorder = false,
   className,
 }: HeadingProps) => {
   return (
     <As
       className={cx(
         variants[variant],
-        bottomBorder && 'pb-4 border-b border-dashed border-gray-400',
+        displayDecorationBorder && 'pb-4 border-b border-dashed border-gray-400',
         className,
       )}
     >

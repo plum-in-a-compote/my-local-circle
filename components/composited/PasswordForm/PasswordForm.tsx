@@ -5,6 +5,7 @@ import { Button } from '../../generic/Button/Button';
 import { Input } from '../../generic/Input/Input';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
+import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
 
 type PasswordFormProps = {
   onSubmit: (fields: PasswordChangeFields) => void;
@@ -65,12 +66,17 @@ export const PasswordForm = ({ onSubmit }: PasswordFormProps) => {
       )}
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Input name="oldPassword" label="Stare hasło" type="password" />
-        <Input name="newPassword" label="Nowe hasło" type="password" minLength={8} />
+        <Input
+          name="newPassword"
+          label="Nowe hasło"
+          type="password"
+          minLength={MIN_PASSWORD_LENGTH}
+        />
         <Input
           name="newPasswordConfirmation"
           label="Potwierdź nowe hasło"
           type="password"
-          minLength={8}
+          minLength={MIN_PASSWORD_LENGTH}
         />
         <Button className="w-fit mt-4" type="submit" variant="plain" content="Zmień hasło" />
       </form>

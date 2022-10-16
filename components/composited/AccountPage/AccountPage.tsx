@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMutation } from 'react-query';
 
 import { updateUser } from '../../../lib/post/updateUser';
@@ -10,11 +9,7 @@ import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
 
 export const AccountPage = () => {
-  const [updateSuccessMessage, setUpdateSuccessMessage] = useState(false);
-
-  const updateUserInfo = useMutation(updateUser, {
-    onSuccess: () => setUpdateSuccessMessage(true),
-  });
+  const updateUserInfo = useMutation(updateUser);
 
   return (
     <Auth>
@@ -23,7 +18,7 @@ export const AccountPage = () => {
         as="h1"
         variant="base"
         content="Konto użytkownika"
-        bottomBorder={true}
+        displayDecorationBorder={true}
       />
       {updateUserInfo.isError && (
         <ErrorMessage
@@ -32,7 +27,7 @@ export const AccountPage = () => {
           description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
-      {updateSuccessMessage && (
+      {updateUserInfo.isSuccess && (
         <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
       )}
       <AccountForm onSubmit={() => 1} />

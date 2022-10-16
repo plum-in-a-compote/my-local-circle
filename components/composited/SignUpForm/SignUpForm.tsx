@@ -8,6 +8,7 @@ import { Heading } from '../../generic/Heading/Heading';
 import { Input } from '../../generic/Input/Input';
 import { SIMPLE_PHONE_PATTERN } from '../../../constants/regex';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
+import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
 
 type SignUpFormProps = {
   onSubmit: (fields: SignUpFields) => void;
@@ -80,10 +81,15 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           <Input
             type="password"
             name="password"
-            label="Hasło (minimalnie 9 znaków)"
-            minLength={8}
+            label={`Hasło (minimalnie ${MIN_PASSWORD_LENGTH} znaków)`}
+            minLength={MIN_PASSWORD_LENGTH}
           />
-          <Input type="password" name="passwordConfirmation" label="Powtórz hasło" minLength={8} />
+          <Input
+            type="password"
+            name="passwordConfirmation"
+            label="Powtórz hasło"
+            minLength={MIN_PASSWORD_LENGTH}
+          />
         </fieldset>
 
         <fieldset className="w-full flex flex-col">

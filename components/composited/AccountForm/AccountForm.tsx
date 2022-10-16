@@ -77,7 +77,6 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
           name="address"
           label="Adres zamieszkania"
           placeholder="Ostrowiec Świętokrzyski, ul. Sandomierska 2"
-          extraLabel="Opcjonalne"
           required={false}
           type="text"
         />
@@ -85,7 +84,6 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
           name="phoneNo"
           label="Numer telefonu"
           placeholder="123 456 789"
-          extraLabel="Opcjonalne"
           required={false}
           type="tel"
         />
