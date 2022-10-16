@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { MIN_PASSWORD_LENGTH } from '../constants/password';
 import { SIMPLE_PHONE_REGEX } from '../constants/regex';
 
 export const SignUpFieldsSch = z
@@ -6,8 +7,8 @@ export const SignUpFieldsSch = z
     name: z.string(),
     // no .email() function call, bcs it's more strict than input type="email"
     email: z.string(),
-    password: z.string().min(8),
-    passwordConfirmation: z.string().min(8),
+    password: z.string().min(MIN_PASSWORD_LENGTH),
+    passwordConfirmation: z.string().min(MIN_PASSWORD_LENGTH),
     phoneNo: z
       .string()
       .optional()
