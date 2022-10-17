@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { SignUpPage } from '../components/composited/SignUpPage/SignUpPage';
 import { Container } from '../components/generic/Container/Container';
 
-const SignIn: NextPage = () => {
+const SignUp: NextPage = () => {
   return (
     <Container as="main">
       <Head>
@@ -14,4 +14,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

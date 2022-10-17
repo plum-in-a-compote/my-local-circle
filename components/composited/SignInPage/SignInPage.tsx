@@ -6,18 +6,22 @@ import { SignInForm } from '../SignInForm/SignInForm';
 import { useMutation } from 'react-query';
 import { signIn } from '../../../lib/post/signIn';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 
 export const SignInPage = () => {
   const router = useRouter();
   const login = useMutation(signIn, { onSuccess: () => router.push('/') });
+  const gl = useLocale<'SignInPage'>();
 
   return (
     <section className="sm:grid sm:grid-cols-2 sm:gap-x-8">
-      <Heading className="mb-3 sm:col-end-2 lg:mb-4" as="h1" variant="base" content="Logowanie" />
-      <Text
-        className="mb-8 sm:col-end-2"
-        content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
+      <Heading
+        className="mb-3 sm:col-end-2 lg:mb-4"
+        as="h1"
+        variant="base"
+        content={gl('heading')}
       />
+      <Text className="mb-8 sm:col-end-2" content={gl('text')} />
       {/* Display all errors in single place */}
       {login.isError && (
         <ErrorMessage
