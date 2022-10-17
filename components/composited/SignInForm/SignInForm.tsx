@@ -1,8 +1,11 @@
+import Link from 'next/link';
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
 import { SignInFields, SignInFieldsSch } from '../../../validators/SignInFields';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
+import { LinkButton } from '../../generic/LinkButton/LinkButton';
+import { Text } from '../../generic/Text/Text';
 
 type SignInFormProps = {
   onSubmit: (fields: SignInFields) => void;
@@ -47,7 +50,18 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
       >
         <Input type="email" name="email" label="Adres email" placeholder="jan@gmail.com" />
         <Input type="password" name="password" label="Hasło" />
-        <Button type="submit" content="Zaloguj się" variant="primary" />
+        <div className="flex gap-2 items-baseline">
+          <Button
+            className="sm:px-2 lg:px-6"
+            type="submit"
+            content="Zaloguj się"
+            variant="primary"
+          />
+          <Text className="font-bold" as="span" content="lub" />
+          <Link href="/signup">
+            <LinkButton textContent="Utwórz konto" />
+          </Link>
+        </div>
       </form>
     </Fragment>
   );
