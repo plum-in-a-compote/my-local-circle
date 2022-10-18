@@ -1,4 +1,5 @@
 import { Container } from '../Container/Container';
+import { CookiePopup } from '../CookiePopup/CookiePopup';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 
@@ -15,6 +16,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           {children}
         </Container>
       </div>
+      <CookiePopup />
       <Footer />
     </div>
   );
