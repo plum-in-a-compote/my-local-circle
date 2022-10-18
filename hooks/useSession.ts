@@ -1,8 +1,8 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getSession } from '../lib/get/getSession';
 
 export const useSession = () => {
-  const { data, isLoading, error } = useQuery('session', getSession);
+  const { data, isLoading, error } = useQuery(['session'], getSession);
 
   return {
     session: data?.session,

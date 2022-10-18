@@ -6,6 +6,7 @@ import { MenuIcon } from '../Icons/MenuIcon';
 import { NotificationsIcon } from '../Icons/NotificationsIcon';
 import { AccountIcon } from '../Icons/AccountIcon';
 import { HeaderLink } from './HeaderLink';
+import Link from 'next/link';
 
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
@@ -18,13 +19,26 @@ export const Header = () => {
         as="nav"
       >
         <div className="w-full flex justify-between items-center sm:w-fit">
-          <button className="sm:hidden" onClick={toggleMobileMenu}>
+          <button
+            aria-label="Otwórz menu nawigacyjne strony."
+            aria-expanded={mobileMenuOpened}
+            className="sm:hidden"
+            onClick={toggleMobileMenu}
+          >
             <MenuIcon />
-            <span className="sr-only">Otwórz menu nawigacyjne strony.</span>
           </button>
           <div className="flex gap-3">
-            <NotificationsIcon className="lg:w-8 lg:h-8" />
-            <AccountIcon className="lg:w-8 lg:h-8" />
+            <Link aria-label="Przejdź do strony powiadomień." href="/account">
+              <a>
+                <NotificationsIcon />
+              </a>
+            </Link>
+
+            <Link aria-label="Przejdź do ustawień konta." href="/notifications">
+              <a>
+                <AccountIcon />
+              </a>
+            </Link>
           </div>
         </div>
 
@@ -34,9 +48,9 @@ export const Header = () => {
             'flex-col gap-1 pt-4 sm:flex-row sm:gap-2 sm:pt-0',
           )}
         >
-          <HeaderLink href="/" content="Indeks" />
-          <HeaderLink href="#" content="Twoje społeczności" />
-          <HeaderLink href="#" content="Budżety lokalne" />
+          <HeaderLink href="/" content="Strona główna" />
+          <HeaderLink href="/communities" content="Społeczności" />
+          <HeaderLink href="/budgets" content="Budżety" />
         </ul>
       </Container>
     </header>
