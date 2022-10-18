@@ -1,4 +1,4 @@
-import { Auth } from '../../generic/Auth/Auth';
+import { Fragment } from 'react';
 import { Heading } from '../../generic/Heading/Heading';
 import { Input } from '../../generic/Input/Input';
 import { Text } from '../../generic/Text/Text';
@@ -6,7 +6,7 @@ import { TextArea } from '../../generic/TextArea/TextArea';
 
 export const CreateCommunityPage = () => {
   return (
-    <Auth>
+    <Fragment>
       <section className="sm:grid sm:grid-cols-2">
         <Heading
           className="mb-4 sm:col-end-2"
@@ -31,6 +31,6 @@ export const CreateCommunityPage = () => {
         */}
         </form>
       </section>
-    </Auth>
+    </Fragment>
   );
 };
