@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 
 import { updateUser } from '../../../lib/post/updateUser';
 import { Auth } from '../../generic/Auth/Auth';
@@ -13,6 +13,9 @@ export const AccountPage = () => {
 
   return (
     <Auth>
+      {updateUserInfo.isSuccess && (
+        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
+      )}
       <Heading
         className="mb-4"
         as="h1"
@@ -26,9 +29,6 @@ export const AccountPage = () => {
           title="Nie udało się zaktualizować danych!"
           description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
-      )}
-      {updateUserInfo.isSuccess && (
-        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
       )}
       <AccountForm onSubmit={() => 1} />
       <Heading className="mt-16 mb-5" as="h2" variant="smBold" content="Hasło" />

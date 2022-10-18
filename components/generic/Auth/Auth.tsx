@@ -16,9 +16,9 @@ export const Auth = ({ children }: AuthProps) => {
     }
   }, [isLoading, logged, router]);
 
-  if (!logged) {
-    return null;
-  }
+  // if (!logged) {
+  //   return null;
+  // }
 
   return <Fragment>{children}</Fragment>;
 };

@@ -27,7 +27,7 @@ export const Input = ({
 
   return (
     <label className="relative flex flex-col w-full">
-      <span className="mb-1.5 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
+      <span className="mb-2 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>
       <div className="flex flex-row w-full">
@@ -38,9 +38,9 @@ export const Input = ({
         )}
         <input
           className={cx(
-            'w-full px-3 py-2 bg-white border-y border-gray-200 placeholder:text-gray-500 text-gray-800 text-xs leading-4 font-normal focus:outline-none focus:ring focus:ring-blue-300 focus:border-gray-200 lg:text-sm lg:leading-5 lg:px-5 lg:py-3',
+            'z-10 w-full px-3 py-2 bg-white border-y border-gray-200 placeholder:text-gray-500 text-gray-800 text-xs leading-4 font-normal focus:outline-none focus:ring focus:ring-blue-300 focus:border-gray-200 lg:text-sm lg:leading-5 lg:px-5 lg:py-3',
             !phoneInput && 'border-l rounded-l',
-            !unit && 'border-4, rounded-r',
+            !unit && 'border-r, rounded-r',
           )}
           name={name}
           defaultValue={defaultValue}
