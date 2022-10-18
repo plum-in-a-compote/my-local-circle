@@ -5,6 +5,7 @@ export const CommunitySch = z.object({
   city: z.string(),
   address: z.string(),
   adminId: z.string(),
+  budgetAmount: z.number().optional(),
 });
 
 export type Community = z.infer<typeof CommunitySch>;
