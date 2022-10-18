@@ -30,11 +30,11 @@ export const Header = () => {
 
         <ul
           className={cx(
-            mobileMenuOpened && 'hidden sm:flex',
+            !mobileMenuOpened && 'hidden sm:flex',
             'absolute top-full left-0 right-0 flex flex-col gap-1 px-8 pb-4 bg-gray-50 border-b border-gray-300 sm:border-none sm:static sm:flex-row sm:gap-2 sm:pb-0 sm:px-0',
           )}
         >
-          <HeaderLink href="/" content="Indeks" />
+          <HeaderLink href="/" content="Strona główna" />
           <HeaderLink href="#" content="Twoje społeczności" />
           <HeaderLink href="#" content="Budżety lokalne" />
         </ul>
