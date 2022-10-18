@@ -8,7 +8,7 @@ type TextAreaProps = {
 export const TextArea = ({ name, label, placeholder, required = true }: TextAreaProps) => {
   return (
     <label className="relative flex flex-col w-full">
-      <span className="mb-1 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
+      <span className="mb-1.5 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>
       <textarea
