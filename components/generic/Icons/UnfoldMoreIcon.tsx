@@ -1,12 +1,17 @@
 import { clsx as cx } from 'clsx';
+import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from './constants';
 
 type UnfoldMoreIconProps = {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
 };
 
-export const UnfoldMoreIcon = ({ width, height, className }: UnfoldMoreIconProps) => {
+export const UnfoldMoreIcon = ({
+  width = DEFAULT_WIDTH,
+  height = DEFAULT_HEIGHT,
+  className,
+}: UnfoldMoreIconProps) => {
   return (
     <svg
       className={cx('fill-gray-700', className)}
