@@ -28,14 +28,14 @@ export const Header = () => {
             <MenuIcon />
           </button>
           <div className="flex gap-3">
-            <Link aria-label="Przejdź do strony powiadomień." href="/account">
-              <a>
+            <Link href="/account">
+              <a aria-label="Przejdź do strony powiadomień.">
                 <NotificationsIcon />
               </a>
             </Link>
 
-            <Link aria-label="Przejdź do ustawień konta." href="/notifications">
-              <a>
+            <Link href="/notifications">
+              <a aria-label="Przejdź do ustawień konta.">
                 <AccountIcon />
               </a>
             </Link>
