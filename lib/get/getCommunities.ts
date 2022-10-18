@@ -9,6 +9,8 @@ export const getCommunities = async () => {
     .select('*')
     .limit(INITIAL_PUBLIC_COMMUNITES_DISPLAYED);
 
+  console.log(data);
+
   if (error) {
     throw new Error(error.message);
   }
