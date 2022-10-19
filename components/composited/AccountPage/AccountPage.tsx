@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 
 import { updateUser } from '../../../lib/post/updateUser';
 import { Auth } from '../../generic/Auth/Auth';
