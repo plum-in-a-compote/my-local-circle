@@ -1,8 +1,8 @@
 import { CommunitySch } from '../../validators/Community';
 import { supabase } from '../supabase';
 
-export const getCommunity = async (id: string) => {
-  const { data, error } = await supabase.from('Community').select('*').eq('id', id);
+export const getCommunityBySlug = async (slug: string) => {
+  const { data, error } = await supabase.from('Community').select('*').eq('slug', slug);
 
   if (error) {
     throw new Error(error.message);

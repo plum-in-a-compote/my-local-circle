@@ -1,24 +1,39 @@
+import { useUser } from '../../../hooks/useUser';
 import { Community } from '../../../validators/Community';
+import { Auth } from '../../generic/Auth/Auth';
+import { Button } from '../../generic/Button/Button';
 import { Heading } from '../../generic/Heading/Heading';
-import { CommunityStat } from './CommunityStat';
+import { CommunityStats } from './CommunityStats';
 
 export type CommunityPageProps = {
   community: Community;
 };
 
 export const CommunityPage = ({ community }: CommunityPageProps) => {
+  const { data } = useUser();
+  // @todo check if user is already in community
+
   return (
     <section>
-      <Heading
-        className="mb-4"
-        as="h1"
-        variant="base"
-        content={community.name}
-        displayDecorationBorder={true}
+      <div className="mb-4">
+        <Heading as="h1" variant="base" content={community.name} displayDecorationBorder={true} />
+      </div>
+      <p className="text-xs leading-5 font-normal text-gray-700 mb-6">{community.description}</p>
+      <CommunityStats
+        city={community.city}
+        address={community.address}
+        budgetsNo={4}
+        projectsNo={53}
+        usersNo={41}
+        averageBudgetAmount={42000}
       />
-      {/* Description */}
-      <p className="text-xs leading-5 font-normal text-gray-700"></p>
-      <CommunityStat name="Miasto" value={community.city} />
+      <p className="text-xs leading-5 font-normal text-gray-700 mb-6">
+        Aby wyświetlic więcej informacji o społeczności musisz być jej członkiem. Wyślij podanie o
+        dołączenie i poczekaj na akceptację.
+      </p>
+      <Auth forceRedirect={false}>
+        <Button variant="primary" content="Wyślij podanie" type="button" />
+      </Auth>
     </section>
   );
 };

@@ -3,10 +3,8 @@ import { clsx as cx } from 'clsx';
 
 import { Container } from '../Container/Container';
 import { MenuIcon } from '../Icons/MenuIcon';
-import { NotificationsIcon } from '../Icons/NotificationsIcon';
-import { AccountIcon } from '../Icons/AccountIcon';
 import { HeaderLink } from './HeaderLink';
-import Link from 'next/link';
+import { NavigationIcons } from './NavigationIcons';
 
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
@@ -32,25 +30,7 @@ export const Header = () => {
           >
             <MenuIcon />
           </button>
-          <div className="flex gap-3">
-            <Link href="/notifications">
-              <a
-                className="transition group block p-0.5 rounded-full hover:bg-blue-100 focus:bg-blue-100"
-                aria-label="Przejdź do strony powiadomień."
-              >
-                <NotificationsIcon className="transition group-hover:fill-blue-800 group-focus:fill-blue-800" />
-              </a>
-            </Link>
-
-            <Link href="/account">
-              <a
-                className="transition group block p-0.5 rounded-full hover:bg-blue-100 focus:bg-blue-100"
-                aria-label="Przejdź do ustawień konta."
-              >
-                <AccountIcon className="transition group-hover:fill-blue-800 group-focus:fill-blue-800" />
-              </a>
-            </Link>
-          </div>
+          <NavigationIcons />
         </div>
 
         <ul

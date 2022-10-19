@@ -23,7 +23,7 @@ const Communities: NextPage<CommunitiesPageProps> = ({ communities }) => {
   return (
     <MainLayout>
       <Head>
-        <title>Ustawienia konta - My Local Circle</title>
+        <title>Społeczności - My Local Circle</title>
       </Head>
       <CommunitiesPage communities={communities} />
     </MainLayout>
