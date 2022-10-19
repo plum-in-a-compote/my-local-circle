@@ -9,9 +9,9 @@ export const CreateBudgetPage = () => {
   const createNewBudget = useMutation(createBudget);
 
   return (
-    <section className="">
+    <section>
       <Heading
-        className="mb-4 sm:col-end-2"
+        className="mb-4 sm:col-end-2 sm:mb-8"
         as="h1"
         content="Nowy budżet"
         variant="base"

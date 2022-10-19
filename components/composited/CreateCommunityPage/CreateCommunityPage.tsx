@@ -1,7 +1,7 @@
 import { Heading } from '../../generic/Heading/Heading';
 import { Input } from '../../generic/Input/Input';
 import { Text } from '../../generic/Text/Text';
-import { TextArea } from '../../generic/TextArea/TextArea';
+import { TextArea } from '../../generic/Textarea/Textarea';
 
 export const CreateCommunityPage = () => {
   return (

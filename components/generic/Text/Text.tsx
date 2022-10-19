@@ -10,7 +10,7 @@ export const Text = ({ as: As = 'p', content, className }: TextProps) => {
   return (
     <As
       className={cx(
-        'text-gray-700 text-xs leading-5 font-normal lg:text-base lg:leading-6',
+        'text-gray-700 text-xs leading-4 font-normal lg:text-base lg:leading-6',
         className,
       )}
     >
