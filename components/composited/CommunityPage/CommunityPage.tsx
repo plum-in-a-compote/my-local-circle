@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+import { useRequestToJoinCommunity } from '../../../hooks/useRequestToJoinCommunity';
 import { useUser } from '../../../hooks/useUser';
 import { Community } from '../../../validators/Community';
 import { Auth } from '../../generic/Auth/Auth';
@@ -10,8 +12,17 @@ export type CommunityPageProps = {
 };
 
 export const CommunityPage = ({ community }: CommunityPageProps) => {
+  // After successful mutation, we have to invalidate whether user has applied
+  const mutation = useRequestToJoinCommunity();
   const { data } = useUser();
   // @todo check if user is already in community
+
+  const handleJoinRequest = useCallback(() => {
+    const userId = data?.id;
+    if (userId) {
+      mutation.mutate({ userId, communityId: community.id });
+    }
+  }, [community.id, data?.id, mutation]);
 
   return (
     <section>
@@ -32,7 +43,12 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
         dołączenie i poczekaj na akceptację.
       </p>
       <Auth forceRedirect={false}>
-        <Button variant="primary" content="Wyślij podanie" type="button" />
+        <Button
+          onClick={handleJoinRequest}
+          variant="primary"
+          content="Wyślij podanie"
+          type="button"
+        />
       </Auth>
     </section>
   );
