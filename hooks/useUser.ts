@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useQuery } from '@tanstack/react-query';
 import { getMe } from '../lib/get/getMe';
 import { useSession } from './useSession';
@@ -22,7 +19,7 @@ export const useUser = () => {
   return {
     user: data,
     logged: Boolean(data?.id),
-    isLoading: status === 'idle' || status === 'loading',
+    isLoading: status === 'loading',
     error,
   };
 };
