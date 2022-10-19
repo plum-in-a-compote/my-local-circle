@@ -10,6 +10,7 @@ type InputProps = {
   minLength?: number;
   pattern?: string;
   unit?: string;
+  className?: string;
 };
 
 export const Input = ({
@@ -22,11 +23,12 @@ export const Input = ({
   minLength,
   pattern,
   unit,
+  className,
 }: InputProps) => {
   const phoneInput = type === 'tel';
 
   return (
-    <label className="relative flex flex-col w-full">
+    <label className={cx('relative flex flex-col w-full', className)}>
       <span className="mb-2 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5 lg:mb-2">
         {label}
       </span>

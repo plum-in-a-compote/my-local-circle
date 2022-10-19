@@ -8,12 +8,8 @@ import { BudgetForm } from '../BudgetForm/BudgetForm';
 export const CreateBudgetPage = () => {
   const createNewBudget = useMutation(createBudget);
 
-  // TODO
-  // - ADD GRID FOR BIGGER VIEWS AND MAKE SCALING GOOD
-  // - FIGURE OUT HOW TO LINK BUDGET TABLE TO COMMUNITY
-  // - MULTIPLE ADMINS FOR COMMUNITY, ALL HAVE ACCESS TO ALL BUDGETS - CLEAN UP TABLES
   return (
-    <section className="sm:grid sm:grid-cols-2">
+    <section className="">
       <Heading
         className="mb-4 sm:col-end-2"
         as="h1"

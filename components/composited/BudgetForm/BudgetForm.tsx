@@ -11,6 +11,7 @@ import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 import { Radio } from '../../generic/Radio/Radio';
+import { Select } from '../../generic/Select/Select';
 import { Text } from '../../generic/Text/Text';
 import { TextArea } from '../../generic/TextArea/TextArea';
 
@@ -18,6 +19,7 @@ type BudgetFormProps = {
   onSubmit: (fields: BudgetFields) => void;
 };
 
+// TO BE FETCHED - DATA ABOUT USERS TO BE SET AS ADMIN
 export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [checked, setChecked] = useState(true);
@@ -61,11 +63,23 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="flex flex-col items-start gap-4 sm:col-end-2"
+        className="sm:grid sm:grid-cols-2 sm:grid-rows-1 sm:gap-x-12 flex flex-col items-start gap-4 sm:col-end-2"
       >
-        <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
-        <TextArea name="description" label="Opis" />
-        <fieldset className="rounded mb-6">
+        <fieldset className="flex flex-col gap-4">
+          <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
+          <TextArea name="description" label="Opis" />
+          <Select
+            name="admin"
+            label="Administrator"
+            options={[
+              // MOCKED DATA
+              { name: 'Ja', value: 'moje_uid' },
+              { name: 'Ty', value: 'twoje_uid' },
+            ]}
+          />
+        </fieldset>
+
+        <fieldset className="rounded mt-4">
           <Text className="mb-2" content="Typ budżetu" />
           <Radio
             className="border-x border-t rounded-t"
@@ -85,14 +99,16 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
             checked={!checked}
             onChange={handleRadioChange}
           />
+          <Input
+            className="mt-4"
+            name="estimatedCost"
+            label="Wielkość budżetu"
+            type="text"
+            unit="PLN"
+            placeholder="1000"
+          />
         </fieldset>
-        <Input
-          name="estimatedCost"
-          label="Wielkość budżetu"
-          type="text"
-          unit="PLN"
-          placeholder="1000"
-        />
+
         <Button className="px-3 mt-10" content="Dodaj budżet" variant="primary" type="submit" />
       </form>
     </Fragment>
