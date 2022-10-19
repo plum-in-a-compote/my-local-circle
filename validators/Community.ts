@@ -5,6 +5,8 @@ export const CommunitySch = z.object({
   city: z.string(),
   address: z.string(),
   adminId: z.string(),
+  // optional on client, added on the server proxy
+  slug: z.string().optional(),
 });
 
 export type Community = z.infer<typeof CommunitySch>;
