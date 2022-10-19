@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const CommunitySch = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   name: z.string(),
   city: z.string(),
   address: z.string(),

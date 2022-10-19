@@ -1,7 +1,20 @@
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
+import { useAddCommunity } from '../../../hooks/useCreateCommunity';
+import { CommunityFieldsSch } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 import { CreateCommunityForm } from '../CreateCommunityForm/CreateCommunityForm';
 
 export const CreateCommunityPage = () => {
+  const mutation = useAddCommunity();
+
+  const handleSubmit = useCallback(
+    (fields: CommunityFieldsSch) => {
+      mutation.mutate(fields);
+    },
+    [mutation],
+  );
+
   return (
     <section className="sm:grid sm:grid-cols-2">
       <Heading
@@ -11,7 +24,7 @@ export const CreateCommunityPage = () => {
         variant="base"
         displayDecorationBorder={true}
       />
-      <CreateCommunityForm onSubmit={console.log} />
+      <CreateCommunityForm onSubmit={handleSubmit} />
     </section>
   );
 };

@@ -17,12 +17,12 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
   const { data } = useUser();
   // @todo check if user is already in community
 
-  const handleJoinRequest = useCallback(() => {
+  const handleJoinRequest = () => {
     const userId = data?.id;
     if (userId) {
       mutation.mutate({ userId, communityId: community.id });
     }
-  }, [community.id, data?.id, mutation]);
+  };
 
   return (
     <section>
