@@ -1,11 +1,11 @@
 import { FormEventHandler, useRef, useState } from 'react';
-import { Community, CommunitySch } from '../../../validators/Community';
+import { Community, CommunityFieldsSch } from '../../../validators/Community';
 import { Input } from '../../generic/Input/Input';
 import { Text } from '../../generic/Text/Text';
 import { Textarea } from '../../generic/Textarea/Textarea';
 
 type CreateCommunityFormProps = {
-  onSubmit: (fields: Community) => void;
+  onSubmit: (fields: CommunityFieldsSch) => void;
 };
 
 export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {
@@ -20,7 +20,7 @@ export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {
 
     const formData = new FormData(e.currentTarget);
 
-    const result = CommunitySch.safeParse({
+    const result = CommunityFieldsSch.safeParse({
       name: formData.get('name'),
       city: formData.get('city'),
       address: formData.get('address'),

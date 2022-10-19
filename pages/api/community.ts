@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import slugify from 'slugify';
 import { createCommunity } from '../../lib/post/createCommunity';
-import { CommunitySch } from '../../validators/Community';
+import { CommunityFieldsSch } from '../../validators/Community';
 
 export const config = {
   runtime: 'experimental-edge',
@@ -13,7 +13,7 @@ export default async function handler(req: NextRequest) {
   if (req.method === 'POST') {
     try {
       const json: unknown = await req.json();
-      const communityFields = CommunitySch.parse(json);
+      const communityFields = CommunityFieldsSch.parse(json);
 
       // throws error if bad data is provided
       await createCommunity({ ...communityFields, slug: slugify(communityFields.name) });

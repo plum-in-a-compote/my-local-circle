@@ -14,7 +14,7 @@ export const HeaderLink = ({ href, content }: HeaderLinkProps) => {
   return (
     <li
       className={cx(
-        'w-full px-3 py-2 rounded sm:w-fit sm:px-2 sm:py-1.5 lg:px-4 lg:py-3',
+        'w-full max-w-xs mx-auto px-3 py-2 rounded sm:w-fit sm:px-2 sm:py-1.5 lg:px-4 lg:py-3',
         active && 'bg-gray-200',
       )}
     >

@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <header className="bg-gray-50 sticky top-0">
       <Container
-        className="relative py-4 sm:py-5 lg:py-6 sm:flex sm:flex-row-reverse sm:justify-between"
+        className="py-4 sm:py-5 lg:py-6 sm:flex sm:flex-row-reverse sm:justify-between"
         as="nav"
       >
         <div className="w-full flex justify-between items-center sm:w-fit">
@@ -49,7 +49,7 @@ export const Header = () => {
           )}
         >
           <HeaderLink href="/" content="Strona główna" />
-          <HeaderLink href="/communities" content="Społeczności" />
+          <HeaderLink href="/community" content="Społeczności" />
           <HeaderLink href="/budgets" content="Budżety" />
         </ul>
       </Container>
