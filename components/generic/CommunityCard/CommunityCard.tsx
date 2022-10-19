@@ -28,11 +28,13 @@ export const CommunityCard = ({
         <article className="flex flex-col px-3 py-4 border border-gray-200 rounded transition group-hover:border-blue-200 group-focus:border-blue-200">
           <div className="flex gap-2 items-end mb-2">
             <CommunityIcon className="flex-shrink-0" />
-            <h2 className="truncate text-sm font-semibold text-blue-800 group-hover:underline">
+            <h2 className="truncate text-sm font-semibold text-blue-800 group-hover:underline lg:text-base">
               {name}
             </h2>
           </div>
-          <p className="mb-5 text-xs leading-5 font-normal text-gray-700">{description}</p>
+          <p className="mb-5 text-xs leading-5 font-normal text-gray-700 lg:text-sm lg:leading-6">
+            {description}
+          </p>
           <CommunityQuickStats city={city} projectsNo={projectsNo} usersNo={usersNo} />
         </article>
       </a>

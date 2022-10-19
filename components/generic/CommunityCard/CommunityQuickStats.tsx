@@ -13,7 +13,7 @@ export const CommunityQuickStats = ({ city, projectsNo, usersNo }: CommunityQuic
     <div className="flex flex-wrap gap-5">
       <div className="min-w-min flex items-center gap-1">
         <LocationFilledIcon className="fill-amber-500" />
-        <span className="w-32 truncate text-xs font-normal text-gray-700">{city}</span>
+        <span className="w-32 truncate text-xs font-normal text-gray-700 lg:w-auto">{city}</span>
       </div>
       <div className="flex items-center gap-1">
         <ProjectIcon />

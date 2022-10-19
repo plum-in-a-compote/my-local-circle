@@ -14,7 +14,7 @@ export const SmallCommunityAddIcon = ({
 }: SmallCommunityAddIconProps) => {
   return (
     <svg
-      className={cx('fill-gray-700', className)}
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}

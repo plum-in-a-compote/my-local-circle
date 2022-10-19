@@ -13,7 +13,12 @@ export const Header = () => {
   const toggleMobileMenu = useCallback(() => setMobileMenuOpened((p) => !p), []);
 
   return (
-    <header className="bg-gray-50 sticky top-0">
+    <header
+      className={cx(
+        'bg-gray-50 border-gray-300 sticky top-0 sm:border-b',
+        !mobileMenuOpened && 'border-b',
+      )}
+    >
       <Container
         className="py-4 sm:py-5 lg:py-6 sm:flex sm:flex-row-reverse sm:justify-between"
         as="nav"
@@ -28,15 +33,21 @@ export const Header = () => {
             <MenuIcon />
           </button>
           <div className="flex gap-3">
-            <Link href="/account">
-              <a aria-label="Przejdź do strony powiadomień.">
-                <NotificationsIcon />
+            <Link href="/notifications">
+              <a
+                className="transition group block p-0.5 rounded-full hover:bg-blue-100 focus:bg-blue-100"
+                aria-label="Przejdź do strony powiadomień."
+              >
+                <NotificationsIcon className="transition group-hover:fill-blue-800 group-focus:fill-blue-800" />
               </a>
             </Link>
 
-            <Link href="/notifications">
-              <a aria-label="Przejdź do ustawień konta.">
-                <AccountIcon />
+            <Link href="/account">
+              <a
+                className="transition group block p-0.5 rounded-full hover:bg-blue-100 focus:bg-blue-100"
+                aria-label="Przejdź do ustawień konta."
+              >
+                <AccountIcon className="transition group-hover:fill-blue-800 group-focus:fill-blue-800" />
               </a>
             </Link>
           </div>
