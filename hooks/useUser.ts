@@ -19,7 +19,7 @@ export const useUser = () => {
   return {
     user: data,
     logged: Boolean(data?.id),
-    isLoading,
+    isLoading: status === 'loading',
     error,
   };
 };
