@@ -53,32 +53,31 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
         onSubmit={handleSubmit}
         className="sm:grid sm:grid-cols-2 sm:gap-x-12 flex flex-col sm:items-start gap-4 sm:col-end-2"
       >
-        <fieldset className="flex flex-col gap-4">
+        <fieldset className="flex flex-col gap-4 lg:gap-6">
           <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
           <Textarea name="description" label="Opis" />
-          <div className="grid-col-2">
-            <Select
-              name="admin"
-              label="Administrator"
-              options={[
-                // MOCKED DATA
-                { name: 'Ja', value: 'moje_uid' },
-                { name: 'Ty', value: 'twoje_uid' },
-              ]}
-            />
-          </div>
+          {/* @todo wisnie */}
+          <Select
+            name="admin"
+            label="Administrator"
+            options={[
+              // MOCKED DATA
+              { name: 'Ja', value: 'moje_uid' },
+              { name: 'Ty', value: 'twoje_uid' },
+            ]}
+          />
         </fieldset>
 
         <fieldset className="rounded mt-4 sm:mt-0">
           <Input
-            className="mb-2"
+            className="mb-2 lg:mb-6"
             name="estimatedCost"
             label="Wielkość budżetu"
             type="text"
             unit="PLN"
             placeholder="1000"
           />
-          <Text className="mt-4 mb-2" content="Typ budżetu" />
+          <Text className="mt-4 mb-2 lg:text-sm lg:leading-5" content="Typ budżetu" />
           <BudgetTypeRadio />
         </fieldset>
 
