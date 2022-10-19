@@ -22,8 +22,8 @@ export const Radio = ({
   onChange,
 }: RadioProps) => {
   return (
-    <div className={cx('px-2 py-3 border-gray-300', checked && 'bg-blue-50', className)}>
-      <label className="flex gap-4 mb-2 items-center">
+    <label className={cx('block px-2 py-3 border-gray-300', checked && 'bg-blue-50', className)}>
+      <div className="flex gap-3.5 mb-2 items-center">
         <input
           className="w-3.5 h-3.5 lg:w-4 lg:h-4 border-4 border-gray-200 rounded-full focus:ring-blue-300 checked:text-blue-800 checked:border-blue-700 checked:bg-transparent checked:focus:border-blue-700 checked:focus:bg-transparent"
           type="radio"
@@ -41,8 +41,8 @@ export const Radio = ({
         >
           {label}
         </span>
-      </label>
-      <Text className={cx(checked && 'text-blue-700')} content={description} />
-    </div>
+      </div>
+      <Text className={cx('ml-7', checked && 'text-blue-700')} content={description} />
+    </label>
   );
 };
