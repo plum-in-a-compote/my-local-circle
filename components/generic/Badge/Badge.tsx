@@ -14,7 +14,9 @@ type BadgeProps = {
 export const Badge = ({ textContent, color }: BadgeProps) => {
   return (
     <div className={cx('flex pb-0.5 px-2 rounded-3xl', colors[color][0])}>
-      <span className={cx('text-xs leading-4 font-normal', colors[color][1])}>{textContent}</span>
+      <span className={cx('text-xs leading-4 font-normal lg:text-sm', colors[color][1])}>
+        {textContent}
+      </span>
     </div>
   );
 };
