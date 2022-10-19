@@ -2,7 +2,6 @@ import { Notification } from '../../../validators/Notification';
 import { NotificationItem } from '../Notification/NotificationItem';
 
 type NotificationListProps = {
-  // Placeholder type
   notifications: Notification[];
 };
 
@@ -13,8 +12,7 @@ export const NotificationList = ({ notifications }: NotificationListProps) => {
         <li key={notification.id}>
           <NotificationItem
             notificationType={notification.notificationType}
-            // fix naming in getFunc
-            groupName={notification.communityName}
+            communityName={notification.communityName}
             isNew={true}
           />
         </li>

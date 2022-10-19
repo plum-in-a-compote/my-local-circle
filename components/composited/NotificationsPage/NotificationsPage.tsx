@@ -1,6 +1,7 @@
 import { Fragment, MouseEventHandler } from 'react';
 import { Heading } from '../../generic/Heading/Heading';
 import { LinkButton } from '../../generic/LinkButton/LinkButton';
+import { PreferencesForm } from '../PreferencesForm/PreferencesForm';
 import { NotificationList } from './NotificationList';
 
 export const NotificationsPage = () => {
@@ -9,7 +10,7 @@ export const NotificationsPage = () => {
 
   return (
     <Fragment>
-      <section className="sm:grid sm:grid-cols-2">
+      <section className="mb-16 sm:grid sm:grid-cols-2">
         <Heading
           className="mb-3 sm:mb-8"
           as="h1"
@@ -47,7 +48,17 @@ export const NotificationsPage = () => {
           onClick={handleLoadMore}
         />
       </section>
-      <section>{/* Preferences */}</section>
+      <section>
+        <Heading className="mb-6 text-gray-700" as="h1" variant="smBold" content="Personalizacja" />
+        <PreferencesForm
+          preferences={{
+            applicationAccepted: true,
+            newApplication: false,
+            newProject: true,
+            projectVotingComplete: false,
+          }}
+        />
+      </section>
     </Fragment>
   );
 };

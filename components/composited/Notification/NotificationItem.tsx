@@ -7,14 +7,13 @@ import { getNotificationContents, NotificationType } from './getNotificationCont
 
 type NotificationItemProps = {
   notificationType: NotificationType;
-  groupName: string;
+  communityName: string;
   isNew?: boolean;
 };
 
-// groupName will prob have different format in db, such as group-name, but for now we assume the format is Group Name
 export const NotificationItem = ({
   notificationType,
-  groupName,
+  communityName,
   isNew = false,
 }: NotificationItemProps) => {
   const [name, descPart1, descPart2] = getNotificationContents(notificationType);
@@ -29,8 +28,8 @@ export const NotificationItem = ({
       </div>
       <div>
         <Text className="sm:text-sm" as="span" content={descPart1} />
-        <Link href={`/communities/${groupName}`}>
-          <LinkButton textContent={groupName} />
+        <Link href={`/communities/${communityName}`}>
+          <LinkButton textContent={communityName} />
         </Link>
         <Text className="sm:text-sm" as="span" content={descPart2} />
       </div>

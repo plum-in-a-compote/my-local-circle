@@ -11,8 +11,8 @@ export const getNotificationContents = (notificationName: NotificationType) => {
     case 'newApplication':
       return ['Nowe podanie', 'Pojawiło się nowe podanie do twojej grupy ', '.'];
     case 'newProject':
-      return ['Nowy projekt', 'Utworzono nową propozycję zagospodarowania budżetu w grupie ', '.'];
+      return ['Nowy projekt', 'Utworzono nowy projekt zagospodarowania budżetu w grupie ', '.'];
     case 'projectVotingComplete':
-      return ['Gotowy projekt', 'Projekt w grupie ', ' oczekuje rozpatrzenia.'];
+      return ['Zakończenie głosowania', 'Projekt w grupie ', ' oczekuje rozpatrzenia.'];
   }
 };
