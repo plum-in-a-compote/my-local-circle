@@ -8,10 +8,11 @@ export const getCommunity = async (id: string) => {
     throw new Error(error.message);
   }
 
-  const communities = CommunitySch.safeParse(data);
-  if (!communities.success) {
-    throw new Error(communities.error.message);
+  // always returns an array
+  const community = CommunitySch.safeParse(data[0]);
+  if (!community.success) {
+    throw new Error(community.error.message);
   }
 
-  return communities.data;
+  return community.data;
 };
