@@ -2,7 +2,7 @@ import { Community } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 import { CommunityStat } from './CommunityStat';
 
-type CommunityPageProps = {
+export type CommunityPageProps = {
   community: Community;
 };
 
