@@ -2,6 +2,7 @@ import { FormEventHandler, useRef, useState } from 'react';
 import { useUser } from '../../../hooks/useUser';
 import { CommunityFieldsSch } from '../../../validators/Community';
 import { Button } from '../../generic/Button/Button';
+import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 import { Textarea } from '../../generic/Textarea/Textarea';
 
@@ -41,6 +42,12 @@ export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4 sm:col-end-2">
+      {inputErrorMessage && (
+        <ErrorMessage
+          title="Błąd danych wejściowych!"
+          description="Wystąpił błąd wpisanych danych, sprawdź ich poprawność. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+        />
+      )}
       <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
       <Input
         name="city"
@@ -48,7 +55,7 @@ export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {
         type="text"
         placeholder="Ostrowiec Św."
       />
-      <Input name="addres" label="Dokładny adres" type="text" placeholder="Ostrowiec Św." />
+      <Input name="address" label="Dokładny adres" type="text" placeholder="Ostrowiec Św." />
       <Textarea name="description" label="Opis" />
       <Button type="submit" content="Utwórz lokalną społeczność" variant="primary" />
     </form>
