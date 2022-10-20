@@ -4,22 +4,25 @@ Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mi
 
 ## Architektura
 
-Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Framework [Next.js](https://nextjs.org/) umożliwia m.in. statyczne generowanie stron (SSG), czy stworzenie prostego serwera HTTP (API Routes).
+Aplikacja została w całości napisana w języku Typescript. Naszym zdaniem jest to najlepsze podejście do pisania złożonych aplikacji internetowych ze względu na ułatwienie pracy dewelopera i podpowiedzi jakie na podstawie typów generuje IDE. Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Framework [Next.js](https://nextjs.org/) umożliwia m.in. statyczne generowanie stron (SSG), czy stworzenie prostego serwera HTTP (API Routes).
 
 
 ### TLDR;
 
 - **Next.js** (serwer HTTP, SSG, SSR),
 - **React** (komponenty),
-- **Tailwind.CSS** (predefiniowany zbiór wartości),
+- **Tailwindcss** (predefiniowany zbiór wartości),
 - **Supabase, PostgreSQL** (baza danych),
 - **React Query** (pobieranie, cache danych po stronie klienta),
-- **zod** (walidacja danych, generowanie typów)
+- **Zod** (walidacja danych, generowanie typów)
 
 ### Front-end
 
+Podczas korzystania z naszej strony może się wydawać, że wszystkie strony ładują się praktycznie tak szybko jak czysty HTML, dokładnie tak jest - no... prawie. Używamy tutaj czegoś co nazywa się **SSG (Static site generation)**, co pozwala na wcześniejsze wyrenderowanie stron z dynamiczną treścią, co pozwala serwować klientowi stronę w HTMLu, a po załadowaniu strona stanie się aktywna poprzez proces zwany hydracją. Dodatkowo wszystkie strony co jakiś czas są budowane od początku z najnowszymi danymi, co pozwala uzyskać świetny stosunek optymalizacji co do aktualności danych.
 
+Oczywiście to rozwiązanie nie jest idealne dla stron, które zawierają dane prywatne np. konto użytkownika, czy budżety społeczności, natomiast w tym wypadku używamy biblioteki `react-query`, która pobiera dane po stronie klienta, korzystając z techniki `stale-while-revalidate`, co również wpływa bardzo korzystnie na wydajność strony.
 
+W celu zapewnienia poprawności formatu wprowadzanych pól (co pozwala na wcześniejszy feedback dla użytkownika), używamy biblioteki do walidacji `zod`. Dzięki niej możemy tworzyć "schematy" jaki musi przyjąć obiekt z danymi, a następnie sprawdzamy (parsujemy) input od użytkownika. 
 
 ### Baza danych
 

@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { useAddCommunity } from '../../../hooks/useCreateCommunity';
 import { CommunityFieldsSch } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 import { CreateCommunityForm } from '../CreateCommunityForm/CreateCommunityForm';
+import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
 
 export const CreateCommunityPage = () => {
   const mutation = useAddCommunity();
@@ -24,6 +24,9 @@ export const CreateCommunityPage = () => {
         variant="base"
         displayDecorationBorder={true}
       />
+      {mutation.isSuccess && (
+        <SuccessMessage title="Poprawnie utworzono Twoją nową społeczność! Za chwilę zostaniesz do niej przekierowany!" />
+      )}
       <CreateCommunityForm onSubmit={handleSubmit} />
     </section>
   );

@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <header
       className={cx(
-        'bg-gray-50 border-gray-300 sticky top-0 sm:border-b',
+        'z-10 bg-gray-50 border-gray-300 sticky top-0 sm:border-b',
         !mobileMenuOpened && 'border-b',
       )}
     >

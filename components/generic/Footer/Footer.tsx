@@ -1,5 +1,4 @@
 import { Container } from '../Container/Container';
-import { Text } from '../Text/Text';
 
 // @todo use Heading & define Text variant
 export const Footer = () => {
