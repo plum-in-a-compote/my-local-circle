@@ -19,7 +19,7 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
 
   const handleJoinRequest = () => {
     const userId = data?.id;
-    if (userId) {
+    if (userId && community.id) {
       mutation.mutate({ userId, communityId: community.id });
     }
   };
