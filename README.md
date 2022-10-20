@@ -18,8 +18,7 @@ Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Fra
 
 ### Front-end
 
-
-
+Podczas korzystania z naszej strony może się wydawać, że wszystkie strony ładują się praktycznie tak szybko jak czysty HTML, dokładnie tak jest - no... prawie. Używamy tutaj czegoś co nazywa się **SSG (Static site generation)**, co pozwala na wcześniejsze wyrenderowanie stron z dynamiczną treścią, co pozwala serwować klientowi stronę w HTMLu, a po załadowaniu strona stanie się aktywna poprzez proces zwany hydracją. Dodatkowo wszystkie strony co jakiś czas są budowane od początku z najnowszymi danymi, co pozwala uzyskać świetny stosunek optymalizacji co do aktualności danych. Oczywiście to rozwiązanie nie jest idealne...
 
 ### Baza danych
 
