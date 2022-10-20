@@ -1,5 +1,6 @@
-# My local circle
+![gh_logo](https://user-images.githubusercontent.com/47081011/196943916-89f37c2f-d121-4022-9b2e-e03569d75534.svg)
 
+# Aplikacja
 
 ## Konwencje nazewnictwa i struktura
 
