@@ -1,10 +1,23 @@
 # My local circle
 
-Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne pomysły. Jako uczestnik społeczności możesz tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji.
+Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne pomysły. Jako uczestnik społeczności możesz tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji. Wspieramy także interfejs w języku ukraińskim, wykorzustując prostą autorską bibliotekę do mapowania danych.
 
 ## Architektura
 
+Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Framework [Next.js](https://nextjs.org/) umożliwia m.in. statyczne generowanie stron (SSG), czy stworzenie prostego serwera HTTP (API Routes).
+
+
+### TLDR;
+
+- **Next.js** (serwer HTTP, SSG, SSR),
+- **React** (komponenty),
+- **Tailwind.CSS** (predefiniowany zbiór wartości),
+- **Supabase, PostgreSQL** (baza danych),
+- **React Query** (pobieranie, cache danych po stronie klienta),
+- **zod** (walidacja danych, generowanie typów)
+
 ### Front-end
+
 
 
 
