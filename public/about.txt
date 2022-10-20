@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Irish Grover
+- Font Author: Copyright (c) 2010 by Font Diner, Inc DBA Sideshow. All rights reserved.
+- Font Source: http://fonts.gstatic.com/s/irishgrover/v23/buExpoi6YtLz2QW7LA4flVgf-P5Oaiw4cw.ttf
+- Font License: Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html))
