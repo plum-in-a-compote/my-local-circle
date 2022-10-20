@@ -1,4 +1,3 @@
-import { clsx as cx } from 'clsx';
 import { SMALL_HEIGHT, SMALL_WIDTH } from './constants';
 
 type SmallCommunityAddIconProps = {
