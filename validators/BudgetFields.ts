@@ -5,6 +5,7 @@ export const BudgetSch = z.object({
   description: z.string(),
   budgetType: z.enum(['static', 'progressive']),
   estimatedCost: z.number(),
+  // Zod docs recommended way of accepting dates as strings
   estimatedRealizationDate: z.preprocess((arg) => {
     if (typeof arg == 'string' || arg instanceof Date) return new Date(arg);
   }, z.date()),
