@@ -11,10 +11,10 @@ Aplikacja została w całości napisana w języku Typescript. Naszym zdaniem jes
 
 - **Next.js** (serwer HTTP, SSG, SSR),
 - **React** (komponenty),
-- **Tailwind.CSS** (predefiniowany zbiór wartości),
+- **Tailwindcss** (predefiniowany zbiór wartości),
 - **Supabase, PostgreSQL** (baza danych),
 - **React Query** (pobieranie, cache danych po stronie klienta),
-- **zod** (walidacja danych, generowanie typów)
+- **Zod** (walidacja danych, generowanie typów)
 
 ### Front-end
 
