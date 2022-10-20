@@ -1,17 +1,18 @@
 import { CommunitySch } from '../../validators/Community';
 import { supabase } from '../supabase';
 
-export const getCommunity = async (id: string) => {
-  const { data, error } = await supabase.from('Community').select('*').eq('id', id);
+export const getCommunityBySlug = async (slug: string) => {
+  const { data, error } = await supabase.from('Community').select('*').eq('slug', slug);
 
   if (error) {
     throw new Error(error.message);
   }
 
-  const communities = CommunitySch.safeParse(data);
-  if (!communities.success) {
-    throw new Error(communities.error.message);
+  // always returns an array
+  const community = CommunitySch.safeParse(data[0]);
+  if (!community.success) {
+    throw new Error(community.error.message);
   }
 
-  return communities.data;
+  return community.data;
 };

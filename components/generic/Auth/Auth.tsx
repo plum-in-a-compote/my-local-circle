@@ -4,17 +4,18 @@ import { useUser } from '../../../hooks/useUser';
 
 type AuthProps = {
   children: React.ReactNode;
+  forceRedirect?: boolean;
 };
 
-export const Auth = ({ children }: AuthProps) => {
+export const Auth = ({ children, forceRedirect = true }: AuthProps) => {
   const router = useRouter();
   const { isLoading, logged } = useUser();
 
   useEffect(() => {
-    if (!isLoading && !logged) {
+    if (!isLoading && !logged && forceRedirect) {
       void router.push('/signin');
     }
-  }, [isLoading, logged, router]);
+  }, [forceRedirect, isLoading, logged, router]);
 
   // if (!logged) {
   //   return null;
