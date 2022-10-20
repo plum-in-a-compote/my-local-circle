@@ -1,10 +1,18 @@
 # My local circle
 
-Krótki opis
 
-## Language & architecture
+## Konwencje nazewnictwa i struktura
 
-## Files & directories
+### Komponenty
+- `components` - katalog ze wszystkimi komponentami strony,
+- `components/generic` - reużywalne (lub potencjalnie reużywalne) komponenty strony,
+- `components/composited` - komponenty, które są używane jako podstrona,
+- `[NazwaStrony]Page` - plik z podstroną, używany potem w strukturze `/pages/...`,
 
-- "TestPage" for components representing pages (components/composited/...)
-- "test" for Next page files (pages/...)
+### Pozostałe
+- `validators` - katalog z validatorami do pobieranych danych,
+- `hooks` - katalog z `React hooks` (używane w komponentach), 
+
+## Architektura
+
+
