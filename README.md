@@ -25,5 +25,8 @@ Część zapytań jest wysyłana na nasz serwer Proxy (`/pages/api`), aby zapewn
 - `[NazwaStrony]Page` - plik z podstroną, używany potem w strukturze `/pages/...`,
 
 ### Pozostałe
-- `validators` - katalog z validatorami do pobieranych danych,
+- `lib` - funkcje do interakcji z innymi API, najczęściej do pobierania danych,
+- `validators` - katalog z walidatorami do pobieranych danych,
 - `hooks` - katalog z `React hooks` (używane w komponentach), 
+- `constants` - stałe globalne,
+- `styles` - globalny CSS (dodanie klas Tailwind.CSS)
