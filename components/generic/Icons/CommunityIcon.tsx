@@ -1,17 +1,17 @@
 import { clsx as cx } from 'clsx';
 import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from './constants';
 
-type UnfoldMoreIconProps = {
+type CommunityIconProps = {
   width?: number;
   height?: number;
   className?: string;
 };
 
-export const UnfoldMoreIcon = ({
+export const CommunityIcon = ({
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
   className,
-}: UnfoldMoreIconProps) => {
+}: CommunityIconProps) => {
   return (
     <svg
       className={cx('fill-gray-700', className)}
@@ -23,7 +23,7 @@ export const UnfoldMoreIcon = ({
       focusable={false}
     >
       <path d="M0 0h24v24H0V0z" fill="none" />
-      <path d="M12 5.83l2.46 2.46c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L12.7 3.7c-.39-.39-1.02-.39-1.41 0L8.12 6.88c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 5.83zm0 12.34l-2.46-2.46c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l3.17 3.18c.39.39 1.02.39 1.41 0l3.17-3.17c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L12 18.17z" />
+      <path d="M12 7V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-8zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm9 12h-7v-2h2v-2h-2v-2h2v-2h-2V9h7c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1zm-1-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
     </svg>
   );
 };

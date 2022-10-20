@@ -1,9 +1,19 @@
+import { useCallback } from 'react';
+import { useAddCommunity } from '../../../hooks/useCreateCommunity';
+import { CommunityFieldsSch } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
-import { Input } from '../../generic/Input/Input';
-import { Text } from '../../generic/Text/Text';
-import { TextArea } from '../../generic/TextArea/TextArea';
+import { CreateCommunityForm } from '../CreateCommunityForm/CreateCommunityForm';
 
 export const CreateCommunityPage = () => {
+  const mutation = useAddCommunity();
+
+  const handleSubmit = useCallback(
+    (fields: CommunityFieldsSch) => {
+      mutation.mutate(fields);
+    },
+    [mutation],
+  );
+
   return (
     <section className="sm:grid sm:grid-cols-2">
       <Heading
@@ -13,21 +23,7 @@ export const CreateCommunityPage = () => {
         variant="base"
         displayDecorationBorder={true}
       />
-      <form className="flex flex-col gap-4 sm:col-end-2">
-        <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
-        <Input
-          name="city"
-          label="Miejscowość / Miasto / Region"
-          type="text"
-          placeholder="Ostrowiec Św."
-        />
-        <TextArea name="description" label="Opis" />
-        <Text content="Użytkownicy" as="span" />
-        {/* 
-          Todo by Bartek 
-          User email input and added users list
-        */}
-      </form>
+      <CreateCommunityForm onSubmit={handleSubmit} />
     </section>
   );
 };
