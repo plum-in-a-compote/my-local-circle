@@ -10,7 +10,7 @@ type ButtonProps = {
 };
 
 const variants = {
-  primary: 'bg-blue-700 text-indigo-50 font-semibold hover:bg-blue-500',
+  primary: 'bg-blue-700 text-white font-semibold hover:bg-blue-500',
   secondary: 'bg-blue-100 text-blue-800 font-semibold',
   secondaryLight: 'bg-blue-100 text-blue-800 font-normal',
   secondaryGray: 'bg-gray-200 text-gray-800 font-normal',

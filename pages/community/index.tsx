@@ -2,16 +2,14 @@ import { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import { CommunityCard } from '../../components/generic/CommunityCard/CommunityCard';
-import { Container } from '../../components/generic/Container/Container';
+import {
+  CommunitiesPage,
+  CommunitiesPageProps,
+} from '../../components/composited/CommunitiesPage/CommunitiesPage';
 import { getCommunities } from '../../lib/get/getCommunities';
-import { Community } from '../../validators/Community';
+import { MainLayout } from '../../components/generic/MainLayout/MainLayout';
 
-type PageProps = {
-  communities: Community[];
-};
-
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
+export const getStaticProps: GetStaticProps<CommunitiesPageProps> = async () => {
   const communities = await getCommunities();
 
   return {
@@ -21,26 +19,15 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
   };
 };
 
-const Account: NextPage<PageProps> = ({ communities }) => {
+const Communities: NextPage<CommunitiesPageProps> = ({ communities }) => {
   return (
-    <Container as="main">
+    <MainLayout>
       <Head>
-        <title>Ustawienia konta - My Local Circle</title>
+        <title>Społeczności - My Local Circle</title>
       </Head>
-      {communities.map(({ city, name }) => {
-        return (
-          <CommunityCard
-            key={name}
-            name={name}
-            city={city}
-            projectNo={42}
-            usersNo={31}
-            description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt in dignissimos possimus cum fugit id!"
-          />
-        );
-      })}
-    </Container>
+      <CommunitiesPage communities={communities} />
+    </MainLayout>
   );
 };
 
-export default Account;
+export default Communities;
