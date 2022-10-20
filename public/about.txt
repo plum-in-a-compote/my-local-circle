@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: Irish Grover
-- Font Author: Copyright (c) 2010 by Font Diner, Inc DBA Sideshow. All rights reserved.
-- Font Source: http://fonts.gstatic.com/s/irishgrover/v23/buExpoi6YtLz2QW7LA4flVgf-P5Oaiw4cw.ttf
-- Font License: Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html))
+- Font Title: Leckerli One
+- Font Author: Copyright (c) 2011 Gesine Todt (www.gesine-todt.de), with Reserved Font Names "Leckerli"
+- Font Source: http://fonts.gstatic.com/s/leckerlione/v16/V8mCoQH8VCsNttEnxnGQ-1itLZxcBtItFw.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
