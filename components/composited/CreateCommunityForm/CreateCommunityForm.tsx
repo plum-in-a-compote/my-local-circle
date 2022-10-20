@@ -1,9 +1,8 @@
 import { FormEventHandler, useRef, useState } from 'react';
 import { useUser } from '../../../hooks/useUser';
-import { Community, CommunityFieldsSch } from '../../../validators/Community';
+import { CommunityFieldsSch } from '../../../validators/Community';
 import { Button } from '../../generic/Button/Button';
 import { Input } from '../../generic/Input/Input';
-import { Text } from '../../generic/Text/Text';
 import { Textarea } from '../../generic/Textarea/Textarea';
 
 type CreateCommunityFormProps = {
