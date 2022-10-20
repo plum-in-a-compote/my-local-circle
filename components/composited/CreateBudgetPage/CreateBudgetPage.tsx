@@ -21,7 +21,7 @@ export const CreateBudgetPage = () => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Nie udało się zalogować!"
-          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
       {createNewBudget.isSuccess && (

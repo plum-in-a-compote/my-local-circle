@@ -2,13 +2,13 @@ import { NextPage } from 'next';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 
-import { MainLayout } from '../../components/generic/MainLayout/MainLayout';
+import { MainLayout } from '../../../components/generic/MainLayout/MainLayout';
 import {
   CommunityPage,
   CommunityPageProps,
-} from '../../components/composited/CommunityPage/CommunityPage';
-import { getCommunityBySlug } from '../../lib/get/getCommunity';
-import { getCommunities } from '../../lib/get/getCommunities';
+} from '../../../components/composited/CommunityPage/CommunityPage';
+import { getCommunityBySlug } from '../../../lib/get/getCommunity';
+import { getCommunities } from '../../../lib/get/getCommunities';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const communities = await getCommunities();
