@@ -3,7 +3,7 @@ import { clsx as cx } from 'clsx';
 type InputProps = {
   name: string;
   label: string;
-  type: 'text' | 'email' | 'password' | 'tel';
+  type: 'text' | 'email' | 'password' | 'tel' | 'date';
   defaultValue?: string;
   placeholder?: string;
   required?: boolean;

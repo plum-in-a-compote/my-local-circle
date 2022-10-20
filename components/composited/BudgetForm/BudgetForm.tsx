@@ -5,15 +5,15 @@ import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 import { BudgetTypeRadio } from '../BudgetTypeRadio/BudgetTypeRadio';
 import { Select } from '../../generic/Select/Select';
-import { Text } from '../../generic/Text/Text';
 import { Textarea } from '../../generic/Textarea/Textarea';
+import { useUser } from '../../../hooks/useUser';
 
 type BudgetFormProps = {
   onSubmit: (fields: BudgetFields) => void;
 };
 
-// TO BE FETCHED - DATA ABOUT USERS TO BE SET AS ADMIN
 export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
+  const { data: user } = useUser();
   const formRef = useRef<HTMLFormElement>(null);
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
 
@@ -27,6 +27,8 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
       description: formData.get('description'),
       budgetType: formData.get('budgetType'),
       estimatedCost: Number(formData.get('estimatedCost')),
+      estimatedRealizationDate: formData.get('estimatedRealizationDate'),
+      coordinator: user?.id,
     });
 
     if (result.success) {
@@ -56,6 +58,7 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
         <fieldset className="flex flex-col gap-4 lg:gap-6">
           <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
           <Textarea name="description" label="Opis" />
+          <Input name="estimatedRealizationDate" label="Przewidywana data realizacji" type="date" />
           {/* @todo wisnie */}
           <Select
             name="admin"
@@ -77,10 +80,8 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
             unit="PLN"
             placeholder="1000"
           />
-          <Text className="mt-4 mb-2 lg:text-sm lg:leading-5" content="Typ budżetu" />
           <BudgetTypeRadio />
         </fieldset>
-
         <Button className="px-3 mt-10" content="Dodaj budżet" variant="primary" type="submit" />
       </form>
     </Fragment>

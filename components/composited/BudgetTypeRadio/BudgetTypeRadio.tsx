@@ -1,4 +1,4 @@
-import { ChangeEventHandler, Fragment, useCallback, useState } from 'react';
+import { ChangeEventHandler, useCallback, useState } from 'react';
 import { Radio } from '../../generic/Radio/Radio';
 
 export const BudgetTypeRadio = () => {
@@ -9,7 +9,10 @@ export const BudgetTypeRadio = () => {
   }, []);
 
   return (
-    <Fragment>
+    <fieldset>
+      <span className="block mb-2 text-xs leading-4 font-normal text-gray-800 lg:text-sm lg:leading-5">
+        Typ budżetu
+      </span>
       <Radio
         className="border-x border-t rounded-t"
         name="budgetType"
@@ -28,6 +31,6 @@ export const BudgetTypeRadio = () => {
         checked={!checked}
         onChange={handleRadioChange}
       />
-    </Fragment>
+    </fieldset>
   );
 };
