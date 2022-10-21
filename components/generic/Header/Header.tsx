@@ -57,7 +57,7 @@ export const Header = () => {
             )}
           >
             <HeaderLink href="/" content="Strona główna" />
-            <HeaderLink href="/community" content="Społeczności" />
+            <HeaderLink href="/communities" content="Społeczności" />
             <HeaderLink href="/budgets" content="Budżety" />
           </ul>
         </div>
