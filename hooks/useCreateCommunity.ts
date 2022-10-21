@@ -4,6 +4,6 @@ import { CommunityFieldsSch } from '../validators/Community';
 
 export const useAddCommunity = () => {
   return useMutation<unknown, unknown, CommunityFieldsSch>((fields) =>
-    fetcher('/api/community', fields),
+    fetcher('/api/communities', fields),
   );
 };
