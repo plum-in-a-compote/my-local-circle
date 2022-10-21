@@ -36,11 +36,11 @@ export const ProjectCard = ({ fields }: ProjectCardProps) => {
             items={[
               {
                 label: 'Przewidywany koszt',
-                value: fields.estimatedCost,
+                value: fields.estimatedCost.toString(),
               },
               {
                 label: 'Data realizacji',
-                value: fields.estimatedRealizationDate,
+                value: fields.estimatedRealisationDate,
               },
               {
                 label: 'Miejsce',
