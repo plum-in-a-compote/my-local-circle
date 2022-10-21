@@ -7,12 +7,15 @@ import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderLink } from './HeaderLink';
 import { NavigationIcons } from './NavigationIcons';
 
-import {
-  DESKTOP_LOGO_HEIGHT,
-  DESKTOP_LOGO_WIDTH,
-  TABLET_LOGO_HEIGHT,
-  TABLET_LOGO_WIDTH,
-} from '../../../constants/header';
+import logoLg from '../../../public/logo_lg.png';
+
+export const Logo = () => {
+  return (
+    <div className="hidden sm:block w-9 h-9 sm:w-12 sm:h-12">
+      <Image layout="intrinsic" src={logoLg} alt="Logo My local circle." />
+    </div>
+  );
+};
 
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
@@ -42,12 +45,7 @@ export const Header = () => {
         </div>
 
         <div className="sm:flex sm:gap-10 lg:gap-12">
-          <div className="w-9 h-9 hidden sm:block lg:hidden">
-            <Image src="/logo.png" width={TABLET_LOGO_WIDTH} height={TABLET_LOGO_HEIGHT} alt="" />
-          </div>
-          <div className="w-12 h-12 hidden lg:block">
-            <Image src="/logo.png" width={DESKTOP_LOGO_WIDTH} height={DESKTOP_LOGO_HEIGHT} alt="" />
-          </div>
+          <Logo />
           <ul
             className={cx(
               !mobileMenuOpened && 'hidden sm:flex',
