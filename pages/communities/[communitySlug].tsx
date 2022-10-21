@@ -41,7 +41,7 @@ const Community: NextPage<CommunityPageProps> = ({ community }) => {
   return (
     <MainLayout>
       <Head>
-        <title>Ustawienia konta - My Local Circle</title>
+        <title>{community.name} - My Local Circle</title>
       </Head>
       <CommunityPage community={community} />
     </MainLayout>
