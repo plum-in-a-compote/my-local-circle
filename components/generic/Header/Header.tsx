@@ -1,21 +1,11 @@
 import { useCallback, useState } from 'react';
 import { clsx as cx } from 'clsx';
-import Image from 'next/image';
 
 import { Container } from '../Container/Container';
 import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderLink } from './HeaderLink';
 import { NavigationIcons } from './NavigationIcons';
-
-import logoLg from '../../../public/logo_lg.png';
-
-export const Logo = () => {
-  return (
-    <div className="hidden sm:block w-9 h-9 sm:w-12 sm:h-12">
-      <Image layout="intrinsic" src={logoLg} alt="Logo My local circle." />
-    </div>
-  );
-};
+import { Logo } from './Logo';
 
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
