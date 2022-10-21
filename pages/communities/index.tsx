@@ -8,6 +8,7 @@ import {
 } from '../../components/composited/CommunitiesPage/CommunitiesPage';
 import { getCommunities } from '../../lib/get/getCommunities';
 import { MainLayout } from '../../components/generic/MainLayout/MainLayout';
+import { REVALIDATE_EVERY_MINUTE } from '../../constants/fetch';
 
 export const getStaticProps: GetStaticProps<CommunitiesPageProps> = async () => {
   const communities = await getCommunities();
@@ -16,6 +17,7 @@ export const getStaticProps: GetStaticProps<CommunitiesPageProps> = async () => 
     props: {
       communities,
     },
+    revalidate: REVALIDATE_EVERY_MINUTE,
   };
 };
 
