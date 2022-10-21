@@ -1,7 +1,8 @@
-type Project = {
-  name: string;
-  cost: number;
-};
+import { clsx as cx } from 'clsx';
+import { ChartLegend } from './ChartLegend';
+import { ChartProgress } from './ChartProgress';
+
+import { Project } from './types';
 
 type BudgetChartProps = {
   projects: Project[];
@@ -9,10 +10,9 @@ type BudgetChartProps = {
 
 export const BudgetChart = ({ projects }: BudgetChartProps) => {
   return (
-    <span>
-      <span aria-label="Budowa parku"></span>
-      <span></span>
-      <span></span>
-    </span>
+    <div className="flex flex-col gap-2">
+      <ChartLegend projects={projects} />
+      <ChartProgress projects={projects} />
+    </div>
   );
 };
