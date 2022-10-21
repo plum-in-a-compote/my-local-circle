@@ -7,8 +7,6 @@ import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderLink } from './HeaderLink';
 import { NavigationIcons } from './NavigationIcons';
 
-// best resolution
-import logo from '../../../public/android-chrome-512x512.png';
 import {
   DESKTOP_LOGO_HEIGHT,
   DESKTOP_LOGO_WIDTH,
@@ -45,10 +43,10 @@ export const Header = () => {
 
         <div className="sm:flex sm:gap-10 lg:gap-12">
           <div className="w-9 h-9 hidden sm:block lg:hidden">
-            <Image src={logo} width={TABLET_LOGO_WIDTH} height={TABLET_LOGO_HEIGHT} alt="" />
+            <Image src="/logo.png" width={TABLET_LOGO_WIDTH} height={TABLET_LOGO_HEIGHT} alt="" />
           </div>
           <div className="w-12 h-12 hidden lg:block">
-            <Image src={logo} width={DESKTOP_LOGO_WIDTH} height={DESKTOP_LOGO_HEIGHT} alt="" />
+            <Image src="/logo.png" width={DESKTOP_LOGO_WIDTH} height={DESKTOP_LOGO_HEIGHT} alt="" />
           </div>
           <ul
             className={cx(
