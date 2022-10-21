@@ -29,6 +29,7 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
       estimatedCost: Number(formData.get('estimatedCost')),
       estimatedRealizationDate: formData.get('estimatedRealizationDate'),
       coordinator: user?.id,
+      // communityId:
     });
 
     if (result.success) {
@@ -38,6 +39,7 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
     }
 
     console.log(result.error);
+
     setInputErrorMessage(true);
   };
 

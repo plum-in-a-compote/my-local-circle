@@ -17,9 +17,9 @@ export const Auth = ({ children, forceRedirect = true }: AuthProps) => {
     }
   }, [forceRedirect, isLoading, logged, router]);
 
-  // if (!logged) {
-  //   return null;
-  // }
+  if (!logged) {
+    return null;
+  }
 
   return <Fragment>{children}</Fragment>;
 };
