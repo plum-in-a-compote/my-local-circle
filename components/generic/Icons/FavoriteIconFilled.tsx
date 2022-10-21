@@ -1,17 +1,17 @@
 import { clsx as cx } from 'clsx';
 import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from './constants';
 
-type FavouriteIconFilledProps = {
+type FavoriteIconFilledProps = {
   width?: number;
   height?: number;
   className?: string;
 };
 
-export const FavouriteFilledIcon = ({
+export const FavoriteFilledIcon = ({
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
   className,
-}: FavouriteIconFilledProps) => {
+}: FavoriteIconFilledProps) => {
   return (
     <svg
       className={cx('fill-pink-500', className)}

@@ -4,32 +4,23 @@ import { Heading } from '../../generic/Heading/Heading';
 import { ExpandLessIcon } from '../../generic/Icons/ExpandLessIcon';
 import { ExpandMoreIcon } from '../../generic/Icons/ExpandMoreIcon';
 import { Text } from '../../generic/Text/Text';
-import { TextButton } from '../../generic/TextButton/TextButton';
 import { VoteButton } from '../../generic/VoteButton/VoteButton';
 import { ProjectInfoList } from './ProjectInfoList';
-
-type ProjectCardFields = {
-  title: string;
-  description: string;
-  estimatedCost: string;
-  estimatedRealizationDate: string;
-  place: string;
-  voted: boolean;
-};
+import { Project } from '../../../validators/Project';
 
 type ProjectCardProps = {
-  fields: ProjectCardFields;
+  fields: Project;
 };
 
 export const ProjectCard = ({ fields }: ProjectCardProps) => {
   const [expanded, setExpanded] = useState(false);
   const toggleExpanded = useCallback(() => setExpanded((p) => !p), []);
-  const [voted, setVoted] = useState(fields.voted);
+  const [userVoted, setUserVoted] = useState(fields.voted);
 
-  const handleVote: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleUserVote: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     // @todo Skczu (I hope) When user clicks, set state to true, send POST, if error - display error & set state to false
-    setVoted((prev) => !prev);
+    setUserVoted((prev) => !prev);
   };
 
   return (
@@ -58,8 +49,8 @@ export const ProjectCard = ({ fields }: ProjectCardProps) => {
             ]}
           />
           <div className="flex justify-between items-center mt-3">
-            <form onSubmit={handleVote}>
-              <VoteButton label="Wspieram inicjatywę" type="submit" voted={voted} />
+            <form onSubmit={handleUserVote}>
+              <VoteButton label="Wspieram inicjatywę" type="submit" voted={userVoted} />
             </form>
             <button onClick={toggleExpanded}>
               <ExpandLessIcon width={32} height={32} className="fill-blue-800" />

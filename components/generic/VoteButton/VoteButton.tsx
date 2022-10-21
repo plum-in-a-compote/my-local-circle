@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
-import { FavouriteIcon } from '../Icons/FavouriteIcon';
-import { FavouriteFilledIcon } from '../Icons/FavouriteIconFilled';
+import { FavoriteIcon } from '../Icons/FavoriteIcon';
+import { FavoriteFilledIcon } from '../Icons/FavoriteIconFilled';
 
 type VoteButtonProps = {
   label: string;
@@ -12,7 +12,7 @@ type VoteButtonProps = {
 export const VoteButton = ({ label, type, voted, onClick }: VoteButtonProps) => {
   return (
     <button className="flex items-center gap-1" type={type} onClick={onClick}>
-      {voted ? <FavouriteFilledIcon /> : <FavouriteIcon />}
+      {voted ? <FavoriteFilledIcon /> : <FavoriteIcon />}
       <span className="text-xs leading-4 font-semibold text-gray-600">{label}</span>
     </button>
   );

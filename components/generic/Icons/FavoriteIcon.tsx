@@ -1,16 +1,16 @@
 import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from './constants';
 
-type FavouriteIconProps = {
+type FavoriteIconProps = {
   width?: number;
   height?: number;
   className?: string;
 };
 
-export const FavouriteIcon = ({
+export const FavoriteIcon = ({
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
   className,
-}: FavouriteIconProps) => {
+}: FavoriteIconProps) => {
   return (
     <svg
       className={className}
