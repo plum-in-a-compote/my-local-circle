@@ -1,7 +1,7 @@
 /* TEAM */
 	Lead developer: Bartłomiej Wiśniewski
 	Contact: b.wisniewski128 [at] gmail.com
-  From: Świętokrzyskie, Poland
+	From: Świętokrzyskie, Poland
 
 	Developer: Michał Ołubiec
 	From: Świętokrzyskie, Poland
