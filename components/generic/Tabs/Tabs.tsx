@@ -10,6 +10,7 @@ type Tab<T extends string> = {
 type TabsProps<T extends string, D extends T> = {
   tabs: Tab<T>[];
   defaultActiveTab: D;
+  className?: string;
 };
 
 const Underline = () => {
@@ -23,6 +24,7 @@ const Underline = () => {
 export const Tabs = <T extends string, D extends T>({
   defaultActiveTab,
   tabs,
+  className,
 }: TabsProps<T, D>) => {
   const [activeTab, setActiveTab] = useState<T>(defaultActiveTab);
   const handleTabChange = useCallback((tab: T) => setActiveTab(tab), []);
@@ -34,7 +36,7 @@ export const Tabs = <T extends string, D extends T>({
 
   return (
     <Fragment>
-      <ul className="w-full border-b border-gray-500 flex gap-2" role="tablist">
+      <ul className={cx('w-full border-b border-gray-500 flex gap-2', className)} role="tablist">
         {tabs.map((t) => {
           const selected = t.value === activeTab;
           const handleClick = () => handleTabChange(t.value);
