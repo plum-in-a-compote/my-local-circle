@@ -1,18 +1,18 @@
 import { useState, FormEventHandler, useRef, Fragment } from 'react';
-import { BudgetFields, BudgetSch } from '../../../validators/BudgetFields';
+import { BudgetFields, BudgetFieldsSch } from '../../../validators/BudgetFields';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 import { BudgetTypeRadio } from '../BudgetTypeRadio/BudgetTypeRadio';
-import { Select } from '../../generic/Select/Select';
 import { Textarea } from '../../generic/Textarea/Textarea';
 import { useUser } from '../../../hooks/useUser';
 
 type BudgetFormProps = {
+  communityId: number | undefined;
   onSubmit: (fields: BudgetFields) => void;
 };
 
-export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
+export const BudgetForm = ({ communityId, onSubmit }: BudgetFormProps) => {
   const { data: user } = useUser();
   const formRef = useRef<HTMLFormElement>(null);
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
@@ -22,14 +22,14 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
 
     const formData = new FormData(e.currentTarget);
 
-    const result = BudgetSch.safeParse({
+    const result = BudgetFieldsSch.safeParse({
       name: formData.get('name'),
       description: formData.get('description'),
       budgetType: formData.get('budgetType'),
       estimatedCost: Number(formData.get('estimatedCost')),
       estimatedRealizationDate: formData.get('estimatedRealizationDate'),
       coordinator: user?.id,
-      // communityId:
+      communityId,
     });
 
     if (result.success) {
@@ -37,8 +37,6 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
       setInputErrorMessage(false);
       return;
     }
-
-    console.log(result.error);
 
     setInputErrorMessage(true);
   };
@@ -61,16 +59,6 @@ export const BudgetForm = ({ onSubmit }: BudgetFormProps) => {
           <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
           <Textarea name="description" label="Opis" />
           <Input name="estimatedRealizationDate" label="Przewidywana data realizacji" type="date" />
-          {/* @todo wisnie */}
-          <Select
-            name="admin"
-            label="Administrator"
-            options={[
-              // MOCKED DATA
-              { name: 'Ja', value: 'moje_uid' },
-              { name: 'Ty', value: 'twoje_uid' },
-            ]}
-          />
         </fieldset>
 
         <fieldset className="rounded mt-4 sm:mt-0">

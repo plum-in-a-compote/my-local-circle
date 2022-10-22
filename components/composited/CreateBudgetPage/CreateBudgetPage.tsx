@@ -1,11 +1,16 @@
 import { useMutation } from '@tanstack/react-query';
 import { createBudget } from '../../../lib/post/createBudget';
+import { Community } from '../../../validators/Community';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Heading } from '../../generic/Heading/Heading';
 import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
 import { BudgetForm } from '../BudgetForm/BudgetForm';
 
-export const CreateBudgetPage = () => {
+export type CreateCommunityPageProps = {
+  community: Community;
+};
+
+export const CreateBudgetPage = ({ community }: CreateCommunityPageProps) => {
   const createNewBudget = useMutation(createBudget);
 
   return (
@@ -20,7 +25,7 @@ export const CreateBudgetPage = () => {
       {createNewBudget.isError && (
         <ErrorMessage
           className="mb-6 sm:col-end-2"
-          title="Nie udało się zalogować!"
+          title="Nie udało się dodać budżetu!"
           description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
@@ -30,7 +35,7 @@ export const CreateBudgetPage = () => {
           title="Sukces! Nowy budżet został dodany do Twojej społeczności."
         />
       )}
-      <BudgetForm onSubmit={createNewBudget.mutate} />
+      <BudgetForm communityId={community.id} onSubmit={createNewBudget.mutate} />
     </section>
   );
 };
