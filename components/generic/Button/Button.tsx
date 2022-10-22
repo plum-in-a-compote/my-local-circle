@@ -21,7 +21,7 @@ export const Button = ({ content, variant, type = 'button', className, onClick }
   return (
     <button
       className={cx(
-        'align-baseline rounded px-4 py-2 text-xs leading-4 transition-colors sm:px-8 sm:py-2 sm:text-sm sm:leading-5 lg:px-24 lg:py-3 lg:text-base lg:leading-6 focus:outline-none focus:ring focus:ring-blue-300',
+        'rounded px-4 py-2 text-xs leading-4 transition-colors sm:px-8 sm:py-2 sm:text-sm sm:leading-5 lg:px-24 lg:py-3 lg:text-base lg:leading-6 focus:outline-none focus:ring focus:ring-blue-300',
         variants[variant],
         className,
       )}
