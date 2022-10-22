@@ -1,18 +1,27 @@
 import { useCallback } from 'react';
-import { useAddCommunity } from '../../../hooks/useCreateCommunity';
-import { CommunityFieldsSch } from '../../../validators/Community';
+import { useCreateCommunity } from '../../../hooks/useCreateCommunity';
+import { CommunityFields } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 import { CreateCommunityForm } from '../CreateCommunityForm/CreateCommunityForm';
 import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
+import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
+import { PingLoading } from '../../generic/PingLoading/PingLoading';
+import { useRouter } from 'next/router';
 
 export const CreateCommunityPage = () => {
-  const mutation = useAddCommunity();
+  const router = useRouter();
+  const createCommunity = useCreateCommunity();
 
   const handleSubmit = useCallback(
-    (fields: CommunityFieldsSch) => {
-      mutation.mutate(fields);
+    (fields: CommunityFields) => {
+      createCommunity.mutate(fields, {
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSuccess: () => {
+          return router.push(`/communities/`);
+        },
+      });
     },
-    [mutation],
+    [createCommunity, router],
   );
 
   return (
@@ -24,8 +33,21 @@ export const CreateCommunityPage = () => {
         variant="base"
         displayDecorationBorder={true}
       />
-      {mutation.isSuccess && (
-        <SuccessMessage title="Poprawnie utworzono Twoją nową społeczność! Za chwilę zostaniesz do niej przekierowany!" />
+      {createCommunity.isLoading && (
+        <PingLoading message="W tym momencie sprawdzamy poprawność dawnych, za chwilę zostaniesz przekierowany na stronę społeczności." />
+      )}
+      {createCommunity.isError && (
+        <ErrorMessage
+          className="mb-6 sm:col-end-2"
+          title="Nie udało się utworzyć społeczności!"
+          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Częstym błędem jest powtórzona nazwa społeczności, spróbuj wybrać inną. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+        />
+      )}
+      {createCommunity.isSuccess && (
+        <SuccessMessage
+          className="mb-6 sm:col-end-2"
+          title="Poprawnie utworzono Twoją nową społeczność! Za chwilę zostaniesz do niej przekierowany!"
+        />
       )}
       <CreateCommunityForm onSubmit={handleSubmit} />
     </section>

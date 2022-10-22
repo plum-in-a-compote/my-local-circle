@@ -1,14 +1,14 @@
 import { FormEventHandler, useRef, useState } from 'react';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 import { useUser } from '../../../hooks/useUser';
-import { CommunityFieldsSch } from '../../../validators/Community';
+import { CommunityFields, CommunityFieldsSch } from '../../../validators/Community';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
 import { Textarea } from '../../generic/Textarea/Textarea';
 
 type CreateCommunityFormProps = {
-  onSubmit: (fields: CommunityFieldsSch) => void;
+  onSubmit: (fields: CommunityFields) => void;
 };
 
 export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {

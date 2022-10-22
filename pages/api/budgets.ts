@@ -1,7 +1,8 @@
 import type { NextRequest } from 'next/server';
 import slugify from 'slugify';
-import { createCommunityServer } from '../../lib/server/createCommunityServer';
-import { CommunityFieldsSch } from '../../validators/Community';
+import { getCommunityById } from '../../lib/get/getCommunity';
+import { createBudgetServer } from '../../lib/server/createBudgetServer';
+import { BudgetFieldsSch } from '../../validators/Budget';
 
 export const config = {
   runtime: 'experimental-edge',
@@ -11,10 +12,16 @@ export default async function handler(req: NextRequest) {
   if (req.method === 'POST') {
     try {
       const json: unknown = await req.json();
-      const communityFields = CommunityFieldsSch.parse(json);
+      const budgetFields = BudgetFieldsSch.parse(json);
+      const community = await getCommunityById(budgetFields.communityId);
 
       // throws error if bad data is provided
-      await createCommunityServer({ ...communityFields, slug: slugify(communityFields.name) });
+      await createBudgetServer({
+        ...budgetFields,
+        // make sure that slug must be unique just among the community
+        // so /communities/one/2022 and /communities/two/2022 is fine
+        slug: slugify(`${community.slug}/${budgetFields.name}`),
+      });
 
       return new Response(null, {
         status: 201,

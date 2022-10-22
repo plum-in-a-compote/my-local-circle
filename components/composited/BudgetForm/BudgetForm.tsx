@@ -1,5 +1,5 @@
 import { useState, FormEventHandler, useRef, Fragment } from 'react';
-import { BudgetFields, BudgetFieldsSch } from '../../../validators/BudgetFields';
+import { BudgetFields, BudgetFieldsSch } from '../../../validators/Budget';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';

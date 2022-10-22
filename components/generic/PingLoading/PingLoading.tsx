@@ -4,7 +4,7 @@ type PingLoadingProps = {
   message: string;
 };
 
-export const PingLoader = () => {
+const PingLoader = () => {
   return (
     <span aria-hidden={true} className="relative flex w-8 h-8 lg:w-12 lg:h-12">
       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>

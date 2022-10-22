@@ -1,14 +1,11 @@
-import { useBudgets } from '../../../hooks/useBudgets';
 import { Community } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 
-export type BudgetsPageProps = {
+type BudgetPageProps = {
   community: Community;
 };
 
-export const BudgetsPage = ({ community }: BudgetsPageProps) => {
-  const { data } = useBudgets(community.id as number);
-
+export const BudgetPage = ({ community }: BudgetPageProps) => {
   return (
     <section>
       <Heading

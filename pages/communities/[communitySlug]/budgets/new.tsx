@@ -7,35 +7,11 @@ import {
 } from '../../../../components/composited/CreateBudgetPage/CreateBudgetPage';
 import { Auth } from '../../../../components/generic/Auth/Auth';
 import { MainLayout } from '../../../../components/generic/MainLayout/MainLayout';
-import { getCommunities } from '../../../../lib/get/getCommunities';
-import { getCommunityBySlug } from '../../../../lib/get/getCommunity';
+import { getCommunityPaths, getCommunityProps } from '../../../../lib/next/community';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const communities = await getCommunities();
-
-  return {
-    paths: communities.map((c) => ({ params: { communitySlug: c.slug } })),
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context) => {
-  if (!context.params) {
-    return { props: null, notFound: true };
-  }
-
-  try {
-    const id = context.params.communitySlug as string;
-    const community = await getCommunityBySlug(id);
-    return {
-      props: {
-        community,
-      },
-    };
-  } catch (e) {
-    return { props: null, notFound: true };
-  }
-};
+export const getStaticPaths: GetStaticPaths = async (context) => getCommunityPaths(context);
+export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context) =>
+  getCommunityProps(context);
 
 const CreateBudget: NextPage<CreateCommunityPageProps> = ({ community }) => {
   return (

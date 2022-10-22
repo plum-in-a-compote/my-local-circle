@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { BudgetSch } from '../../validators/BudgetFields';
+import { BudgetSch } from '../../validators/Budget';
 import { supabase } from '../supabase';
 
 export const getBudgets = async (communityId: number) => {

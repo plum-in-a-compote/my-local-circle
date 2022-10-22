@@ -6,37 +6,13 @@ import {
   BudgetsPageProps,
 } from '../../../../components/composited/BudgetsPage/BudgetsPage';
 import { MainLayout } from '../../../../components/generic/MainLayout/MainLayout';
-import { getCommunities } from '../../../../lib/get/getCommunities';
-import { getCommunityBySlug } from '../../../../lib/get/getCommunity';
+import { getCommunityPaths, getCommunityProps } from '../../../../lib/next/community';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const communities = await getCommunities();
+export const getStaticPaths: GetStaticPaths = async (context) => getCommunityPaths(context);
+export const getStaticProps: GetStaticProps<BudgetsPageProps> = async (context) =>
+  getCommunityProps(context);
 
-  return {
-    paths: communities.map((c) => ({ params: { communitySlug: c.slug } })),
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps: GetStaticProps<BudgetsPageProps> = async (context) => {
-  if (!context.params) {
-    return { props: null, notFound: true };
-  }
-
-  try {
-    const id = context.params.communitySlug as string;
-    const community = await getCommunityBySlug(id);
-    return {
-      props: {
-        community,
-      },
-    };
-  } catch (e) {
-    return { props: null, notFound: true };
-  }
-};
-
-const Communities: NextPage<BudgetsPageProps> = ({ community }) => {
+const Budgets: NextPage<BudgetsPageProps> = ({ community }) => {
   return (
     <MainLayout>
       <Head>
@@ -47,4 +23,4 @@ const Communities: NextPage<BudgetsPageProps> = ({ community }) => {
   );
 };
 
-export default Communities;
+export default Budgets;

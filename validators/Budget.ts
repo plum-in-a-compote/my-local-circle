@@ -11,6 +11,7 @@ export const BudgetSch = z.object({
   }, z.date()),
   coordinator: z.string(),
   communityId: z.number(),
+  slug: z.string(),
 });
 
 export const BudgetFieldsSch = z.object({
@@ -27,3 +28,4 @@ export const BudgetFieldsSch = z.object({
 });
 
 export type BudgetFields = z.infer<typeof BudgetFieldsSch>;
+export type Budget = z.infer<typeof BudgetSch>;

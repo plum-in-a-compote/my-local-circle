@@ -1,51 +1,26 @@
-// import { NextPage } from 'next';
-// import { GetStaticProps, GetStaticPaths } from 'next';
-// import Head from 'next/head';
+import { GetStaticPaths, NextPage } from 'next';
+import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import {
+  BudgetsPage,
+  BudgetsPageProps,
+} from '../../../../components/composited/BudgetsPage/BudgetsPage';
+import { MainLayout } from '../../../../components/generic/MainLayout/MainLayout';
+import { getCommunityPaths, getCommunityProps } from '../../../../lib/next/community';
 
-// import { MainLayout } from '../../../components/generic/MainLayout/MainLayout';
-// import {
-//   CommunityPage,
-//   CommunityPageProps,
-// } from '../../../components/composited/CommunityPage/CommunityPage';
-// import { getCommunityBySlug } from '../../../lib/get/getCommunity';
-// import { getCommunities } from '../../../lib/get/getCommunities';
+export const getStaticPaths: GetStaticPaths = async (context) => getCommunityPaths(context);
+export const getStaticProps: GetStaticProps<BudgetsPageProps> = async (context) =>
+  getCommunityProps(context);
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const communities = await getCommunities();
+const Budget: NextPage<BudgetsPageProps> = ({ community }) => {
+  return (
+    <MainLayout>
+      <Head>
+        <title>Budżet - My Local Circle</title>
+      </Head>
+      <BudgetsPage community={community} />
+    </MainLayout>
+  );
+};
 
-//   return {
-//     paths: communities.map((c) => ({ params: { communitySlug: c.slug } })),
-//     fallback: 'blocking',
-//   };
-// };
-
-// export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context) => {
-//   if (!context.params) {
-//     return { props: null, notFound: true };
-//   }
-
-//   try {
-//     const id = context.params.communitySlug as string;
-//     const community = await getCommunityBySlug(id);
-//     return {
-//       props: {
-//         community,
-//       },
-//     };
-//   } catch (e) {
-//     return { props: null, notFound: true };
-//   }
-// };
-
-// const Community: NextPage<CommunityPageProps> = ({ community }) => {
-//   return (
-//     <MainLayout>
-//       <Head>
-//         <title>{community.name} - My Local Circle</title>
-//       </Head>
-//       <CommunityPage community={community} />
-//     </MainLayout>
-//   );
-// };
-
-// export default Community;
+export default Budget;
