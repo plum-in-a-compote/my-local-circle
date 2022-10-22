@@ -28,7 +28,7 @@ export const BudgetForm = ({ communityId, onSubmit }: BudgetFormProps) => {
       description: formData.get('description'),
       budgetType: formData.get('budgetType'),
       estimatedCost: Number(formData.get('estimatedCost')),
-      estimatedRealizationDate: formData.get('estimatedRealizationDate'),
+      estimatedRealisationDate: formData.get('estimatedRealisationDate'),
       coordinator: user?.id,
       communityId,
     });
@@ -59,7 +59,7 @@ export const BudgetForm = ({ communityId, onSubmit }: BudgetFormProps) => {
         <fieldset className="flex flex-col gap-4 lg:gap-6">
           <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
           <Textarea name="description" label="Opis" />
-          <Input name="estimatedRealizationDate" label="Przewidywana data realizacji" type="date" />
+          <Input name="estimatedRealisationDate" label="Przewidywana data realizacji" type="date" />
         </fieldset>
 
         <fieldset className="rounded mt-4 sm:mt-0">

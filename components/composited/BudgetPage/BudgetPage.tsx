@@ -1,10 +1,10 @@
-import { Budget } from '../../../validators/Budget';
+import { SafeDateBudget } from '../../../validators/Budget';
 import { Community } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 
 export type BudgetPageProps = {
   community: Community;
-  budget: Budget;
+  budget: SafeDateBudget;
 };
 
 export const BudgetPage = ({ community, budget }: BudgetPageProps) => {

@@ -1,7 +1,7 @@
-import { BudgetSch } from '../../validators/Budget';
+import { SafeStaticBudgetSch } from '../../validators/Budget';
 import { supabase } from '../supabase';
 
-export const getBudgetBySlug = async (slug: string) => {
+export const getSafeStaticBudgetBySlug = async (slug: string) => {
   const { data, error } = await supabase.from('Budget').select('*').eq('slug', slug);
 
   if (error) {
@@ -9,7 +9,7 @@ export const getBudgetBySlug = async (slug: string) => {
   }
 
   // always returns an array
-  const budget = BudgetSch.safeParse(data[0]);
+  const budget = SafeStaticBudgetSch.safeParse(data[0]);
   if (!budget.success) {
     throw new Error(budget.error.message);
   }

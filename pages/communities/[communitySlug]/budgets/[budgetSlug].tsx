@@ -9,7 +9,7 @@ import { MainLayout } from '../../../../components/generic/MainLayout/MainLayout
 import { getCommunities } from '../../../../lib/get/getCommunities';
 import { getBudgets } from '../../../../lib/get/getBudgets';
 import { getCommunityBySlug } from '../../../../lib/get/getCommunity';
-import { getBudgetBySlug } from '../../../../lib/get/getBudget';
+import { getSafeStaticBudgetBySlug } from '../../../../lib/get/getBudget';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const communities = await getCommunities();
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps<BudgetPageProps> = async (context) =
     const community = await getCommunityBySlug(communitySlug);
 
     const budgetSlug = context.params.budgetSlug as string;
-    const budget = await getBudgetBySlug(`${communitySlug}/${budgetSlug}`);
+    const budget = await getSafeStaticBudgetBySlug(`${communitySlug}/${budgetSlug}`);
 
     return {
       props: {
