@@ -1,19 +1,22 @@
-import { clsx as cx } from 'clsx';
 import { CircleIcon } from '../Icons/CircleIcon';
 
-import { Project } from './types';
-
-type ChartLegendProps = {
-  projects: Project[];
+export type ChartLegendItem = {
+  id: string;
+  circleFill: string;
+  name: string;
 };
 
-export const ChartLegend = ({ projects }: ChartLegendProps) => {
+type ChartLegendProps = {
+  legends: ChartLegendItem[];
+};
+
+export const ChartLegend = ({ legends }: ChartLegendProps) => {
   return (
-    <ul className="flex flex-col gap-3 list-none">
-      {projects.map((p) => (
-        <li key={p.id} className="flex items-center gap-5">
-          <CircleIcon width={8} height={8} className="fill-blue-500" />
-          <span className="text-xs leading-4 font-normal text-gray-700">{p.name}</span>
+    <ul className="flex flex-col gap-2 list-none">
+      {legends.map((l) => (
+        <li key={l.id} className="flex items-center gap-5">
+          <CircleIcon width={8} height={8} className={l.circleFill} />
+          <span className="text-xs leading-4 font-normal text-gray-700">{l.name}</span>
         </li>
       ))}
     </ul>

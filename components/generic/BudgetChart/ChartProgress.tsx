@@ -1,18 +1,26 @@
 import { clsx as cx } from 'clsx';
 
-import { calculateProjectWidthOnChart, chartColorToTailwind } from './helpers';
-import { Project } from './types';
+import { calculateProjectWidthOnChart } from './helpers';
 
-type ChartProgressProps = {
-  projects: Project[];
+export type ChartProgressBar = {
+  id: string;
+  barBg: string;
+  name: string;
+  cost: number;
 };
 
-export const ChartProgress = ({ projects }: ChartProgressProps) => {
-  const totalAmount = projects.reduce((acc, p) => acc + p.cost, 0);
+type ChartProgressProps = {
+  progressBars: ChartProgressBar[];
+  // used on fixed budgets
+  total?: number;
+};
+
+export const ChartProgress = ({ progressBars, total }: ChartProgressProps) => {
+  const totalAmount = total ? total : progressBars.reduce((acc, p) => acc + p.cost, 0);
 
   return (
     <span className="flex w-full h-4 rounded-lg overflow-hidden outline outline-1 outline-transparent">
-      {projects.map((p) => (
+      {progressBars.map((p) => (
         <span
           style={{
             width: `${calculateProjectWidthOnChart(p.cost, totalAmount)}%`,
@@ -20,10 +28,7 @@ export const ChartProgress = ({ projects }: ChartProgressProps) => {
           }}
           key={p.id}
           aria-label={p.name}
-          className={cx(
-            'flex-1 outline outline-2 outline-transparent',
-            chartColorToTailwind(p.color),
-          )}
+          className={cx('flex-1 outline outline-2 outline-transparent', p.barBg)}
         ></span>
       ))}
     </span>
