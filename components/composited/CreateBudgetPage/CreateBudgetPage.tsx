@@ -26,7 +26,7 @@ export const CreateBudgetPage = ({ community }: CreateCommunityPageProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Nie udało się dodać budżetu!"
-          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Częstym błędem jest powtórzona nazwa społeczności, spróbuj wybrać inną.Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
       {createNewBudget.isSuccess && (

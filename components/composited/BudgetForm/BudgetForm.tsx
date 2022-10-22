@@ -6,6 +6,7 @@ import { Input } from '../../generic/Input/Input';
 import { BudgetTypeRadio } from '../BudgetTypeRadio/BudgetTypeRadio';
 import { Textarea } from '../../generic/Textarea/Textarea';
 import { useUser } from '../../../hooks/useUser';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 
 type BudgetFormProps = {
   communityId: number | undefined;
@@ -47,7 +48,7 @@ export const BudgetForm = ({ communityId, onSubmit }: BudgetFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       <form

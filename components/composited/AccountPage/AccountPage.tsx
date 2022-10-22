@@ -27,7 +27,7 @@ export const AccountPage = () => {
         <ErrorMessage
           className="mb-6"
           title="Nie udało się zaktualizować danych!"
-          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Błąd może być spowodowany krótkotrwałą przerwą w działaniu serwera.Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
       <AccountForm onSubmit={() => 1} />

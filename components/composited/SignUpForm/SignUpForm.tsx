@@ -9,6 +9,7 @@ import { Input } from '../../generic/Input/Input';
 import { SIMPLE_PHONE_PATTERN } from '../../../constants/regex';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 
 type SignUpFormProps = {
   onSubmit: (fields: SignUpFields) => void;
@@ -60,7 +61,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       {differentPasswords && (

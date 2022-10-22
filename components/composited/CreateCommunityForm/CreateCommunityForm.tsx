@@ -1,4 +1,5 @@
 import { FormEventHandler, useRef, useState } from 'react';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 import { useUser } from '../../../hooks/useUser';
 import { CommunityFieldsSch } from '../../../validators/Community';
 import { Button } from '../../generic/Button/Button';
@@ -43,10 +44,7 @@ export const CreateCommunityForm = ({ onSubmit }: CreateCommunityFormProps) => {
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4 sm:col-end-2">
       {inputErrorMessage && (
-        <ErrorMessage
-          title="Błąd danych wejściowych!"
-          description="Wystąpił błąd wpisanych danych, sprawdź ich poprawność. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
-        />
+        <ErrorMessage title="Błąd danych wejściowych!" description={GENERIC_INPUT_ERROR_MSG} />
       )}
       <Input name="name" label="Nazwa" type="text" placeholder="SKS ZS3 Ostrowiec" />
       <Input

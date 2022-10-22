@@ -1,4 +1,5 @@
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 import { SignInFields, SignInFieldsSch } from '../../../validators/SignInFields';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
@@ -37,7 +38,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd wprowadzonych danych, sprawdź ich poprawność. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       <form
