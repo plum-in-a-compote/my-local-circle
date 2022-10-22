@@ -18,11 +18,11 @@ export const SignUpPage = () => {
         className="mb-8 sm:col-end-2"
         content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
       />
-      {/* Display all errors in single place */}
+      {/* Displays error in the same place as the form rendered below */}
       {register.isError && (
         <ErrorMessage
           className="mb-6 sm:col-end-2"
-          title="Nie udało się zalogować!"
+          title="Nie udało się założyć konta!"
           description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}

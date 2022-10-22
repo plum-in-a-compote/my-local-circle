@@ -6,6 +6,7 @@ import { Input } from '../../generic/Input/Input';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 
 type PasswordFormProps = {
   onSubmit: (fields: PasswordChangeFields) => void;
@@ -54,7 +55,7 @@ export const PasswordForm = ({ onSubmit }: PasswordFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       {differentPasswords && (

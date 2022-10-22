@@ -13,6 +13,9 @@ export const AccountPage = () => {
 
   return (
     <Auth>
+      {updateUserInfo.isSuccess && (
+        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
+      )}
       <Heading
         className="mb-4"
         as="h1"
@@ -24,11 +27,8 @@ export const AccountPage = () => {
         <ErrorMessage
           className="mb-6"
           title="Nie udało się zaktualizować danych!"
-          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Błąd może być spowodowany krótkotrwałą przerwą w działaniu serwera.Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
-      )}
-      {updateUserInfo.isSuccess && (
-        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
       )}
       <AccountForm onSubmit={() => 1} />
       <Heading className="mt-16 mb-5" as="h2" variant="smBold" content="Hasło" />
