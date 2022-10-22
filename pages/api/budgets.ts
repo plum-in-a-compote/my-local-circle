@@ -20,7 +20,7 @@ export default async function handler(req: NextRequest) {
         ...budgetFields,
         // make sure that slug must be unique just among the community
         // so /communities/one/2022 and /communities/two/2022 is fine
-        slug: slugify(`${community.slug}/${budgetFields.name}`),
+        slug: slugify(`${community.slug}/${budgetFields.name}`, { lower: true }),
       });
 
       return new Response(null, {

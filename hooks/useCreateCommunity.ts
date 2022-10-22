@@ -4,6 +4,6 @@ import { CommunityFields } from '../validators/Community';
 
 export const useCreateCommunity = () => {
   return useMutation<unknown, unknown, CommunityFields>((fields) =>
-    fetcher('/api/communities', fields),
+    fetcher('/api/communities', { method: 'POST', body: fields }),
   );
 };
