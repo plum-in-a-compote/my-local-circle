@@ -18,7 +18,7 @@ export const CommunitiesPage = ({ communities }: CommunitiesPageProps) => {
           icon={<SmallCommunityAddIcon className="fill-white" />}
           content="Nowa"
           variant="primary"
-          href="/community/new"
+          href="/communities/new"
         />
       </div>
       <ul className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-x-4 sm:gap-y-6 lg:gap-8">

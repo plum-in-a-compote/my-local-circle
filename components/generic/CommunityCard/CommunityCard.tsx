@@ -20,7 +20,7 @@ export const CommunityCard = ({
   usersNo,
 }: CommunityCardProps) => {
   return (
-    <Link href={`/community/${slug}`}>
+    <Link href={`/communities/${slug}`}>
       <a
         aria-label={`Przejdź do strony społeczności ${name}`}
         className="block group cursor-pointer transition focus:bg-blue-50 hover:bg-blue-50"

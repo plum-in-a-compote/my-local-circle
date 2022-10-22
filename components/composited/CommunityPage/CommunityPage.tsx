@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useRequestToJoinCommunity } from '../../../hooks/useRequestToJoinCommunity';
 import { useUser } from '../../../hooks/useUser';
 import { Community } from '../../../validators/Community';
