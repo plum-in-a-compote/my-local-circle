@@ -6,6 +6,7 @@ import { Input } from '../../generic/Input/Input';
 import { Checkbox } from '../../generic/Checkbox/Checkbox';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 
 type AccountFormProps = {
   onSubmit: (fields: AccountFields) => void;
@@ -54,7 +55,7 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
         <ErrorMessage
           className="mb-6"
           title="Błąd wprowadzonych danych!"
-          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       {wrongPhoneFormat && (

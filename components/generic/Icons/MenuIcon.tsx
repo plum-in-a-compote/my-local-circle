@@ -4,7 +4,6 @@ import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from './constants';
 type MenuIconProps = {
   width?: number;
   height?: number;
-  title?: string;
   className?: string;
 };
 

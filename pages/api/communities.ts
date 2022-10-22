@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 import slugify from 'slugify';
-import { createCommunity } from '../../lib/post/createCommunity';
+import { createCommunityServer } from '../../lib/server/createCommunityServer';
 import { CommunityFieldsSch } from '../../validators/Community';
 
 export const config = {
@@ -8,18 +8,22 @@ export const config = {
 };
 
 export default async function handler(req: NextRequest) {
-  // we don't use HOF to manage req method, bcs as for now
-  // we use just this one to proxy request
   if (req.method === 'POST') {
     try {
       const json: unknown = await req.json();
       const communityFields = CommunityFieldsSch.parse(json);
 
       // throws error if bad data is provided
-      await createCommunity({ ...communityFields, slug: slugify(communityFields.name) });
+      const community = await createCommunityServer({
+        ...communityFields,
+        slug: slugify(communityFields.name, { lower: true }),
+      });
 
-      return new Response(null, {
+      return new Response(JSON.stringify(community), {
         status: 201,
+        headers: {
+          'content-type': 'application/json',
+        },
       });
     } catch (e) {
       console.error(e);
