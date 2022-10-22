@@ -1,9 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '../lib/fetcher';
-import { BudgetFields } from '../validators/Budget';
+import { BudgetFields, Budget, BudgetSch } from '../validators/Budget';
 
 export const useCreateBudget = () => {
-  return useMutation<unknown, unknown, BudgetFields>((fields) =>
-    fetcher('/api/budgets', { method: 'POST', body: fields }),
+  return useMutation<Budget, unknown, BudgetFields>((fields) =>
+    fetcher('/api/budgets', { method: 'POST', body: fields, zSch: BudgetSch }),
   );
 };

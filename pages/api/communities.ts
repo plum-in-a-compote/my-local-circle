@@ -14,12 +14,12 @@ export default async function handler(req: NextRequest) {
       const communityFields = CommunityFieldsSch.parse(json);
 
       // throws error if bad data is provided
-      await createCommunityServer({
+      const community = await createCommunityServer({
         ...communityFields,
         slug: slugify(communityFields.name, { lower: true }),
       });
 
-      return new Response(null, {
+      return new Response(JSON.stringify(community), {
         status: 201,
         headers: {
           'content-type': 'application/json',

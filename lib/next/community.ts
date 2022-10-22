@@ -18,8 +18,8 @@ export const getCommunityProps: GetStaticProps<CommunityPageProps> = async (cont
   }
 
   try {
-    const id = context.params.communitySlug as string;
-    const community = await getCommunityBySlug(id);
+    const slug = context.params.communitySlug as string;
+    const community = await getCommunityBySlug(slug);
     return {
       props: {
         community,

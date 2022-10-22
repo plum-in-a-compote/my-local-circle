@@ -22,8 +22,10 @@ export const CreateBudgetPage = ({ community }: CreateCommunityPageProps) => {
     (fields: BudgetFields) => {
       createBudget.mutate(fields, {
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSuccess: () => {
-          return router.push(`/communities/`);
+        onSuccess: ({ slug }) => {
+          // Budget slugs consists of [communitySlug, budgetSlug]
+          const [communitySlug, budgetSlug] = slug.split('/');
+          return router.push(`/communities/${communitySlug}/budgets/${budgetSlug}`);
         },
       });
     },

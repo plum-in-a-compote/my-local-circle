@@ -15,10 +15,11 @@ export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context
   getCommunityProps(context);
 
 const Community: NextPage<CommunityPageProps> = ({ community }) => {
+  const title = `${community.name} - My Local Circle`;
   return (
     <MainLayout>
       <Head>
-        <title>{community.name} - My Local Circle</title>
+        <title>{title}</title>
       </Head>
       <CommunityPage community={community} />
     </MainLayout>

@@ -16,8 +16,8 @@ export const CreateCommunityPage = () => {
     (fields: CommunityFields) => {
       createCommunity.mutate(fields, {
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSuccess: () => {
-          return router.push(`/communities/`);
+        onSuccess: ({ slug }) => {
+          return router.push(`/communities/${slug}`);
         },
       });
     },

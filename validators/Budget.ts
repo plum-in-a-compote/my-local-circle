@@ -6,9 +6,7 @@ export const BudgetSch = z.object({
   budgetType: z.enum(['static', 'progressive']),
   estimatedCost: z.number().int(),
   // Zod docs recommended way of accepting dates as strings
-  estimatedRealizationDate: z.preprocess((arg) => {
-    if (typeof arg == 'string' || arg instanceof Date) return new Date(arg);
-  }, z.date()),
+  estimatedRealisationDate: z.string(),
   coordinator: z.string(),
   communityId: z.number(),
   slug: z.string(),
@@ -20,7 +18,7 @@ export const BudgetFieldsSch = z.object({
   budgetType: z.enum(['static', 'progressive']),
   estimatedCost: z.number().int(),
   // Zod docs recommended way of accepting dates as strings
-  estimatedRealizationDate: z.preprocess((arg) => {
+  estimatedRealisationDate: z.preprocess((arg) => {
     if (typeof arg == 'string' || arg instanceof Date) return new Date(arg);
   }, z.date()),
   coordinator: z.string(),

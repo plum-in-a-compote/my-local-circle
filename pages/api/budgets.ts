@@ -16,14 +16,16 @@ export default async function handler(req: NextRequest) {
       const community = await getCommunityById(budgetFields.communityId);
 
       // throws error if bad data is provided
-      await createBudgetServer({
+      const budget = await createBudgetServer({
         ...budgetFields,
         // make sure that slug must be unique just among the community
         // so /communities/one/2022 and /communities/two/2022 is fine
-        slug: slugify(`${community.slug}/${budgetFields.name}`, { lower: true }),
+        slug: `${slugify(community.slug, { lower: true })}/${slugify(budgetFields.name, {
+          lower: true,
+        })}`,
       });
 
-      return new Response(null, {
+      return new Response(JSON.stringify(budget), {
         status: 201,
         headers: {
           'content-type': 'application/json',

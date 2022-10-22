@@ -1,11 +1,13 @@
+import { Budget } from '../../../validators/Budget';
 import { Community } from '../../../validators/Community';
 import { Heading } from '../../generic/Heading/Heading';
 
-type BudgetPageProps = {
+export type BudgetPageProps = {
   community: Community;
+  budget: Budget;
 };
 
-export const BudgetPage = ({ community }: BudgetPageProps) => {
+export const BudgetPage = ({ community, budget }: BudgetPageProps) => {
   return (
     <section>
       <Heading
