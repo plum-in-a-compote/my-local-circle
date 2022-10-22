@@ -1,4 +1,5 @@
 import { FormEventHandler, Fragment, useCallback, useState } from 'react';
+import { clsx as cx } from 'clsx';
 import { Badge } from '../../generic/Badge/Badge';
 import { Heading } from '../../generic/Heading/Heading';
 import { ExpandLessIcon } from '../../generic/Icons/ExpandLessIcon';
@@ -14,8 +15,9 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ fields }: ProjectCardProps) => {
   const [expanded, setExpanded] = useState(false);
-  const toggleExpanded = useCallback(() => setExpanded((p) => !p), []);
   const [userVoted, setUserVoted] = useState(fields.voted);
+
+  const toggleExpanded = useCallback(() => setExpanded((p) => !p), []);
 
   const handleUserVote: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -29,9 +31,13 @@ export const ProjectCard = ({ fields }: ProjectCardProps) => {
         <Heading content={fields.title} as="h2" variant="baseSemibold" />
         {fields.voted && <Badge color="amber" textContent="Wspierasz" />}
       </div>
+      <Text
+        className={cx('mb-6 whitespace-pre-wrap w-11/12', !expanded && 'line-clamp-2 mb-2')}
+        as="p"
+        content={fields.description}
+      />
       {expanded ? (
         <Fragment>
-          <Text className="mb-6 whitespace-pre-wrap w-11/12" as="p" content={fields.description} />
           <ProjectInfoList
             items={[
               {
@@ -40,7 +46,7 @@ export const ProjectCard = ({ fields }: ProjectCardProps) => {
               },
               {
                 label: 'Data realizacji',
-                value: fields.estimatedRealisationDate,
+                value: new Date(fields.estimatedRealisationDate).toLocaleDateString(),
               },
               {
                 label: 'Miejsce',
@@ -59,11 +65,6 @@ export const ProjectCard = ({ fields }: ProjectCardProps) => {
         </Fragment>
       ) : (
         <Fragment>
-          <Text
-            className="mb-6 whitespace-pre-wrap w-11/12"
-            as="p"
-            content={fields.description.slice(0, 120) + '...'}
-          />
           <button className="flex items-center gap-2" onClick={toggleExpanded}>
             <span className="w-fit text-xs leading-4 font-semibold text-blue-800 sm:leading-5 sm:text-sm lg:text-base lg:leading-6 focus:text-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
               Rozwiń szczegółowy opis
