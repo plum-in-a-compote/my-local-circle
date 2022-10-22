@@ -15,20 +15,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Strona główna - My local circle</title>
       </Head>
-      <Tabs
-        className="mb-4"
-        tabs={[
-          { name: 'Linia czasu', value: 'timeline', icon: <TimelineIcon /> },
-          {
-            name: 'Podania',
-            value: 'projects',
-            icon: <ProjectIcon width={SMALL_WIDTH} height={SMALL_HEIGHT} />,
-          },
-        ]}
-        defaultActiveTab="timeline"
-      />
-      <TabSection value="timeline">Users</TabSection>
-      <TabSection value="projects">Projects</TabSection>
 
       <BudgetChart
         projects={[
