@@ -1,12 +1,12 @@
 type TabSectionProps<T extends string> = {
   value: T;
-  content: React.ReactNode;
+  children: React.ReactNode;
 };
 
-export const TabSection = <T extends string>({ value, content }: TabSectionProps<T>) => {
+export const TabSection = <T extends string>({ value, children }: TabSectionProps<T>) => {
   return (
-    <section className="target:" id={value}>
-      {content}
+    <section className="hidden target:block" id={value}>
+      {children}
     </section>
   );
 };

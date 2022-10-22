@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { clsx as cx } from 'clsx';
+import { useEffect, useState } from 'react';
 
 type HeaderLinkProps = {
   href: string;
@@ -8,8 +9,9 @@ type HeaderLinkProps = {
 };
 
 export const HeaderLink = ({ href, content }: HeaderLinkProps) => {
+  const [active, setActive] = useState(false);
   const router = useRouter();
-  const active = router.asPath === href;
+  useEffect(() => setActive(router.asPath === href), [href, router.asPath]);
 
   return (
     <li

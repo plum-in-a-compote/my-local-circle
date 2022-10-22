@@ -1,39 +1,66 @@
-import { useRouter } from 'next/router';
-import { Fragment } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
+import { clsx as cx } from 'clsx';
 
 type Tab<T extends string> = {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   name: string;
   value: T;
 };
 
-type TabsProps<T extends string> = {
-  defaultActiveTab: T;
+type TabsProps<T extends string, D extends T> = {
   tabs: Tab<T>[];
-  onTabChange: (t: T) => void;
+  defaultActiveTab: D;
 };
 
-export const Tabs = <T extends string>({ defaultActiveTab, tabs, onTabChange }: TabsProps<T>) => {
-  // check is active based on ruter params
-  const router = useRouter();
+const Underline = () => {
+  return (
+    <span aria-hidden={true} className="absolute w-full left-0 right-0 top-full h-0.5">
+      <span className="absolute bottom-px w-full h-0.5 bg-amber-400"></span>
+    </span>
+  );
+};
+
+export const Tabs = <T extends string, D extends T>({
+  defaultActiveTab,
+  tabs,
+}: TabsProps<T, D>) => {
+  const [activeTab, setActiveTab] = useState<T>(defaultActiveTab);
+  const handleTabChange = useCallback((tab: T) => setActiveTab(tab), []);
+
+  useEffect(() => {
+    window.location.hash = defaultActiveTab;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Fragment>
-      <ul className="flex gap-2" role="tablist">
-        {tabs.map((t) => (
-          <li className="flex gap-2 px-2 py-1" key={t.value} role="presentation">
-            {t.icon}
-            <a
-              className="text-sm leading-5 font-normal text-gray-700"
-              role="tab"
-              href={`#${t.value}`}
-              id={t.value}
-              aria-selected="true"
+      <ul className="w-full border-b border-gray-500 flex gap-2" role="tablist">
+        {tabs.map((t) => {
+          const selected = t.value === activeTab;
+          const handleClick = () => handleTabChange(t.value);
+          return (
+            <li
+              className={cx('relative flex items-center justify-between gap-2 pl-2 pr-3 pt-1 pb-3')}
+              key={t.value}
+              role="presentation"
             >
-              {t.name}
-            </a>
-          </li>
-        ))}
+              <span className="inline-block w-5 h-5">{t.icon}</span>
+              {selected && <Underline />}
+              <a
+                className={cx(
+                  'text-sm leading-5 font-normal text-gray-700',
+                  selected && 'font-semibold',
+                )}
+                role="tab"
+                href={`#${t.value}`}
+                aria-selected={selected}
+                onClick={handleClick}
+              >
+                {t.name}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </Fragment>
   );
