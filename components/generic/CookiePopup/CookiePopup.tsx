@@ -25,7 +25,7 @@ export const CookiePopup = () => {
   return (
     <dialog
       ref={dialogRef}
-      className="backdrop:bg-opacity-70 backdrop:bg-gray-500 bg-transparent w-full mx-auto max-w-sm sm:max-w-3xl lg:max-w-screen-2xl px-6 sm:px-16 lg:px-40"
+      className="backdrop:bg-opacity-70 backdrop:bg-gray-500 bg-transparent w-full mx-auto max-w-sm sm:max-w-3xl px-6 sm:px-16"
     >
       <div className="shadow-lg p-6 rounded bg-blue-50 lg:rounded-lg">
         <div className="flex items-center gap-2 mb-2 lg:gap-4">

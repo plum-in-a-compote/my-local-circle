@@ -24,21 +24,24 @@ export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context
     return { props: null, notFound: true };
   }
 
-  const id = context.params.communitySlug as string;
-  const community = await getCommunityBySlug(id);
-
-  return {
-    props: {
-      community,
-    },
-  };
+  try {
+    const id = context.params.communitySlug as string;
+    const community = await getCommunityBySlug(id);
+    return {
+      props: {
+        community,
+      },
+    };
+  } catch (e) {
+    return { props: null, notFound: true };
+  }
 };
 
 const Community: NextPage<CommunityPageProps> = ({ community }) => {
   return (
     <MainLayout>
       <Head>
-        <title>Ustawienia konta - My Local Circle</title>
+        <title>{community.name} - My Local Circle</title>
       </Head>
       <CommunityPage community={community} />
     </MainLayout>

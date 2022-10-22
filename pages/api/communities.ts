@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 import slugify from 'slugify';
-import { createCommunity } from '../../lib/post/createCommunity';
+import { createCommunityServer } from '../../lib/server/createCommunityServer';
 import { CommunityFieldsSch } from '../../validators/Community';
 
 export const config = {
@@ -16,7 +16,7 @@ export default async function handler(req: NextRequest) {
       const communityFields = CommunityFieldsSch.parse(json);
 
       // throws error if bad data is provided
-      await createCommunity({ ...communityFields, slug: slugify(communityFields.name) });
+      await createCommunityServer({ ...communityFields, slug: slugify(communityFields.name) });
 
       return new Response(null, {
         status: 201,
