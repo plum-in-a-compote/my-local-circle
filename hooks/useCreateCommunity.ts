@@ -1,9 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import { fetcher } from '../lib/fetcher';
-import { CommunityFieldsSch } from '../validators/Community';
+import { Community, CommunityFields, CommunitySch } from '../validators/Community';
 
-export const useAddCommunity = () => {
-  return useMutation<unknown, unknown, CommunityFieldsSch>((fields) =>
-    fetcher('/api/communities', fields),
+export const useCreateCommunity = () => {
+  return useMutation<Community, unknown, CommunityFields>((fields) =>
+    fetcher('/api/communities', { method: 'POST', body: fields, zSch: CommunitySch }),
   );
 };
