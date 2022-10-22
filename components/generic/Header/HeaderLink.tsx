@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { clsx as cx } from 'clsx';
+import { useEffect, useState } from 'react';
 
 type HeaderLinkProps = {
   href: string;
@@ -8,13 +9,14 @@ type HeaderLinkProps = {
 };
 
 export const HeaderLink = ({ href, content }: HeaderLinkProps) => {
+  const [active, setActive] = useState(false);
   const router = useRouter();
-  const active = router.asPath === href;
+  useEffect(() => setActive(router.asPath === href), [href, router.asPath]);
 
   return (
     <li
       className={cx(
-        'group w-full max-w-xs mx-auto px-3 py-2 rounded sm:w-fit sm:px-2 sm:py-1.5 lg:px-4 lg:py-3',
+        'group flex items-center w-full max-w-xs mx-auto px-3 py-2 rounded sm:w-fit sm:px-2 sm:py-1.5 lg:px-4 lg:py-3',
         active ? 'bg-gray-200' : 'transition hover:bg-blue-100 focus-within:bg-blue-100',
       )}
     >

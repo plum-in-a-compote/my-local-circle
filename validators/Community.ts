@@ -17,9 +17,8 @@ export const CommunityFieldsSch = z.object({
   address: z.string(),
   adminId: z.string(),
   description: z.string(),
-  // optional on client, added on the server proxy
-  slug: z.string().optional(),
+  // slug not present at client
 });
 
 export type Community = z.infer<typeof CommunitySch>;
-export type CommunityFieldsSch = z.infer<typeof CommunityFieldsSch>;
+export type CommunityFields = z.infer<typeof CommunityFieldsSch>;
