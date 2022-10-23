@@ -1,6 +1,7 @@
 import { Fragment, MouseEventHandler } from 'react';
 import { Heading } from '../../generic/Heading/Heading';
 import { LinkButton } from '../../generic/LinkButton/LinkButton';
+import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { PreferencesForm } from '../PreferencesForm/PreferencesForm';
 import { NotificationList } from './NotificationList';
 
@@ -11,13 +12,20 @@ export const NotificationsPage = () => {
   return (
     <Fragment>
       <section className="mb-16 sm:grid sm:grid-cols-2">
-        <Heading
-          className="mb-3 sm:mb-8"
-          as="h1"
-          variant="base"
-          content="Powiadomienia"
-          displayDecorationBorder={true}
-        />
+        <div>
+          <Heading
+            className="mb-4"
+            as="h1"
+            variant="base"
+            content="Powiadomienia"
+            displayDecorationBorder={true}
+          />
+          <WarningMessage
+            className="mb-3 sm:mb-8"
+            title="Wsparcie wkrótce!"
+            description="Ta strona nie jest obecnie funkcjonalna, a przedstawione dane są poglądowe."
+          />
+        </div>
         {/* Map over props to render notifications */}
         {/* MOCKED DATA */}
         <NotificationList
@@ -43,8 +51,9 @@ export const NotificationsPage = () => {
           ]}
         />
         <LinkButton
-          className="mt-8 sm:col-end-2 sm:mt-10 lg:mt-20"
+          className="mt-4 sm:col-end-2 sm:mt-10 lg:mt-20"
           textContent="Wczytaj więcej..."
+          underline={true}
           onClick={handleLoadMore}
         />
       </section>

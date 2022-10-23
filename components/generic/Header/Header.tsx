@@ -4,7 +4,7 @@ import { clsx as cx } from 'clsx';
 import { Container } from '../Container/Container';
 import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderLink } from './HeaderLink';
-import { AccountLink } from './AccountLink';
+import { AccountLinks } from './AccountLinks';
 import { Logo } from './Logo';
 
 export const Header = () => {
@@ -31,7 +31,7 @@ export const Header = () => {
           >
             <MenuIcon />
           </button>
-          <AccountLink />
+          <AccountLinks />
         </div>
 
         <div className="sm:flex sm:gap-10 lg:gap-12">
