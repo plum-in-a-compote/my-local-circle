@@ -1,6 +1,5 @@
 import { useRequestToJoinCommunity } from '../../../hooks/useRequestToJoinCommunity';
 import { useUser } from '../../../hooks/useUser';
-import { Community } from '../../../validators/Community';
 import { Anchor } from '../../generic/Anchor/Anchor';
 import { Button } from '../../generic/Button/Button';
 import { Heading } from '../../generic/Heading/Heading';
@@ -10,9 +9,10 @@ import { useUserInCommunity } from '../../../hooks/useUserCommunities';
 import { useUserJoinRequestTo } from '../../../hooks/useUserJoinRequests';
 import { InfoMessage } from '../../generic/InfoMessage/InfoMessage';
 import { Fragment } from 'react';
+import { CommunityWithExtraStats } from '../../../lib/get/getExtraStatsForCommunity';
 
 export type CommunityPageProps = {
-  community: Community;
+  community: CommunityWithExtraStats;
 };
 
 export const CommunityPage = ({ community }: CommunityPageProps) => {
@@ -40,10 +40,10 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
       <CommunityStats
         city={community.city}
         address={community.address}
-        budgetsNo={4}
-        projectsNo={53}
-        usersNo={41}
-        averageBudgetAmount={42000}
+        budgetsNo={community.budgetsNo}
+        projectsNo={community.projectsNo}
+        usersNo={community.membersNo}
+        averageBudgetAmount={community.averageBudgetAmount}
       />
       <p className="text-xs leading-5 font-normal text-gray-600 mb-6 sm:text-sm sm:col-end-2 sm:mb-8 lg:mb-12 lg:text-base">
         Docelowo dostęp do większej ilości informacji będzie wyłącznie dla członków danej
