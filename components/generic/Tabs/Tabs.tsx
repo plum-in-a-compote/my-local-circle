@@ -30,6 +30,13 @@ export const Tabs = <T extends string, D extends T>({
   const handleTabChange = useCallback((tab: T) => setActiveTab(tab), []);
 
   useEffect(() => {
+    const currentHash = window.location.hash;
+    const currentTab = tabs.find(({ value }) => `#${value}` === currentHash);
+    if (currentTab) {
+      setActiveTab(currentTab.value);
+      return;
+    }
+
     window.location.hash = defaultActiveTab;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

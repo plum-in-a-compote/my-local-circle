@@ -6,7 +6,7 @@ const NotFound: NextPage = () => {
   return (
     <MainLayout>
       <Head>
-        <title>404 | Nie odnaleziono strony - My local circle</title>
+        <title>404 | Nie odnaleziono strony - My Local Circle</title>
         <meta
           name="description"
           content="Nie odnaleziono strony o podanym adresie URL. Zmień adres w pasku wyszukiwarki."

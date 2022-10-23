@@ -1,10 +1,22 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/643b7640-740f-4db3-b3f3-ea179b2ad3e8/deploy-status)](https://app.netlify.com/sites/localcircle/deploys)
 
-# My local circle
+# My Local Circle
 
 Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne inicjatywy. Jako uczestnik społeczności możesz np. tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji. Wspieramy też interfejs w języku ukraińskim, wykorzystując prostą autorską bibliotekę do mapowania danych.
 
 Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziou natywnych aplikacji poprzez PWA (Progressive Web Applications).
+
+## Przykład użycia języka ukraińskiego w naszej aplikacji
+
+Stworzyliśmy autorską bibliotekę do tłumaczenia poszczególnych elementów naszej aplikacji na język ukraiński. Zawarliśmy tutaj przykład jej użycia i działania. Przykład ukazany jest na stronie logowania, tj. [/signin](https://i18n--localcircle.netlify.app/signin) oraz stronie rejestracji [/signup](https://i18n--localcircle.netlify.app/signup).
+
+### Jak przejść na wersję ukraińską
+
+Aby skorzystać z tłumaczenia, należy przejść na adres [/signin](https://i18n--localcircle.netlify.app/uk/signin) lub [/signin](https://i18n--localcircle.netlify.app/uk/signup). Są to automatycznie wygenerowane strony, z tłumaczeniem elementów interfejsu.
+
+### Dlaczego nie użyliśmy tego rozwiązania w projekcie
+
+Po prostu zabrakłko nam czasu. Bibliotekę stworzyliśmy jako jedną z pierwszych rzeczy i zostawiliśmy na koniec. Okoliczności czasowe pokazały jednak, że nie dane będzie jej nam użyć. Zdecydowaliśmy się więc stworzyć ten prosty przykład, aby zaprezentować prostą możliwość rozwinięcia naszej aplikacji w stronę zgodną z tematem konkursu.
 
 ## Architektura
 

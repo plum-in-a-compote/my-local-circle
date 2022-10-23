@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { CommunityPageProps } from '../../components/composited/CommunityPage/CommunityPage';
+import { DefaultCommunityPageProps } from '../../components/composited/CommunityPage/CommunityPage';
+import { REVALIDATE_EVERY_MINUTE } from '../../constants/fetch';
 import { getCommunities } from '../get/getCommunities';
 import { getCommunityBySlug } from '../get/getCommunity';
 
@@ -12,7 +13,7 @@ export const getCommunityPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getCommunityProps: GetStaticProps<CommunityPageProps> = async (context) => {
+export const getCommunityProps: GetStaticProps<DefaultCommunityPageProps> = async (context) => {
   if (!context.params) {
     return { props: null, notFound: true };
   }
@@ -24,6 +25,7 @@ export const getCommunityProps: GetStaticProps<CommunityPageProps> = async (cont
       props: {
         community,
       },
+      revalidate: REVALIDATE_EVERY_MINUTE,
     };
   } catch (e) {
     return { props: null, notFound: true };

@@ -35,9 +35,9 @@ export const CookiePopup = () => {
             Ciasteczka
           </h2>
         </div>
-        <p className="text-gray-700 text-xs leading-5 font-normal lg:text-xl lg:leading-8 pl-8 lg:pl-16 mb-8 lg:mb-12">
-          Wykorzystujemy ciasteczka do zapisywania preferencji użytkownika. Używamy także{' '}
-          <code>window.localStorage</code> do utrzymania sesji.
+        <p className="text-gray-700 text-xs leading-5 font-normal sm:text-sm sm:leading-6 lg:text-xl lg:leading-8 pl-8 lg:pl-16 mb-8 lg:mb-12">
+          Wykorzystujemy ciasteczka do zapisywania preferencji użytkownika. Pozwala to na lepsze
+          działanie aplikacji oraz ułatwienie z niej korzystania. Miłego dnia!
         </p>
         <Button
           className="ml-8 lg:ml-16"

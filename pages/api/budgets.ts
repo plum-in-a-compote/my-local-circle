@@ -8,6 +8,8 @@ export const config = {
   runtime: 'experimental-edge',
 };
 
+// We have taken a liberty here, we should check Authorization
+// header and check if the userId matches the request body
 export default async function handler(req: NextRequest) {
   if (req.method === 'POST') {
     try {

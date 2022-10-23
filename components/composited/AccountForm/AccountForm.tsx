@@ -7,6 +7,7 @@ import { Checkbox } from '../../generic/Checkbox/Checkbox';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
+import { useUser } from '../../../hooks/useUser';
 
 type AccountFormProps = {
   onSubmit: (fields: AccountFields) => void;
@@ -16,6 +17,7 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
   const [wrongPhoneFormat, setWrongPhoneFormat] = useState(false);
+  const { data: user } = useUser();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -24,10 +26,8 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
 
     const result = AccountFieldsSch.safeParse({
       name: formData.get('fullName'),
-      email: formData.get('email'),
       address: formData.get('address'),
       phoneNo: formData.get('phoneNo'),
-      shareContactInfo: Boolean(formData.get('shareContactInfo')),
     });
 
     if (result.success) {
@@ -66,27 +66,34 @@ export const AccountForm = ({ onSubmit }: AccountFormProps) => {
         />
       )}
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
-        {/* Placeholder default values, because we need to make DB call for custom user table */}
         <Input
           name="fullName"
           label="Imię i nazwisko"
-          defaultValue="Bartosz Wiśniowiecki"
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          defaultValue={user?.user_metadata?.name ?? ''}
           type="text"
         />
-        <Input name="email" label="Adres email" defaultValue="bartosz@gmail.com" type="email" />
         <Input
           name="address"
           label="Adres zamieszkania"
           placeholder="Ostrowiec Świętokrzyski, ul. Sandomierska 2"
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          defaultValue={user?.user_metadata?.address ?? ''}
           required={false}
           type="text"
         />
         <Input
           name="phoneNo"
           label="Numer telefonu"
-          placeholder="123 456 789"
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          defaultValue={user?.user_metadata?.phoneNo ?? ''}
           required={false}
           type="tel"
+        />
+        <WarningMessage
+          className="mb-4"
+          title="Wsparcie wkrótce!"
+          description="Udostępnianie danych kontaktowych to bardzo ważny temat, więc uznaliśmy, że podobne pole jest bardzo stosowne, niestety jeszcze go nie obsługujemy!"
         />
         <Checkbox
           name="shareContactInfo"
