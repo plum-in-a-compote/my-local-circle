@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { BudgetPageProps } from '../../components/composited/BudgetPage/BudgetPage';
+import { REVALIDATE_EVERY_MINUTE } from '../../constants/fetch';
 import { getSafeStaticBudgetBySlug } from '../get/getBudget';
 import { getBudgets } from '../get/getBudgets';
 import { getCommunities } from '../get/getCommunities';
@@ -48,6 +49,7 @@ export const getBudgetProps: GetStaticProps<BudgetPageProps> = async (context) =
         community,
         budget,
       },
+      revalidate: REVALIDATE_EVERY_MINUTE,
     };
   } catch (e) {
     return { props: null, notFound: true };
