@@ -23,7 +23,7 @@ export const BudgetsPage = ({ community }: BudgetsPageProps) => {
           icon={<SmallCommunityAddIcon className="fill-white" />}
           content="Nowy"
           variant="primary"
-          href="/communities/[communitySlug]/budgets/new"
+          href={`/communities/${community.slug}/budgets/new`}
         />
       </div>
       <ul className="flex flex-col gap-y-6 sm:grid sm:grid-cols-2 sm:gap-x-10 sm:gap-y-8 lg:gap-x-24 lg:gap-y-10">
