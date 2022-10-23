@@ -10,7 +10,7 @@ export type ChartColor =
 
 // Might be switched to inferred schema type
 export type Project = {
-  id: string;
-  name: string;
-  cost: number;
+  id?: number;
+  title: string;
+  estimatedCost: number;
 };

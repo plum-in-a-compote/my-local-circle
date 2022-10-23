@@ -3,10 +3,10 @@ import { clsx as cx } from 'clsx';
 import { calculateProjectWidthOnChart } from './helpers';
 
 export type ChartProgressBar = {
-  id: string;
+  id?: number;
   barBg: string;
-  name: string;
-  cost: number;
+  title: string;
+  estimatedCost: number;
 };
 
 type ChartProgressProps = {
@@ -16,18 +16,18 @@ type ChartProgressProps = {
 };
 
 export const ChartProgress = ({ progressBars, total }: ChartProgressProps) => {
-  const totalAmount = total ? total : progressBars.reduce((acc, p) => acc + p.cost, 0);
+  const totalAmount = total ? total : progressBars.reduce((acc, p) => acc + p.estimatedCost, 0);
 
   return (
     <span className="flex w-full h-4 rounded-lg overflow-hidden outline outline-1 outline-transparent">
       {progressBars.map((p) => (
         <span
           style={{
-            width: `${calculateProjectWidthOnChart(p.cost, totalAmount)}%`,
-            flexBasis: `${calculateProjectWidthOnChart(p.cost, totalAmount)}%`,
+            width: `${calculateProjectWidthOnChart(p.estimatedCost, totalAmount)}%`,
+            flexBasis: `${calculateProjectWidthOnChart(p.estimatedCost, totalAmount)}%`,
           }}
           key={p.id}
-          aria-label={p.name}
+          aria-label={p.title}
           className={cx('flex-1 outline outline-2 outline-transparent', p.barBg)}
         ></span>
       ))}
