@@ -15,7 +15,7 @@ type BreadcrumbsProps = {
 
 export const Breadcrumbs = ({ community, budget, className }: BreadcrumbsProps) => {
   return (
-    <div className={cx('flex gap-1', className)}>
+    <div className={cx('flex flex-wrap gap-1', className)}>
       <span className="text-sm leading-5 font-normal text-blue-800 focus:underline hover:underline lg:text-base">
         <Link href={`/communities/${community.slug}`}>
           <a>{community.name}</a>
