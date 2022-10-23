@@ -6,6 +6,18 @@ Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mi
 
 Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziou natywnych aplikacji poprzez PWA (Progressive Web Applications).
 
+## Przykład użycia języka ukraińskiego w naszej aplikacji
+
+Stworzyliśmy autorską bibliotekę do tłumaczenia poszczególnych elementów naszej aplikacji na język ukraiński. Zawarliśmy tutaj przykład jej użycia i działania. Przykład ukazany jest na stronie logowania, tj. [/signin](https://i18n--localcircle.netlify.app/signin) oraz stronie rejestracji [/signup](https://i18n--localcircle.netlify.app/signup).
+
+### Jak przejść na wersję ukraińską
+
+Aby skorzystać z tłumaczenia, należy przejść na adres [/signin](https://i18n--localcircle.netlify.app/uk/signin) lub [/signin](https://i18n--localcircle.netlify.app/uk/signup). Są to automatycznie wygenerowane strony, z tłumaczeniem elementów interfejsu.
+
+### Dlaczego nie użyliśmy tego rozwiązania w projekcie
+
+Po prostu zabrakłko nam czasu. Bibliotekę stworzyliśmy jako jedną z pierwszych rzeczy i zostawiliśmy na koniec. Okoliczności czasowe pokazały jednak, że nie dane będzie jej nam użyć. Zdecydowaliśmy się więc stworzyć ten prosty przykład, aby zaprezentować prostą możliwość rozwinięcia naszej aplikacji w stronę zgodną z tematem konkursu.
+
 ## Architektura
 
 Aplikacja została w całości napisana w języku Typescript. Naszym zdaniem jest to najlepsze podejście do pisania złożonych aplikacji internetowych ze względu na ułatwienie pracy dewelopera i podpowiedzi jakie na podstawie typów generuje IDE. Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Framework [Next.js](https://nextjs.org/) umożliwia m.in. statyczne generowanie stron (SSG), czy stworzenie prostego serwera HTTP (API Routes).
