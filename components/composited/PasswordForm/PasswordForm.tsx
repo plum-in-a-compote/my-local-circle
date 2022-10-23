@@ -23,14 +23,11 @@ export const PasswordForm = ({ onSubmit }: PasswordFormProps) => {
     const formData = new FormData(e.currentTarget);
 
     const result = PasswordChangeSch.safeParse({
-      oldPassword: formData.get('oldPassword'),
       newPassword: formData.get('newPassword'),
       newPasswordConfirmation: formData.get('newPasswordConfirmation'),
     });
 
     if (result.success) {
-      // todo
-      // when password is updated, user should get redirected to login page with a success toast
       onSubmit(result.data);
       setInputErrorMessage(false);
       setDifferentPasswords(false);
@@ -66,7 +63,6 @@ export const PasswordForm = ({ onSubmit }: PasswordFormProps) => {
         />
       )}
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <Input name="oldPassword" label="Stare hasło" type="password" />
         <Input
           name="newPassword"
           label="Nowe hasło"

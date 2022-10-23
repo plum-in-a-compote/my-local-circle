@@ -3,7 +3,6 @@ import { MIN_PASSWORD_LENGTH } from '../constants/password';
 
 export const PasswordChangeSch = z
   .object({
-    oldPassword: z.string().min(MIN_PASSWORD_LENGTH),
     newPassword: z.string().min(MIN_PASSWORD_LENGTH),
     newPasswordConfirmation: z.string().min(MIN_PASSWORD_LENGTH),
   })
