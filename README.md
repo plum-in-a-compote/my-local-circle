@@ -12,7 +12,7 @@ Stan danych wyświetlanych w aplikacji odświeża się co minutę. Prosimy nie p
 
 ## Obecny stan aplikacji
 
-Planowaliśmy wydać aplikację w pełnej formie, lecz zasoby czasowe nie do końca na to pozwoliły. Podczas korzystania z aplikacji użytkownik może spotkać pewne błędy lub nie do końca zaimplementowane funkcje. Rozwiązanie tych problemów jest obecnie najwyższym priorytetem, nad którym pracujemy do ostatniej minuty.
+Planowaliśmy wydać aplikację w pełnej formie, lecz zasoby czasowe nie do końca na to pozwoliły. Podczas korzystania z aplikacji użytkownik może spotkać pewne błędy lub nie do końca zaimplementowane funkcje. Rozwiązanie tych problemów jest obecnie najwyższym priorytetem, nad którym pracujemy do ostatniej minuty. Poza tym utworzone zostały Pull Request'y, które reprezentują funkcje, nad którymi obecnie pracujemy.
 
 ## Przykład użycia języka ukraińskiego w naszej aplikacji
 
