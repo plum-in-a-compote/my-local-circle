@@ -8,7 +8,7 @@ import { Text } from '../../generic/Text/Text';
 import { VoteButton } from '../../generic/VoteButton/VoteButton';
 import { ProjectInfoList } from './ProjectInfoList';
 import { Project } from '../../../validators/Project';
-import { useUserVoted } from '../../../hooks/useProjectUpvotes';
+import { useProjectUpvotes, useUserVoted } from '../../../hooks/useProjectUpvotes';
 import { formatCurrency } from '../../../utils/currency';
 import { useVoteProject } from '../../../hooks/useVoteProject';
 import { useUser } from '../../../hooks/useUser';
@@ -22,6 +22,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const { data: user } = useUser();
   const { data: voted } = useUserVoted(project.id as number);
   const vote = useVoteProject(project.id as number);
+  const votes = useProjectUpvotes(project.id as number);
+
+  const voteCount = votes.data?.length ?? 0;
 
   const toggleExpanded = useCallback(() => setExpanded((p) => !p), []);
 
@@ -60,6 +63,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               {
                 label: 'Miejsce',
                 value: project.place,
+              },
+              {
+                label: 'Ilość głosów',
+                value: voteCount.toString(),
               },
             ]}
           />
