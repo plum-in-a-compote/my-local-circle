@@ -9,7 +9,6 @@ import { Input } from '../../generic/Input/Input';
 import { SIMPLE_PHONE_PATTERN } from '../../../constants/regex';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
-import Link from 'next/link';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 import { Anchor } from '../../generic/Anchor/Anchor';
 

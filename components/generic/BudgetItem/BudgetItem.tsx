@@ -34,7 +34,7 @@ export const BudgetItem = ({
             slug: budgetSlug,
           }}
         />
-        {authored && <Badge color="amber" textContent="Twoje podanie" />}
+        {authored && <Badge color="amber" textContent="Koordynator budżetu" />}
       </div>
       <p className="text-xs leading-5 text-gray-700 mb-3 lg:text-sm lg:leading-6">{description}</p>
       <span className="block text-xs leading-5 text-gray-500 pb-2 border-b border-gray-300 sm:pb-4 lg:text-sm lg:leading-6">
