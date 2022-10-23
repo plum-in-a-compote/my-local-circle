@@ -22,13 +22,15 @@ export type CommunityPageProps = {
 
 export const CommunityPage = ({ community }: CommunityPageProps) => {
   const requestToJoin = useRequestToJoinCommunity();
-  const { data } = useUser();
+  const { data: user } = useUser();
+  const userId = user?.id;
 
   const { data: inCommunity } = useUserInCommunity(community.id as number);
   const { data: hasRequestedToJoin } = useUserJoinRequestTo(community.id as number);
+  const isAdmin = userId == community.adminId;
+  const displayInCommunityMessage = inCommunity || isAdmin;
 
   const handleJoinRequest = () => {
-    const userId = data?.id;
     if (userId && community.id) {
       requestToJoin.mutate({ userId, communityId: community.id });
     }
@@ -55,7 +57,7 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
         społeczności, jednak w tym momencie możesz przejść bezpośrednio na stronę organizacji{' '}
         {community.name}.
       </p>
-      {inCommunity && (
+      {displayInCommunityMessage && (
         <InfoMessage
           className="sm:col-end-2 mb-5"
           title="Należysz już do tej społeczności"
@@ -68,7 +70,7 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
         content="Przejdź do strony"
         href={`/communities/${community.slug}/budgets`}
       />
-      {!inCommunity && (
+      {!displayInCommunityMessage && (
         <Fragment>
           <Text
             className="inline-block w-full sm:text-center sm:col-end-2 mb-2"

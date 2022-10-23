@@ -2,7 +2,6 @@ import { useBudgetProjects } from '../../../hooks/useBudgetProjects';
 import { SafeDateBudget } from '../../../validators/Budget';
 import { Community } from '../../../validators/Community';
 import { Breadcrumbs } from '../../generic/Breadcrumbs/Breadcrumbs';
-import { Heading } from '../../generic/Heading/Heading';
 import { SMALL_HEIGHT, SMALL_WIDTH } from '../../generic/Icons/constants';
 import { ProjectIcon } from '../../generic/Icons/ProjectIcon';
 import { TimelineIcon } from '../../generic/Icons/TimelineIcon';
@@ -19,7 +18,7 @@ export type BudgetPageProps = {
 export const BudgetPage = ({ community, budget }: BudgetPageProps) => {
   const [communitySlug, budgetSlug] = budget.slug.split('/');
 
-  const { data: projects, isLoading } = useBudgetProjects(budget.id as number);
+  const { data: projects } = useBudgetProjects(budget.id as number);
 
   return (
     <section>
@@ -43,7 +42,9 @@ export const BudgetPage = ({ community, budget }: BudgetPageProps) => {
       <TabSection value="timeline">
         {projects && <TimelineTab projects={projects} budget={budget} />}
       </TabSection>
-      <TabSection value="projects">{projects && <ProjectsTab projects={projects} />}</TabSection>
+      <TabSection value="projects">
+        {projects && <ProjectsTab budget={budget} community={community} projects={projects} />}
+      </TabSection>
     </section>
   );
 };
