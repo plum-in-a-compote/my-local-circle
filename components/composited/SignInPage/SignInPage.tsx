@@ -18,7 +18,6 @@ export const SignInPage = () => {
         className="mb-8 sm:col-end-2"
         content="Konto jest potrzebne, aby utworzyć lokalną społeczność lub do niej dołączyć."
       />
-      {/* Display all errors in single place */}
       {login.isError && (
         <ErrorMessage
           className="mb-6 sm:col-end-2"
