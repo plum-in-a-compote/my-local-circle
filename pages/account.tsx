@@ -1,16 +1,16 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { AccountPage } from '../components/composited/AccountPage/AccountPage';
-import { Container } from '../components/generic/Container/Container';
+import { MainLayout } from '../components/generic/MainLayout/MainLayout';
 
 const Account: NextPage = () => {
   return (
-    <Container as="main">
+    <MainLayout>
       <Head>
         <title>Ustawienia konta - My Local Circle</title>
       </Head>
       <AccountPage />
-    </Container>
+    </MainLayout>
   );
 };
 
