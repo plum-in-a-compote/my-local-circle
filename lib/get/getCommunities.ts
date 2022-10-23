@@ -1,13 +1,9 @@
 import { z } from 'zod';
-import { INITIAL_PUBLIC_COMMUNITES_DISPLAYED } from '../../constants/community';
 import { CommunitySch } from '../../validators/Community';
 import { supabase } from '../supabase';
 
 export const getCommunities = async () => {
-  const { data, error } = await supabase
-    .from('Community')
-    .select('*')
-    .limit(INITIAL_PUBLIC_COMMUNITES_DISPLAYED);
+  const { data, error } = await supabase.from('Community').select('*');
 
   if (error) {
     throw new Error(error.message);
