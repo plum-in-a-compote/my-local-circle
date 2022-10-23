@@ -25,14 +25,18 @@ export const HomePage = () => {
         </p>
       </div>
       <CoverImage className="mt-12 sm:mt-0 lg:w-96">
-        <img src="/home-cover.png" alt="Preview of budget page" />
+        <img className="rounded lg:rounded-lg" src="/home-cover.png" alt="Preview of budget page" />
       </CoverImage>
 
       <div className="mt-16 col-span-2 sm:mt-16 lg:mt-0 sm:flex sm:flex-row-reverse sm:gap-14 sm:justify-between lg:gap-0">
         <HomeFeatureList />
 
         <CoverImage className="w-full mt-16 sm:mt-0 sm:w-1/2 lg:w-80 lg:mt-16 xl:w-96 xl:absolute xl:left-0 xl:bottom-56">
-          <img src="/home-cover-secondary.png" alt="Preview of project" />
+          <img
+            className="rounded lg:rounded-lg"
+            src="/home-cover-secondary.png"
+            alt="Preview of project"
+          />
         </CoverImage>
       </div>
     </section>

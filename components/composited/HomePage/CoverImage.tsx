@@ -7,5 +7,7 @@ type CoverImageProps = {
 };
 
 export const CoverImage = ({ children, className }: CoverImageProps) => {
-  return <div className={cx('h-fit border-2 rounded shadow', className)}>{children}</div>;
+  return (
+    <div className={cx('h-fit border-2 shadow rounded lg:rounded-lg', className)}>{children}</div>
+  );
 };
