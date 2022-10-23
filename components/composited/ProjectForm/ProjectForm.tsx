@@ -6,13 +6,13 @@ import { Input } from '../../generic/Input/Input';
 import { Textarea } from '../../generic/Textarea/Textarea';
 import { useUser } from '../../../hooks/useUser';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
+import { BudgetPageProps } from '../BudgetPage/BudgetPage';
 
-type ProjectFormProps = {
-  budgetId: number | undefined;
+type ProjectFormProps = BudgetPageProps & {
   onSubmit: (fields: ProjectFields) => void;
 };
 
-export const ProjectForm = ({ onSubmit }: ProjectFormProps) => {
+export const ProjectForm = ({ budget, onSubmit }: ProjectFormProps) => {
   const { data: user } = useUser();
   const formRef = useRef<HTMLFormElement>(null);
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
@@ -28,8 +28,8 @@ export const ProjectForm = ({ onSubmit }: ProjectFormProps) => {
       estimatedCost: Number(formData.get('estimatedCost')),
       estimatedRealisationDate: formData.get('estimatedRealisationDate'),
       place: formData.get('place'),
-      // coordinator:
-      // budgetId:
+      coordinator: user?.id,
+      budgetId: budget.id,
     });
 
     if (result.success) {
@@ -37,6 +37,8 @@ export const ProjectForm = ({ onSubmit }: ProjectFormProps) => {
       setInputErrorMessage(false);
       return;
     }
+
+    console.log(result.error);
 
     setInputErrorMessage(true);
   };
@@ -53,10 +55,17 @@ export const ProjectForm = ({ onSubmit }: ProjectFormProps) => {
       <form
         ref={formRef}
         onSubmit={handleSubmit}
-        className="sm:grid sm:grid-cols-2 sm:gap-x-12 flex flex-col sm:items-start gap-4 sm:col-end-2"
+        className="sm:col-span-2 sm:col-end-3 sm:grid sm:grid-cols-2 sm:gap-x-12 flex flex-col sm:items-start gap-4"
       >
         <fieldset className="flex flex-col gap-4 lg:gap-6">
-          <Input name="name" label="Tytuł" type="text" placeholder="Budowa boiska" />
+          <Input name="title" label="Tytuł" type="text" placeholder="Budowa boiska" />
+          <Input
+            className="mb-2"
+            name="place"
+            label="Miejsce"
+            type="text"
+            placeholder="Ostrowiec Świętokrzyski"
+          />
           <Textarea name="description" label="Opis" />
         </fieldset>
 
