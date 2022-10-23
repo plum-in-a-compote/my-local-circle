@@ -10,6 +10,11 @@ import { useUserJoinRequestTo } from '../../../hooks/useUserJoinRequests';
 import { InfoMessage } from '../../generic/InfoMessage/InfoMessage';
 import { Fragment } from 'react';
 import { CommunityWithExtraStats } from '../../../lib/get/getExtraStatsForCommunity';
+import { Community } from '../../../validators/Community';
+
+export type DefaultCommunityPageProps = {
+  community: Community;
+};
 
 export type CommunityPageProps = {
   community: CommunityWithExtraStats;
