@@ -18,7 +18,7 @@ export const CommunityStats = ({
   address,
 }: CommunityStatsProps) => {
   return (
-    <ul className="flex flex-col gap-3 mb-8">
+    <ul className="flex flex-col gap-3 mb-8 sm:grid sm:grid-cols-2 sm:col-span-2">
       <li>
         <CommunityStat name="Miasto" value={city} />
       </li>

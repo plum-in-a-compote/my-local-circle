@@ -59,11 +59,11 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
           />
           <Text as="span" content="lub" />
           <Link href="/signup">
-            <button className="rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-2 lg:py-1 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
+            <a className="inline-flex rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-2 lg:py-1 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
               Utwórz konto
-            </button>
+            </a>
           </Link>
-        </div>{' '}
+        </div>
       </form>
     </Fragment>
   );

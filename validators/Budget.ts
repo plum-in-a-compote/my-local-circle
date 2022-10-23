@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const BudgetSch = z.object({
+  id: z.number().optional(),
   name: z.string(),
   description: z.string(),
   budgetType: z.enum(['static', 'progressive']),
@@ -15,6 +16,7 @@ export const BudgetSch = z.object({
 });
 
 export const SafeStaticBudgetSch = z.object({
+  id: z.number().optional(),
   name: z.string(),
   description: z.string(),
   budgetType: z.enum(['static', 'progressive']),
@@ -27,6 +29,7 @@ export const SafeStaticBudgetSch = z.object({
 });
 
 export const BudgetFieldsSch = z.object({
+  id: z.number().optional(),
   name: z.string(),
   description: z.string(),
   budgetType: z.enum(['static', 'progressive']),

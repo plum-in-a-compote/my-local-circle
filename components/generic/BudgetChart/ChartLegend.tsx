@@ -1,9 +1,11 @@
+import { formatCurrency } from '../../../utils/currency';
 import { CircleIcon } from '../Icons/CircleIcon';
 
 export type ChartLegendItem = {
-  id: string;
+  id?: number;
   circleFill: string;
-  name: string;
+  title: string;
+  estimatedCost: number;
 };
 
 type ChartLegendProps = {
@@ -16,7 +18,12 @@ export const ChartLegend = ({ legends }: ChartLegendProps) => {
       {legends.map((l) => (
         <li key={l.id} className="flex items-center gap-5">
           <CircleIcon width={8} height={8} className={l.circleFill} />
-          <span className="text-xs leading-4 font-normal text-gray-700">{l.name}</span>
+          <div className="flex gap-2">
+            <span className="text-xs leading-4 font-normal text-gray-700">{l.title}</span>
+            <span className="text-xs leading-4 font-normal text-gray-600">
+              ({formatCurrency(l.estimatedCost)})
+            </span>
+          </div>
         </li>
       ))}
     </ul>

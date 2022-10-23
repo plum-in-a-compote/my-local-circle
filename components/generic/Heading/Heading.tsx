@@ -13,6 +13,8 @@ const variants = {
   smBold:
     'text-sm leading-5 font-bold text-gray-700 sm:text-base sm:leading-6 sm:text-gray-800 lg:text-lg lg:leading-7',
   base: 'text-base leading-6 font-bold text-gray-800 sm:text-lg sm:leading-7 lg:text-2xl lg:leading-8',
+  baseSemibold:
+    'text-base leading-6 font-semibold text-gray-800 sm:text-lg sm:leading-7 lg:text-2xl lg:leading-8',
 };
 
 export const Heading = ({
