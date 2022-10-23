@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { AddIcon } from '../../generic/Icons/AddIcon';
 import { CheckIcon } from '../../generic/Icons/CheckIcon';
 import { TaskDoneIcon } from '../../generic/Icons/TaskDoneIcon';

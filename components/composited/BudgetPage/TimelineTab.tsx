@@ -4,6 +4,8 @@ import { SafeDateBudget } from '../../../validators/Budget';
 import { Project } from '../../../validators/Project';
 import { BudgetChart } from '../../generic/BudgetChart/BudgetChart';
 import { Heading } from '../../generic/Heading/Heading';
+import { InfoMessage } from '../../generic/InfoMessage/InfoMessage';
+import { Timeline } from '../Timeline/Timeline';
 
 type TimelineTabProps = {
   projects: Project[];
@@ -27,6 +29,30 @@ export const TimelineTab = ({ projects, budget }: TimelineTabProps) => {
         {formatCurrency(total)}
       </span>
       <BudgetChart projects={projects} />
+      <InfoMessage
+        className="my-4 sm:my-8 lg:my-12"
+        title="Przykładowa linia czasu"
+        description="W przyszłościu planujemy dodać linię czasu, tak będzie się prezentować."
+      />
+      <Timeline
+        items={[
+          {
+            coordinatorName: 'Michał Markiewicz',
+            projectName: 'Wyjście do kina',
+            eventType: 'finished',
+          },
+          {
+            coordinatorName: 'Bartłomiej Wiśniewski',
+            projectName: 'Wyjście do kina',
+            eventType: 'accepted',
+          },
+          {
+            coordinatorName: 'Michał Ołubiec',
+            projectName: 'Wyjście do kina',
+            eventType: 'new',
+          },
+        ]}
+      />
     </Fragment>
   );
 };
