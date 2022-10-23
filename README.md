@@ -4,7 +4,11 @@
 
 Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne inicjatywy. Jako uczestnik społeczności możesz np. tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji. Wspieramy też interfejs w języku ukraińskim, wykorzystując prostą autorską bibliotekę do mapowania danych.
 
-Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziou natywnych aplikacji poprzez PWA (Progressive Web Applications).
+Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziomu natywnych aplikacji poprzez PWA (Progressive Web Applications).
+
+## Obecny stan aplikacji
+
+Planowaliśmy wydać aplikację w pełnej formie, lecz zasoby czasowe nie do końca na to pozwoliły. Podczas korzystania z aplikacji użytkownik może spotkać pewne błędy lub nie do końca zaimplementowane funkcje. Rozwiązanie tych problemów jest obecnie najwyższym priorytetem, nad którym pracujemy do ostatniej minuty.
 
 ## Przykład użycia języka ukraińskiego w naszej aplikacji
 
