@@ -11,6 +11,7 @@ import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
 import Link from 'next/link';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
+import { Anchor } from '../../generic/Anchor/Anchor';
 
 type SignUpFormProps = {
   onSubmit: (fields: SignUpFields) => void;
@@ -121,14 +122,10 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           </div>
         </fieldset>
 
-        <div className="flex gap-1 items-baseline sm:gap-2">
-          <Button type="submit" content="Zarejestruj się" variant="primary" />
+        <div className="flex gap-1 items-center lg:gap-2 lg:flex-col">
+          <Button className="lg:w-80" type="submit" content="Zarejestruj się" variant="primary" />
           <Text as="span" content="lub" />
-          <Link href="/signup">
-            <button className="rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-4 lg:py-2 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
-              Utwórz konto
-            </button>
-          </Link>
+          <Anchor className="lg:w-80" variant="plain" content="Utwórz konto" href="/signin" />
         </div>
       </form>
     </Fragment>
