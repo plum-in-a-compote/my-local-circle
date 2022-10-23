@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 import { SignInFields, SignInFieldsSch } from '../../../validators/SignInFields';
+import { Anchor } from '../../generic/Anchor/Anchor';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { Input } from '../../generic/Input/Input';
-import { LinkButton } from '../../generic/LinkButton/LinkButton';
 import { Text } from '../../generic/Text/Text';
 
 type SignInFormProps = {
@@ -40,7 +41,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       <form
@@ -50,17 +51,10 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
       >
         <Input type="email" name="email" label="Adres email" placeholder="jan@gmail.com" />
         <Input type="password" name="password" label="Hasło" />
-        <div className="flex gap-2 items-baseline">
-          <Button
-            className="sm:px-2 lg:px-6"
-            type="submit"
-            content="Zaloguj się"
-            variant="primary"
-          />
-          <Text className="font-bold" as="span" content="lub" />
-          <Link href="/signup">
-            <LinkButton textContent="Utwórz konto" />
-          </Link>
+        <div className="flex gap-1 items-center lg:gap-2 lg:flex-col lg:pt-4">
+          <Button className="lg:w-80" type="submit" content="Zaloguj się" variant="primary" />
+          <Text as="span" content="lub" />
+          <Anchor className="lg:w-80" variant="plain" content="Utwórz konto" href="/signup" />
         </div>
       </form>
     </Fragment>

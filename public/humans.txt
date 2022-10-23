@@ -1,0 +1,23 @@
+/* TEAM */
+	Lead developer: Bartłomiej Wiśniewski
+	Contact: b.wisniewski128 [at] gmail.com
+	From: Świętokrzyskie, Poland
+
+	Developer: Michał Ołubiec
+	From: Świętokrzyskie, Poland
+
+	UK translator: Michał Markiewicz
+	From: Świętokrzyskie, Poland
+
+	Tester: Kacper Sadowski
+	From: Świętokrzyskie, Poland
+
+/* THANKS */
+
+	Promoter: Sylwester Szostak
+	From: Świętokrzyskie, Poland
+
+/* SITE */
+	Language: Polski, Українська
+	Doctype: HTML5
+	IDE: Visual Studio Code, Vim

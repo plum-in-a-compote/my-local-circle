@@ -9,6 +9,8 @@ import { Input } from '../../generic/Input/Input';
 import { SIMPLE_PHONE_PATTERN } from '../../../constants/regex';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
 import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
+import { Anchor } from '../../generic/Anchor/Anchor';
 
 type SignUpFormProps = {
   onSubmit: (fields: SignUpFields) => void;
@@ -60,7 +62,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       {differentPasswords && (
@@ -119,7 +121,11 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           </div>
         </fieldset>
 
-        <Button type="submit" content="Zarejestruj się" variant="primary" />
+        <div className="flex gap-1 items-center lg:gap-2 lg:flex-col">
+          <Button className="lg:w-80" type="submit" content="Zarejestruj się" variant="primary" />
+          <Text as="span" content="lub" />
+          <Anchor className="lg:w-80" variant="plain" content="Utwórz konto" href="/signin" />
+        </div>
       </form>
     </Fragment>
   );

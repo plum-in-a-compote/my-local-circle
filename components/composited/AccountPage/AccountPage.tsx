@@ -6,13 +6,19 @@ import { AccountForm } from '../AccountForm/AccountForm';
 import { PasswordForm } from '../../composited/PasswordForm/PasswordForm';
 import { Heading } from '../../generic/Heading/Heading';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
+import { useRouter } from 'next/router';
+import { PingLoading } from '../../generic/PingLoading/PingLoading';
+import { updateUserPassword } from '../../../lib/post/updateUserPassword';
 import { SuccessMessage } from '../../generic/SuccessMessage/SuccessMessage';
 
 export const AccountPage = () => {
-  const updateUserInfo = useMutation(updateUser);
+  const router = useRouter();
+  const updateUserInfo = useMutation(updateUser, { onSuccess: () => router.reload() });
+  const updatePassword = useMutation(updateUserPassword);
 
   return (
     <Auth>
+      {updateUserInfo.isLoading && <PingLoading message="Aktualizowanie danych..." />}
       <Heading
         className="mb-4"
         as="h1"
@@ -24,15 +30,17 @@ export const AccountPage = () => {
         <ErrorMessage
           className="mb-6"
           title="Nie udało się zaktualizować danych!"
-          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
+          description="Sprawdź czy wprowadzone dane są poprawne i spróbuj ponownie. Błąd może być spowodowany krótkotrwałą przerwą w działaniu serwera.Jeśli nie możesz rozwiązać problemu, skontakuj się z administracją serwisu."
         />
       )}
-      {updateUserInfo.isSuccess && (
-        <SuccessMessage className="mb-6" title="Poprawnie zaktualizowano dane!" />
-      )}
-      <AccountForm onSubmit={() => 1} />
+      <AccountForm onSubmit={updateUserInfo.mutate} />
       <Heading className="mt-16 mb-5" as="h2" variant="smBold" content="Hasło" />
-      <PasswordForm onSubmit={() => 1} />
+
+      {updatePassword.isLoading && <PingLoading message="Zmiana hasła..." />}
+      {updatePassword.isSuccess && (
+        <SuccessMessage className="mb-4" title="Pomyślnie zmieniono hasło" />
+      )}
+      <PasswordForm onSubmit={updatePassword.mutate} />
     </Auth>
   );
 };
