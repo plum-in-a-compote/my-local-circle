@@ -11,7 +11,8 @@ import { useLocale } from '../../../lib/locale/LocaleContext';
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   const toggleMobileMenu = useCallback(() => setMobileMenuOpened((p) => !p), []);
-  const gl = useLocale<'CommunitiesPage'>();
+  const gl = (s: string) => 'build';
+
   return (
     <header
       className={cx(

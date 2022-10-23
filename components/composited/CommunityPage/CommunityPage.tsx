@@ -17,7 +17,7 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
   const { data } = useUser();
   // @todo check if user is already in community
 
-  const gl = useLocale<'CommunitiesPage'>();
+  const gl = (s: string) => 'build';
 
   const handleJoinRequest = () => {
     const userId = data?.id;

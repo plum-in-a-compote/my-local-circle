@@ -35,7 +35,7 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
     }
   };
 
-  const gl = useLocale<'SignIn'>();
+  const gl = (s: string) => 'build';
 
   return (
     <Fragment>

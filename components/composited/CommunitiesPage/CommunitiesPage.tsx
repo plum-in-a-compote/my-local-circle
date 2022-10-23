@@ -11,7 +11,7 @@ export type CommunitiesPageProps = {
 };
 
 export const CommunitiesPage = ({ communities }: CommunitiesPageProps) => {
-  const gl = useLocale<'CommunitiesPage'>();
+  const gl = (s: string) => 'build';
   return (
     <Fragment>
       <div className="flex items-baseline justify-between mb-4 border-b pb-4 border-dashed border-gray-400">

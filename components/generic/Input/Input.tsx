@@ -28,7 +28,7 @@ export const Input = ({
 }: InputProps) => {
   const phoneInput = type === 'tel';
 
-  const gl = useLocale<'SignUp'>();
+  const gl = (s: string) => 'build';
 
   return (
     <label className={cx('relative flex flex-col w-full', className)}>

@@ -11,8 +11,7 @@ import { useLocale } from '../../../lib/locale/LocaleContext';
 export const SignUpPage = () => {
   const router = useRouter();
   const register = useMutation(signUp, { onSuccess: () => router.push('/') });
-  const gl = useLocale<'SignUp'>();
-
+  const gl = (s: string) => 'build';
   return (
     <section className="sm:grid sm:grid-cols-2 sm:gap-x-8">
       <Heading
