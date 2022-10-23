@@ -7,6 +7,8 @@ export const ProjectSch = z.object({
   estimatedCost: z.number(),
   estimatedRealisationDate: z.string(),
   place: z.string(),
+  coordinatorId: z.string(),
+  budgetId: z.string(),
 });
 
 // Might not be needed as we don't generate slug
@@ -17,6 +19,8 @@ export const ProjectFieldsSch = z.object({
   estimatedCost: z.number(),
   estimatedRealisationDate: z.string(),
   place: z.string(),
+  coordinatorId: z.string(),
+  budgetId: z.string(),
 });
 
 export const ProjectUpvoteSch = z.object({
