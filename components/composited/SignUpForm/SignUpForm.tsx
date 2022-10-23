@@ -22,7 +22,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
   const [inputErrorMessage, setInputErrorMessage] = useState(false);
   const [differentPasswords, setDifferentPasswords] = useState(false);
 
-  const gl = (s: string) => 'build';
+  const gl = useLocale<'SignUp'>();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
