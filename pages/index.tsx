@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <MainLayout>
       <Head>
-        <title>Strona główna - My local circle</title>
+        <title>Strona główna - My Local Circle</title>
       </Head>
     </MainLayout>
   );
