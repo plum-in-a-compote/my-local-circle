@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Timeline } from '../components/composited/Timeline/Timeline';
 
 import { BudgetChart } from '../components/generic/BudgetChart/BudgetChart';
 import { SMALL_HEIGHT, SMALL_WIDTH } from '../components/generic/Icons/constants';
@@ -41,6 +42,25 @@ const Home: NextPage = () => {
             cost: 2000,
             id: '2',
             name: 'Test',
+          },
+        ]}
+      />
+      <Timeline
+        items={[
+          {
+            coordinatorName: 'Michał Markiewicz',
+            projectName: 'Wyjście do kina',
+            eventType: 'finished',
+          },
+          {
+            coordinatorName: 'Michał Markiewicz',
+            projectName: 'Wyjście do kina',
+            eventType: 'accepted',
+          },
+          {
+            coordinatorName: 'Michał Markiewicz',
+            projectName: 'Wyjście do kina',
+            eventType: 'new',
           },
         ]}
       />
