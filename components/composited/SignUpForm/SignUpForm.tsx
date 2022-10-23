@@ -127,7 +127,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         <div className="flex gap-1 items-baseline sm:gap-2">
           <Button type="submit" content={gl('register')} variant="primary" />
           <Text as="span" content={gl('or')} />
-          <Link href="/signup">
+          <Link href="/signin">
             <button className="rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-4 lg:py-2 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
               {gl('createAccount')}
             </button>
