@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { DefaultCommunityPageProps } from '../../components/composited/CommunityPage/CommunityPage';
-import { Community } from '../../validators/Community';
+import { REVALIDATE_EVERY_MINUTE } from '../../constants/fetch';
 import { getCommunities } from '../get/getCommunities';
 import { getCommunityBySlug } from '../get/getCommunity';
 
@@ -25,6 +25,7 @@ export const getCommunityProps: GetStaticProps<DefaultCommunityPageProps> = asyn
       props: {
         community,
       },
+      revalidate: REVALIDATE_EVERY_MINUTE,
     };
   } catch (e) {
     return { props: null, notFound: true };
