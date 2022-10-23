@@ -5,16 +5,18 @@ type ProjectIconProps = {
   width?: number;
   height?: number;
   className?: string;
+  fill?: string;
 };
 
 export const ProjectIcon = ({
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
   className,
+  fill = 'fill-gray-600',
 }: ProjectIconProps) => {
   return (
     <svg
-      className={cx('fill-gray-600', className)}
+      className={cx(className, fill)}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}

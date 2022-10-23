@@ -14,7 +14,8 @@ export const HomeFeatureList = () => {
         <PeopleIcon
           width={40}
           height={40}
-          className="fill-gray-600 shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
+          fill="fill-blue-800"
+          className="shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
         />
       </HomeFeature>
       <HomeFeature
@@ -24,6 +25,7 @@ export const HomeFeatureList = () => {
         <TimelineIcon
           width={40}
           height={40}
+          fill="fill-blue-800"
           className="shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
         />
       </HomeFeature>
@@ -34,6 +36,7 @@ export const HomeFeatureList = () => {
         <ProjectIcon
           width={40}
           height={40}
+          fill="fill-blue-800"
           className="shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
         />
       </HomeFeature>
@@ -44,7 +47,7 @@ export const HomeFeatureList = () => {
         <FavoriteIcon
           width={40}
           height={40}
-          className="fill-gray-600 shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
+          className="fill-blue-800 shrink-0 p-1 rounded bg-blue-200 lg:w-14 lg:h-14"
         />
       </HomeFeature>
     </ul>

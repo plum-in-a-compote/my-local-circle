@@ -5,16 +5,18 @@ type TimelineIconProps = {
   width?: number;
   height?: number;
   className?: string;
+  fill?: string;
 };
 
 export const TimelineIcon = ({
   width = SMALL_WIDTH,
   height = SMALL_HEIGHT,
   className,
+  fill = 'fill-gray-600',
 }: TimelineIconProps) => {
   return (
     <svg
-      className={cx('fill-gray-600', className)}
+      className={cx(fill, className)}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
