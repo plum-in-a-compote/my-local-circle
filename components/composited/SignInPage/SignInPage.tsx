@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Heading } from '../../generic/Heading/Heading';
 import { Text } from '../../generic/Text/Text';
 import { SignInForm } from '../SignInForm/SignInForm';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { signIn } from '../../../lib/post/signIn';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
 import { useLocale } from '../../../lib/locale/LocaleContext';

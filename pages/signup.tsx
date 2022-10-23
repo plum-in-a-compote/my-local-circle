@@ -5,7 +5,7 @@ import { Container } from '../components/generic/Container/Container';
 
 const SignUp: NextPage = () => {
   return (
-    <Container as="main">
+    <Container as="main" className="py-10 sm:py-12 lg:py-16">
       <Head>
         <title>Zarejestruj się - My Local Circle</title>
       </Head>

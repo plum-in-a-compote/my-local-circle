@@ -8,6 +8,9 @@ import { Heading } from '../../generic/Heading/Heading';
 import { Input } from '../../generic/Input/Input';
 import { SIMPLE_PHONE_PATTERN } from '../../../constants/regex';
 import { WarningMessage } from '../../generic/WarningMessage/WarningMessage';
+import { MIN_PASSWORD_LENGTH } from '../../../constants/password';
+import Link from 'next/link';
+import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
 
 type SignUpFormProps = {
   onSubmit: (fields: SignUpFields) => void;
@@ -37,6 +40,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
     if (result.success) {
       onSubmit(result.data);
       setInputErrorMessage(false);
+      setDifferentPasswords(false);
       return;
     }
 
@@ -58,7 +62,7 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
         <ErrorMessage
           className="mb-6 sm:col-end-2"
           title="Błąd danych wejściowych!"
-          description="Wystąpił błąd danych wejściowych, sprawdź poprawność wpisanych danych. Jeśli błąd nie zniknie, skontaktuj się z administracją serwisu."
+          description={GENERIC_INPUT_ERROR_MSG}
         />
       )}
       {differentPasswords && (
@@ -79,10 +83,15 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           <Input
             type="password"
             name="password"
-            label="Hasło (minimalnie 9 znaków)"
-            minLength={8}
+            label={`Hasło (minimalnie ${MIN_PASSWORD_LENGTH} znaków)`}
+            minLength={MIN_PASSWORD_LENGTH}
           />
-          <Input type="password" name="passwordConfirmation" label="Powtórz hasło" minLength={9} />
+          <Input
+            type="password"
+            name="passwordConfirmation"
+            label="Powtórz hasło"
+            minLength={MIN_PASSWORD_LENGTH}
+          />
         </fieldset>
 
         <fieldset className="w-full flex flex-col">
@@ -112,7 +121,15 @@ export const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           </div>
         </fieldset>
 
-        <Button type="submit" content="Zarejestruj się" variant="primary" />
+        <div className="flex gap-1 items-baseline sm:gap-2">
+          <Button type="submit" content="Zarejestruj się" variant="primary" />
+          <Text as="span" content="lub" />
+          <Link href="/signup">
+            <button className="rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-4 lg:py-2 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
+              Utwórz konto
+            </button>
+          </Link>
+        </div>
       </form>
     </Fragment>
   );

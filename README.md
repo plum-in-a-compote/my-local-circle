@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My local circle
 
-## Getting Started
+Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne inicjatywy. Jako uczestnik społeczności możesz np. tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji. Wspieramy też interfejs w języku ukraińskim, wykorzystując prostą autorską bibliotekę do mapowania danych.
 
-First, run the development server:
+Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziou natywnych aplikacji poprzez PWA (Progressive Web Applications).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Architektura
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja została w całości napisana w języku Typescript. Naszym zdaniem jest to najlepsze podejście do pisania złożonych aplikacji internetowych ze względu na ułatwienie pracy dewelopera i podpowiedzi jakie na podstawie typów generuje IDE. Zastosowaliśmy architekturę trójwarstwową (baza danych, serwer, klient). Framework [Next.js](https://nextjs.org/) umożliwia m.in. statyczne generowanie stron (SSG), czy stworzenie prostego serwera HTTP (API Routes).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### TLDR;
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Next.js** (serwer HTTP, SSG, SSR),
+- **React** (komponenty),
+- **Tailwindcss** (predefiniowany zbiór wartości),
+- **Supabase, PostgreSQL** (baza danych),
+- **React Query** (pobieranie, cache danych po stronie klienta),
+- **Zod** (walidacja danych, generowanie typów)
 
-## Learn More
+### Front-end
 
-To learn more about Next.js, take a look at the following resources:
+Podczas korzystania z naszej strony może się wydawać, że wszystkie strony ładują się praktycznie tak szybko jak czysty HTML. Dokładnie tak jest - no... prawie. Używamy tutaj czegoś co nazywa się **SSG (Static site generation)**, co pozwala na wcześniejsze wyrenderowanie stron z dynamiczną treścią, co pozwala serwować klientowi stronę w HTMLu, a po załadowaniu strona stanie się aktywna poprzez proces zwany hydracją. Dodatkowo wszystkie strony co jakiś czas są budowane od początku z najnowszymi danymi, co pozwala uzyskać świetny stosunek optymalizacji co do aktualności danych.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Oczywiście to rozwiązanie nie jest idealne dla stron, które zawierają dane prywatne np. konto użytkownika, czy budżety społeczności, natomiast w tym wypadku używamy biblioteki `react-query`, która pobiera dane po stronie klienta, korzystając z techniki `stale-while-revalidate`, co również wpływa bardzo korzystnie na wydajność strony.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+W celu zapewnienia poprawności formatu wprowadzanych pól (co pozwala na wcześniejszy feedback dla użytkownika), używamy biblioteki do walidacji `zod`. Dzięki niej możemy tworzyć "schematy" jaki musi przyjąć obiekt z danymi, a następnie sprawdzamy (parsujemy) input od użytkownika. 
 
-## Deploy on Vercel
+### Baza danych
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Do przechowywania danych, użyliśmy dość nowej otwartoźródłowej biblioteki [supabase](https://supabase.com/). Wewnętrznie używany jest tam PostgreSQL, więc zaprojektowaliśmy relacyjny model danych. Większość danych pobieramy bezpośrednio z bazy danych, korzystając z RLS (Row level security), co pozwala na ograniczenie uprawnień użytkownika np. do modyfikowania własnych rekordów.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Część zapytań jest wysyłana na nasz serwer Proxy (`/pages/api`), aby zapewnić poprawność typu danych (np. w przypadku generowania slug'a). W tym celu wykorzystujemy funkcjonalność serwera Next.js (Edge API Routes), dzięki czemu nasz vendor (Netlify) może rozmieścić nasze Proxy w wielu centrach danych.
+
+
+
+## Konwencje nazewnictwa i struktura
+
+Wszystko zostało dokładnie opisane w pliku [CONTRIBUTING.md](CONTRIBUTING.md). Zachęcamy do zapoznania z plikiem.
