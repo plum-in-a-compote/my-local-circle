@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { CommunityPageProps } from '../../components/composited/CommunityPage/CommunityPage';
+import { DefaultCommunityPageProps } from '../../components/composited/CommunityPage/CommunityPage';
+import { Community } from '../../validators/Community';
 import { getCommunities } from '../get/getCommunities';
 import { getCommunityBySlug } from '../get/getCommunity';
 
@@ -12,7 +13,7 @@ export const getCommunityPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getCommunityProps: GetStaticProps<CommunityPageProps> = async (context) => {
+export const getCommunityProps: GetStaticProps<DefaultCommunityPageProps> = async (context) => {
   if (!context.params) {
     return { props: null, notFound: true };
   }

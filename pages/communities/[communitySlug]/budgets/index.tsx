@@ -13,10 +13,11 @@ export const getStaticProps: GetStaticProps<BudgetsPageProps> = async (context) 
   getCommunityProps(context);
 
 const Budgets: NextPage<BudgetsPageProps> = ({ community }) => {
+  const title = `${community.name} - My Local Circle`;
   return (
     <MainLayout>
       <Head>
-        <title>Budżety społeczności - My Local Circle</title>
+        <title>{title}</title>
       </Head>
       <BudgetsPage community={community} />
     </MainLayout>

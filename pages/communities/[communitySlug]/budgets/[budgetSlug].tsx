@@ -61,10 +61,11 @@ export const getStaticProps: GetStaticProps<BudgetPageProps> = async (context) =
 };
 
 const Budget: NextPage<BudgetPageProps> = ({ community, budget }) => {
+  const title = `${budget.name} (${community.name}) - My Local Circle`;
   return (
     <MainLayout>
       <Head>
-        <title>Budżet - My Local Circle</title>
+        <title>{title}</title>
       </Head>
       <BudgetPage budget={budget} community={community} />
     </MainLayout>

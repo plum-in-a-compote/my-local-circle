@@ -8,11 +8,31 @@ import {
   CommunityPageProps,
 } from '../../../components/composited/CommunityPage/CommunityPage';
 
-import { getCommunityPaths, getCommunityProps } from '../../../lib/next/community';
+import { getCommunityPaths } from '../../../lib/next/community';
+import { getCommunityBySlug } from '../../../lib/get/getCommunity';
+import { getExtraStatsForCommunity } from '../../../lib/get/getExtraStatsForCommunity';
 
 export const getStaticPaths: GetStaticPaths = async (context) => getCommunityPaths(context);
-export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context) =>
-  getCommunityProps(context);
+
+export const getStaticProps: GetStaticProps<CommunityPageProps> = async (context) => {
+  if (!context.params) {
+    return { props: null, notFound: true };
+  }
+
+  try {
+    const slug = context.params.communitySlug as string;
+    const community = await getCommunityBySlug(slug);
+    const communityExtraStats = await getExtraStatsForCommunity(community);
+
+    return {
+      props: {
+        community: communityExtraStats,
+      },
+    };
+  } catch (e) {
+    return { props: null, notFound: true };
+  }
+};
 
 const Community: NextPage<CommunityPageProps> = ({ community }) => {
   const title = `${community.name} - My Local Circle`;

@@ -4,7 +4,7 @@ export const Logo = () => {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/logo-lg.png"
-        alt="Logo projektu My local circle."
+        alt="Logo projektu My Local Circle."
         srcSet="/logo-sm.png 36w, /logo.png 48w, /logo-lg.png"
       />
     </div>

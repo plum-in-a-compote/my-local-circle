@@ -1,3 +1,4 @@
+import { formatCurrency } from '../../../utils/currency';
 import { CommunityStat } from './CommunityStat';
 
 type CommunityStatsProps = {
@@ -35,7 +36,10 @@ export const CommunityStats = ({
         <CommunityStat name="Budżety" value={budgetsNo.toString()} />
       </li>
       <li>
-        <CommunityStat name="Średnia wielkość budżetu" value={averageBudgetAmount.toString()} />
+        <CommunityStat
+          name="Średnia wielkość budżetu"
+          value={formatCurrency(averageBudgetAmount)}
+        />
       </li>
     </ul>
   );

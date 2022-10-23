@@ -9,13 +9,17 @@ import {
 import { getCommunities } from '../../lib/get/getCommunities';
 import { MainLayout } from '../../components/generic/MainLayout/MainLayout';
 import { REVALIDATE_EVERY_MINUTE } from '../../constants/fetch';
+import { getExtraStatsForCommunity } from '../../lib/get/getExtraStatsForCommunity';
 
 export const getStaticProps: GetStaticProps<CommunitiesPageProps> = async () => {
   const communities = await getCommunities();
+  const extraStatsCommunities = await Promise.all(
+    communities.map(async (c) => getExtraStatsForCommunity(c)),
+  );
 
   return {
     props: {
-      communities,
+      communities: extraStatsCommunities,
     },
     revalidate: REVALIDATE_EVERY_MINUTE,
   };
