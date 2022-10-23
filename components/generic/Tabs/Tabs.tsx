@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { clsx as cx } from 'clsx';
 
-type Tab<T extends string> = {
+export type Tab<T extends string> = {
   icon?: React.ReactNode;
   name: string;
   value: T;
@@ -53,7 +53,7 @@ export const Tabs = <T extends string, D extends T>({
               key={t.value}
               role="presentation"
             >
-              <span className="inline-block w-5 h-5">{t.icon}</span>
+              {t.icon && <span className="inline-block w-5 h-5">{t.icon}</span>}
               {selected && <Underline />}
               <a
                 className={cx(
