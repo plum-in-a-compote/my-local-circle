@@ -1,5 +1,6 @@
 import { useRequestToJoinCommunity } from '../../../hooks/useRequestToJoinCommunity';
 import { useUser } from '../../../hooks/useUser';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 import { Community } from '../../../validators/Community';
 import { Auth } from '../../generic/Auth/Auth';
 import { Button } from '../../generic/Button/Button';
@@ -15,6 +16,8 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
   const mutation = useRequestToJoinCommunity();
   const { data } = useUser();
   // @todo check if user is already in community
+
+  const gl = useLocale<'CommunitiesPage'>();
 
   const handleJoinRequest = () => {
     const userId = data?.id;
@@ -38,14 +41,13 @@ export const CommunityPage = ({ community }: CommunityPageProps) => {
         averageBudgetAmount={42000}
       />
       <p className="text-xs leading-5 font-normal text-gray-700 mb-6">
-        Aby wyświetlic więcej informacji o społeczności musisz być jej członkiem. Wyślij podanie o
-        dołączenie i poczekaj na akceptację.
+        {gl('beeingMemberRequired')}
       </p>
       <Auth forceRedirect={false}>
         <Button
           onClick={handleJoinRequest}
           variant="primary"
-          content="Wyślij podanie"
+          content={gl('sendApplication')}
           type="button"
         />
       </Auth>

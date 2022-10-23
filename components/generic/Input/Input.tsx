@@ -1,4 +1,5 @@
 import { clsx as cx } from 'clsx';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 
 type InputProps = {
   name: string;
@@ -26,6 +27,8 @@ export const Input = ({
   className,
 }: InputProps) => {
   const phoneInput = type === 'tel';
+
+  const gl = useLocale<'SignUp'>();
 
   return (
     <label className={cx('relative flex flex-col w-full', className)}>
@@ -60,7 +63,7 @@ export const Input = ({
       </div>
       {!required && (
         <span className="absolute right-0 top-0 text-xs leading-4 font-normal text-gray-600">
-          Opcjonalne
+          {gl('optional')}
         </span>
       )}
     </label>

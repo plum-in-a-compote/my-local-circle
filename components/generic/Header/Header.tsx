@@ -6,11 +6,12 @@ import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderLink } from './HeaderLink';
 import { NavigationIcons } from './NavigationIcons';
 import { Logo } from './Logo';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 
 export const Header = () => {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   const toggleMobileMenu = useCallback(() => setMobileMenuOpened((p) => !p), []);
-
+  const gl = useLocale<'CommunitiesPage'>();
   return (
     <header
       className={cx(
@@ -24,7 +25,7 @@ export const Header = () => {
       >
         <div className="w-full flex justify-between items-center sm:w-fit">
           <button
-            aria-label="Otwórz menu nawigacyjne strony."
+            aria-label={gl('hamburgerMenuLabel')}
             aria-expanded={mobileMenuOpened}
             className="sm:hidden"
             onClick={toggleMobileMenu}
@@ -42,9 +43,9 @@ export const Header = () => {
               'absolute top-full left-0 right-0 flex flex-col gap-1 px-8 pb-4 bg-gray-50 border-b border-gray-300 sm:border-none sm:static sm:flex-row sm:items-center sm:gap-2 sm:pb-0 sm:px-0',
             )}
           >
-            <HeaderLink href="/" content="Strona główna" />
-            <HeaderLink href="/communities" content="Społeczności" />
-            <HeaderLink href="/budgets" content="Budżety" />
+            <HeaderLink href="/" content={gl('navHome')} />
+            <HeaderLink href="/communities" content={gl('navCommunity')} />
+            <HeaderLink href="/budgets" content={gl('navBudgets')} />
           </ul>
         </div>
       </Container>

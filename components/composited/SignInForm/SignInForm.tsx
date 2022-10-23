@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FormEventHandler, Fragment, useRef, useState } from 'react';
 import { GENERIC_INPUT_ERROR_MSG } from '../../../constants/error';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 import { SignInFields, SignInFieldsSch } from '../../../validators/SignInFields';
 import { Button } from '../../generic/Button/Button';
 import { ErrorMessage } from '../../generic/ErrorMessage/ErrorMessage';
@@ -34,6 +35,8 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
     }
   };
 
+  const gl = useLocale<'SignIn'>();
+
   return (
     <Fragment>
       {inputErrorMessage && (
@@ -48,19 +51,19 @@ export const SignInForm = ({ onSubmit }: SignInFormProps) => {
         onSubmit={handleSubmit}
         className="flex flex-col items-start gap-y-6 sm:gap-y-8 sm:col-end-2"
       >
-        <Input type="email" name="email" label="Adres email" placeholder="jan@gmail.com" />
-        <Input type="password" name="password" label="Hasło" />
+        <Input type="email" name="email" label={gl('email')} placeholder="jan@gmail.com" />
+        <Input type="password" name="password" label={gl('password')} />
         <div className="flex gap-1 items-baseline sm:gap-2">
           <Button
             className="sm:px-2 lg:px-6"
             type="submit"
-            content="Zaloguj się"
+            content={gl('button')}
             variant="primary"
           />
-          <Text as="span" content="lub" />
+          <Text as="span" content={gl('or')} />
           <Link href="/signup">
             <button className="rounded px-1 py-1 bg-gray-50 text-gray-800 border border-gray-200 text-xs leading-4 font-semibold transition-colors sm:px-1 sm:py-1 sm:text-sm sm:leading-5 lg:px-2 lg:py-1 lg:text-base lg:leading-6 hover:bg-gray-200 focus:outline-none focus:ring focus:ring-blue-300">
-              Utwórz konto
+              {gl('createAccount')}
             </button>
           </Link>
         </div>{' '}

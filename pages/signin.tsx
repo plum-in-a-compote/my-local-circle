@@ -6,11 +6,11 @@ import { getLocaleForPage, Locale, LocalePageEntry } from '../lib/locale/locale'
 import { LocaleProvider } from '../lib/locale/LocaleContext';
 
 type PageProps = {
-  locale: LocalePageEntry<'SignInPage'>;
+  locale: LocalePageEntry<'SignIn'>;
 };
 
 export const getStaticProps: GetStaticProps<PageProps> = (context) => {
-  const localeEntry = getLocaleForPage(context.locale as Locale, 'SignInPage');
+  const localeEntry = getLocaleForPage(context.locale as Locale, 'SignIn');
   return {
     props: {
       locale: localeEntry,

@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useLocale } from '../../../lib/locale/LocaleContext';
 import { Community } from '../../../validators/Community';
 import { CommunityCard } from '../../generic/CommunityCard/CommunityCard';
 import { Heading } from '../../generic/Heading/Heading';
@@ -10,13 +11,14 @@ export type CommunitiesPageProps = {
 };
 
 export const CommunitiesPage = ({ communities }: CommunitiesPageProps) => {
+  const gl = useLocale<'CommunitiesPage'>();
   return (
     <Fragment>
       <div className="flex items-baseline justify-between mb-4 border-b pb-4 border-dashed border-gray-400">
-        <Heading as="h1" variant="base" content="Społeczności" />
+        <Heading as="h1" variant="base" content={gl('heading')} />
         <LinkWithIcon
           icon={<SmallCommunityAddIcon className="fill-white" />}
-          content="Nowa"
+          content={gl('button')}
           variant="primary"
           href="/communities/new"
         />
