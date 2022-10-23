@@ -10,6 +10,8 @@ import { ProjectInfoList } from './ProjectInfoList';
 import { Project } from '../../../validators/Project';
 import { useUserVoted } from '../../../hooks/useProjectUpvotes';
 import { formatCurrency } from '../../../utils/currency';
+import { useVoteProject } from '../../../hooks/useVoteProject';
+import { useUser } from '../../../hooks/useUser';
 
 type ProjectCardProps = {
   project: Project;
@@ -17,12 +19,19 @@ type ProjectCardProps = {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const [expanded, setExpanded] = useState(false);
+  const { data: user } = useUser();
   const { data: voted } = useUserVoted(project.id as number);
+  const vote = useVoteProject(project.id as number);
+
   const toggleExpanded = useCallback(() => setExpanded((p) => !p), []);
 
   const handleUserVote: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    // @todo Skczu (I hope) When user clicks, set state to true, send POST, if error - display error & set state to false
+
+    const userId = user?.id;
+    if (!vote.isLoading && userId) {
+      vote.mutate({ userId, like: !voted });
+    }
   };
 
   return (
@@ -56,7 +65,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           />
           <div className="flex justify-between items-center mt-3">
             <form onSubmit={handleUserVote}>
-              <VoteButton label="Wspieram inicjatywę" type="submit" voted={Boolean(voted)} />
+              <VoteButton
+                disabled={vote.isLoading}
+                label="Wspieram inicjatywę"
+                type="submit"
+                voted={Boolean(voted)}
+              />
             </form>
             <button onClick={toggleExpanded}>
               <ExpandLessIcon width={32} height={32} className="fill-blue-800" />

@@ -21,6 +21,7 @@ export const ProjectFieldsSch = z.object({
 
 export const ProjectUpvoteSch = z.object({
   userId: z.string(),
+  projectId: z.number(),
 });
 
 export type Project = z.infer<typeof ProjectSch>;

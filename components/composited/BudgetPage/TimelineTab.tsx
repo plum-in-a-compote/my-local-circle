@@ -22,8 +22,8 @@ export const TimelineTab = ({ projects, budget }: TimelineTabProps) => {
       <span className="mb-1 text-xs leading-4 font-semibold text-gray-700 sm:text-sm">
         {budgetType}
       </span>
-      <Heading className="mb-4 sm:col-end-2 sm:mb-8" as="h1" content={budget.name} variant="base" />
-      <span className="inline-block mb-4 text-lg leading-7 font-normal text-gray-800 sm:text-2xl sm:mb-5">
+      <Heading className="mb-4 sm:col-end-2 sm:mb-7" as="h1" content={budget.name} variant="base" />
+      <span className="inline-block mb-4 text-lg leading-7 font-semibold text-gray-700 sm:text-2xl sm:mb-5">
         {formatCurrency(total)}
       </span>
       <BudgetChart projects={projects} />
