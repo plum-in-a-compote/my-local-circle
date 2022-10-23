@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { HomePage } from '../components/composited/HomePage/HomePage';
 
 import { MainLayout } from '../components/generic/MainLayout/MainLayout';
 
@@ -9,6 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Strona główna - My local circle</title>
       </Head>
+      <HomePage />
     </MainLayout>
   );
 };
