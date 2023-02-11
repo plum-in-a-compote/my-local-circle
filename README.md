@@ -2,17 +2,17 @@
 
 # My Local Circle
 
+## Krótka nota
+
+Projekt (graficzny oraz wykonanie) został stworzony **w ciągu dwóch tygodni** w ramach hackathonu/konkursu programistycznego Hack Heroes 2022. W związku z nałożonym limitem czasu, nie zdążyliśmy zrealizować wszystkich założeń, a poniższy opis został napisany jeszcze przed jego ukończeniem. Zdecydowaliśmy się zostawić projekt na GitHubie, ponieważ uważamy, że pomimo kilku niedociągnięć, jest on przyjemny dla oka i stanowi ciekawy proof-of-concept użycia różnych bibliotek. Był także dla nas cennym doświadczeniem. 
+
+Pozdrowawiamy wszystkich, którzy zechcieli zapoznać się z naszą aplikacją :wink:
+
+## O projekcie
+
 Aplikacja została stworzona, aby zwiększyć wpływ społeczności lokalnej (mieszkańcy bloku, studenci, uczniowie) na decyzje dot. realizowanych projektów (np. budowa parku, zbiórka na wycieczkę), a także proponować własne inicjatywy. Jako uczestnik społeczności możesz np. tworzyć zbiórki, głosować na ciekawe pomysły, a także monitorować przebieg obecnych inwestycji. Wspieramy też interfejs w języku ukraińskim, wykorzystując prostą autorską bibliotekę do mapowania danych.
 
 Staramy się odpowiedzieć na oczekiwania społeczności poprzez przejrzysty, **responsywny interfejs graficzny**. Obecnie nasza aplikacja (strona internetowa) jest dostosowana do wyświetlania na wszystkich urządzeniach. Dobrym pomysłem na ulepszenie funkcjonalności jest także przystosowanie strony do poziomu natywnych aplikacji poprzez PWA (Progressive Web Applications).
-
-## Nowe dane
-
-Stan danych wyświetlanych w aplikacji odświeża się co minutę. Prosimy nie panikować, jeśli nowo stworzonej społeczności czy budżetu nie będzie przez chwile na wyświetlanej liście. Zapewniamy, że zostały one stworzone i są w pełni interaktywne.
-
-## Obecny stan aplikacji
-
-Planowaliśmy wydać aplikację w pełnej formie, lecz zasoby czasowe nie do końca na to pozwoliły. Podczas korzystania z aplikacji użytkownik może spotkać pewne błędy lub nie do końca zaimplementowane funkcje. Rozwiązanie tych problemów jest obecnie najwyższym priorytetem, nad którym pracujemy do ostatniej minuty. Poza tym utworzone zostały Pull Request'y, które reprezentują funkcje, nad którymi obecnie pracujemy.
 
 ## Przykład użycia języka ukraińskiego w naszej aplikacji
 
@@ -24,7 +24,7 @@ Aby skorzystać z tłumaczenia, należy przejść na adres [/signin](https://i18
 
 ### Dlaczego nie użyliśmy tego rozwiązania w projekcie
 
-Po prostu zabrakłko nam czasu. Bibliotekę stworzyliśmy jako jedną z pierwszych rzeczy i zostawiliśmy na koniec. Okoliczności czasowe pokazały jednak, że nie dane będzie jej nam użyć. Zdecydowaliśmy się więc stworzyć ten prosty przykład, aby zaprezentować prostą możliwość rozwinięcia naszej aplikacji w stronę zgodną z tematem konkursu.
+Po prostu zabrakło nam czasu. Bibliotekę stworzyliśmy jako jedną z pierwszych rzeczy i zostawiliśmy na koniec. Okoliczności czasowe pokazały jednak, że nie dane będzie jej nam użyć. Zdecydowaliśmy się więc stworzyć ten prosty przykład, aby zaprezentować możliwość rozwinięcia naszej aplikacji w stronę zgodną z tematem konkursu.
 
 ## Architektura
 
@@ -41,11 +41,11 @@ Aplikacja została w całości napisana w języku Typescript. Naszym zdaniem jes
 
 ### Front-end
 
-Podczas korzystania z naszej strony może się wydawać, że wszystkie strony ładują się praktycznie tak szybko jak czysty HTML. Dokładnie tak jest - no... prawie. Używamy tutaj czegoś co nazywa się **SSG (Static site generation)**, co pozwala na wcześniejsze wyrenderowanie stron z dynamiczną treścią, co pozwala serwować klientowi stronę w HTMLu, a po załadowaniu strona stanie się aktywna poprzez proces zwany hydracją. Dodatkowo wszystkie strony co jakiś czas są budowane od początku z najnowszymi danymi, co pozwala uzyskać świetny stosunek optymalizacji co do aktualności danych.
+Podczas korzystania z naszej strony może się wydawać, że wszystkie strony ładują się praktycznie tak szybko jak czysty HTML. Dokładnie tak jest - no... prawie. Używamy tutaj czegoś co nazywa się **SSG (Static site generation)**, który generuje wcześniej strony z dynamiczną treścią. Po załadowaniu wygenerowanego wcześniej HTMLa, strona stanie się aktywna poprzez proces zwany hydracją. Dodatkowo wszystkie strony co jakiś czas są budowane od początku z najnowszymi danymi, co pozwala uzyskać świetny stosunek optymalizacji co do aktualności danych.
 
-Oczywiście to rozwiązanie nie jest idealne dla stron, które zawierają dane prywatne np. konto użytkownika, czy budżety społeczności, natomiast w tym wypadku używamy biblioteki `react-query`, która pobiera dane po stronie klienta, korzystając z techniki `stale-while-revalidate`, co również wpływa bardzo korzystnie na wydajność strony.
+Oczywiście to rozwiązanie nie jest idealne dla stron, które zawierają dane prywatne np. konto użytkownika, czy budżety społeczności, w tym wypadku używamy biblioteki `react-query`, która pobiera dane po stronie klienta, korzystając z techniki `stale-while-revalidate`, co również wpływa bardzo korzystnie na wydajność strony.
 
-W celu zapewnienia poprawności formatu wprowadzanych pól (co pozwala na wcześniejszy feedback dla użytkownika), używamy biblioteki do walidacji `zod`. Dzięki niej możemy tworzyć "schematy" jaki musi przyjąć obiekt z danymi, a następnie sprawdzamy (parsujemy) input od użytkownika.
+W celu zapewnienia poprawności formatu wprowadzanych danych (m.in. po stronie klienta - wcześniejszy feedback dla użytkownika), używamy biblioteki do walidacji `zod`. Dzięki niej możemy tworzyć "schematy" jaki musi przyjąć obiekt z danymi, a następnie sprawdzamy (parsujemy) input od użytkownika.
 
 ### Baza danych
 
