@@ -35,7 +35,7 @@ Zawsze UPPERCASE rozdzielone `_` podłogą.
 const MAX_ROWS_PER_PAGE = 10;
 ```
 
-#### Komponent
+### Komponent
 
 Definicja typu nad komponentem, funkcja strzałkowa.
 
